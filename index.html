@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdullah Camur</title>
+    <link rel="stylesheet" href="style.css"> <!-- Lien vers le fichier CSS -->
+    <link rel="icon" type="image/png" href="img/logo_favicon_2.png">
+</head>
+
+<script>
+    // (YYYY, MM - 1, DD, HH, MM, SS)
+    const lastUpdate = new Date(2025, 2, 16, 10, 0, 0);
+    function updateTimer() {
+        const now = new Date();
+        const diff = Math.floor((now - lastUpdate) / 1000); // Différence en secondes
+
+        const days = Math.floor(diff / (60 * 60 * 24));
+        const hours = Math.floor((diff % (60 * 60 * 24)) / (60 * 60));
+        const minutes = Math.floor((diff % (60 * 60)) / 60);
+        const seconds = diff % 60;
+
+        // Afficher le temps écoulé
+        document.getElementById("last-update-timer").textContent = 
+            `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+    }
+
+    // Mettre à jour le chronomètre toutes les secondes
+    setInterval(updateTimer, 1000);
+    
+    // Lancer immédiatement au chargement de la page
+    updateTimer();
+</script>
+
+<body>
+    <nav id="main-nav">
+        <ul>
+            <li><a href="index.html">home</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="project.html">project</a></li>
+            <li><a href="blog.html">blog</a></li>
+            <li><a href="gallery.html">gallery</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Abdullah Camur</h1>
+        <img src="img/steam-deck.jpg" alt="home page image">
+    </header>
+
+    <section id="homepage">
+        <p>I crack my steam deck</p>
+        <br>
+        <p>I change the photo from time to time, <a href="gallery.html">see the photo history</a></p>
+        <p>Last update: <span id="last-update-timer"></span></p>
+    </section>
+
+    <!-- Réseaux sociaux ronds centrés -->
+    <div id="socials">
+        <a href="https://www.youtube.com/@cmrabdu" target="_blank">
+            <img src="img/ytb-icon.jpeg" alt="GitHub" class="social-logo">
+        </a>
+        <a href="https://github.com/cmrabdu" target="_blank">
+            <img src="img/github-icon.jpeg" alt="Instagram" class="social-logo">
+        </a>
+        <a href="https://www.reddit.com/user/cmrabdu/" target="_blank">
+            <img src="img/reddit-icon.jpeg" alt="YouTube" class="social-logo">
+        </a>
+        <a href="https://www.chess.com/member/cmrabdu" target="_blank">
+            <img src="img/chess-icon.jpeg" alt="GitHub" class="social-logo">
+        </a>
+        <a href="https://www.goodreads.com/user/show/182990351-cmrabdu" target="_blank">
+            <img src="img/goodread-icon.jpeg" alt="Instagram" class="social-logo">
+        </a>
+    </div>
+
+    <footer>
+        <p>...</p>
+    </footer>
+
+</body>
+</html>
