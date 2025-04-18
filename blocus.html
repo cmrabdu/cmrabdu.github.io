@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Prep 2025 | Abdullah Camur</title>
+  <meta name="description" content="Exam Prep 2025 by Abdullah Camur — track your progress, exam dates, and resources for a successful session.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="blocus.css">
+  <link rel="icon" type="image/png" href="img/logo_favicon_2.png">
+  <link rel="canonical" href="https://cmrabdu.com/blocus.html" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="blocus.css">
+</head>
+<body>
+  <nav id="main-nav">
+    <ul>
+      <li><a href="index.html">home</a></li>
+      <li><a href="about.html">about</a></li>
+      <li><a href="project.html">project</a></li>
+      <li><a href="blog.html">blog</a></li>
+      <li><a href="blocus.html" class="bounce-nav">Exam Prep 2025</a></li>
+      <li><a href="contact.html">contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Exam Prep 2025</h1>
+    <div class="intro-box">
+      <h2>Notes :</h2>
+      <p>
+        Salut ! Alors, bienvenue dans mon programme de blocus de juin 2025. J’ai six examens essentiels à réussir absolument. Bien évidemment, un semestre comporte normalement bien plus de cours, mais ma session de janvier 2025 a été complètement ratée à cause d’un accident. J’étais en incapacité totale de passer mes examens…
+        <br><br>
+        Du coup (et comme je n’ai pas eu de seconde chance), ce sont des matières que je dois absolument réussir. Autrement, je devrai changer d’option à cause du décret Paysage… Sans ça, j’aurais déjà été en bac 2… Mais bon.
+      </p>
+    </div>
+    <p>Examen dans <span id="countdown" style="color:red; font-weight:bold;"></span></p>
+  </header>
+
+  <section class="projects-container">
+    <div class="project-card">
+      <h3>Algèbre</h3>
+      <hr>
+      <p class="subject-timer">Prochain examen dans <span id="timer-algebre"></span></p>
+      <button class="toggle-button" onclick="toggleDetails('algebre')">Voir le cours</button>
+      <div id="details-algebre" class="details-container hidden">
+        <ul class="checklist">
+          <li><a href="#">Résumé du cours</a></li>
+          <li><a href="#">Exercices</a></li>
+        </ul>
+        <div class="progress-bar">
+          <div class="progress-bar-fill" style="width:33%"></div>
+        </div>
+        <p><strong>Progression : 33%</strong></p>
+        <p class="section-title">À faire</p>
+        <ul class="checklist">
+          <li>Faire tous les exos</li>
+          <li>Revoir le résumé</li>
+        </ul>
+        <p class="section-title">Fait</p>
+        <ul class="checklist">
+          <li style="color: green;">Lire le cours</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Algèbre déjà présent -->
+
+<!-- Analyse -->
+<div class="project-card">
+  <h3>Analyse</h3>
+  <hr>
+  <p class="subject-timer">Prochain examen dans <span id="timer-analyse"></span></p>
+  <button class="toggle-button" onclick="toggleDetails('analyse')">Voir le cours</button>
+  <div id="details-analyse" class="details-container hidden">
+    <ul class="checklist">
+      <li><a href="#">Résumé complet</a></li>
+      <li><a href="#">Formulaires</a></li>
+    </ul>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" style="width:20%"></div>
+    </div>
+    <p><strong>Progression : 20%</strong></p>
+    <p class="section-title">À faire</p>
+    <ul class="checklist">
+      <li>Comprendre les séries</li>
+      <li>Refaire les limites</li>
+    </ul>
+    <p class="section-title">Fait</p>
+    <ul class="checklist">
+      <li style="color: green;">Réviser les dérivées</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Chimie -->
+<div class="project-card">
+  <h3>Chimie</h3>
+  <hr>
+  <p class="subject-timer">Prochain examen dans <span id="timer-chimie"></span></p>
+  <button class="toggle-button" onclick="toggleDetails('chimie')">Voir le cours</button>
+  <div id="details-chimie" class="details-container hidden">
+    <ul class="checklist">
+      <li><a href="#">Cours PDF</a></li>
+      <li><a href="#">TPs</a></li>
+    </ul>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" style="width:50%"></div>
+    </div>
+    <p><strong>Progression : 50%</strong></p>
+    <p class="section-title">À faire</p>
+    <ul class="checklist">
+      <li>TP à revoir</li>
+    </ul>
+    <p class="section-title">Fait</p>
+    <ul class="checklist">
+      <li style="color: green;">Lire tout le cours</li>
+      <li style="color: green;">Faire les exos types</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Algorithmique -->
+<div class="project-card">
+  <h3>Algorithmique</h3>
+  <hr>
+  <p class="subject-timer">Prochain examen dans <span id="timer-algo"></span></p>
+  <button class="toggle-button" onclick="toggleDetails('algo')">Voir le cours</button>
+  <div id="details-algo" class="details-container hidden">
+    <ul class="checklist">
+      <li><a href="#">Résumé du cours</a></li>
+      <li><a href="#">Exos corrigés</a></li>
+    </ul>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" style="width:10%"></div>
+    </div>
+    <p><strong>Progression : 10%</strong></p>
+    <p class="section-title">À faire</p>
+    <ul class="checklist">
+      <li>Refaire les exos</li>
+    </ul>
+    <p class="section-title">Fait</p>
+    <ul class="checklist">
+      <li style="color: green;">Revoir tri fusion</li>
+    </ul>
+  </div>
+</div>
+<!-- Concepts, paradigmes et sémantique des langages de programmation -->
+<div class="project-card">
+  <h3>Concepts, paradigmes et sémantique des langages de programmation</h3>
+  <hr>
+  <p class="subject-timer">Prochain examen dans <span id="timer-concepts"></span></p>
+  <button class="toggle-button" onclick="toggleDetails('concepts')">Voir le cours</button>
+  <div id="details-concepts" class="details-container hidden">
+    <ul class="checklist">
+      <li><a href="#">Résumé théorique</a></li>
+      <li><a href="#">Exercices OZ</a></li>
+    </ul>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" style="width:0%"></div>
+    </div>
+    <p><strong>Progression : 0%</strong></p>
+    <p class="section-title">À faire</p>
+    <ul class="checklist">
+      <li>Comprendre les paradigmes</li>
+      <li>Coder en OZ</li>
+    </ul>
+    <p class="section-title">Fait</p>
+    <ul class="checklist">
+      <li style="color: green;">Lire la doc officielle</li>
+    </ul>
+  </div>
+</div>
+<!-- Élément de Physiologie humaine -->
+<div class="project-card">
+  <h3>Élément de Physiologie humaine</h3>
+  <hr>
+  <p class="subject-timer">Prochain examen dans <span id="timer-physio"></span></p>
+  <button class="toggle-button" onclick="toggleDetails('physio')">Voir le cours</button>
+  <div id="details-physio" class="details-container hidden">
+    <ul class="checklist">
+      <li><a href="#">Fiches résumées</a></li>
+      <li><a href="#">Schémas organes</a></li>
+    </ul>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" style="width:0%"></div>
+    </div>
+    <p><strong>Progression : 0%</strong></p>
+    <p class="section-title">À faire</p>
+    <ul class="checklist">
+      <li>Mémoriser les fonctions principales</li>
+      <li>Apprendre les régulations</li>
+    </ul>
+    <p class="section-title">Fait</p>
+    <ul class="checklist">
+      <li style="color: green;">Lire le support de cours</li>
+    </ul>
+  </div>
+</div>
+<!-- Duplique ce bloc pour chaque matière -->
+  </section>
+
+  <script>
+  function toggleDetails(id) {
+    const el = document.getElementById(`details-${id}`);
+    el.classList.toggle('hidden');
+  }
+
+  function updateCountdown(targetDate, outputId) {
+    const now = new Date();
+    const diff = targetDate - now;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+    document.getElementById(outputId).textContent = `${days}j ${hours}h ${minutes}min ${seconds}s`;
+  }
+
+  const timers = [
+    { id: 'countdown', date: new Date('2025-06-13T08:30:00') },
+    { id: 'timer-algebre', date: new Date('2025-06-20T08:30:00') },
+    { id: 'timer-analyse', date: new Date('2025-06-17T14:00:00') },
+    { id: 'timer-chimie', date: new Date('2025-06-18T14:00:00') },
+    { id: 'timer-algo', date: new Date('2025-06-16T08:30:00') },
+    { id: 'timer-concepts', date: new Date('2025-06-13T08:30:00') },
+    { id: 'timer-physio', date: new Date('2025-06-06T14:30:00') },
+  ];
+
+  timers.forEach(({ id, date }) => {
+    setInterval(() => updateCountdown(date, id), 1000);
+    updateCountdown(date, id);
+  });
+</script>
+</body>
+</html>
