@@ -490,3 +490,7 @@ h1 {
     font-weight: bold;
   }
   
+/* Réserve l'espace du menu et évite le flash */
+#main-nav { min-height: 136px; }       /* ajuste à ta vraie hauteur */
+#main-nav.loading { visibility: hidden; } /* caché avant injection */
+#main-nav.ready { visibility: visible; }  /* visible après injection */

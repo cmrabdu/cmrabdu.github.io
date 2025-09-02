@@ -11,15 +11,28 @@
 
 </head>
 <body>
-    <nav id="main-nav">
-        <ul>
-          <li><a href="index.html">home</a></li>
-          <li><a href="about.html">about</a></li>
-          <li><a href="project.html">project</a></li>
-          <li><a href="blog.html">blog</a></li>
-          <li><a href="contact.html">contact</a></li>
-        </ul>
-      </nav>
+
+<nav id="main-nav" class="loading"></nav>
+<script>
+(function() {
+  const el = document.getElementById('main-nav');
+  fetch('/nav.html', { cache: 'no-store' })
+    .then(r => r.text())
+    .then(html => {
+      el.innerHTML = html;           // on injecte SEULEMENT la liste
+      el.classList.remove('loading'); // enlève le masquage
+      el.classList.add('ready');      // (optionnel) tag de confort
+    })
+    .catch(() => {
+      el.innerHTML = '<a href="/index.html">home</a>'; // fallback minimal
+      el.classList.remove('loading');
+      el.classList.add('ready');
+    });
+})();
+</script>
+
+
+
 
     <header>
         <h1>Contact</h1>
