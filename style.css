@@ -600,3 +600,64 @@ h1 {
     box-shadow: none;
   }
 }
+@media (min-width: 900px) {
+  .carousel-gallery {
+    width: 60vw;
+    min-width: 400px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    width: max-content;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .carousel-slide {
+    flex: 0 0 auto;
+    max-width: none;
+    height: auto;
+    margin: 0;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: center;
+  }
+  .carousel-slide img,
+  .carousel-slide video {
+    max-width: 95vw;
+    max-height: 220px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: auto;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    display: block;
+  }
+}
+
+/* Aligner le texte du blog-content sur desktop */
+@media (min-width: 900px) {
+  .blog-content {
+    width: 60vw;
+    min-width: 400px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 32px 32px 32px 32px;
+    box-sizing: border-box;
+    border-radius: 8px;
+  }
+}
