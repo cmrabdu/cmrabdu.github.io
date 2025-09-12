@@ -35,43 +35,41 @@
     </header>
 
     <section class="blog-article">
-        <section class="project-container">
-
-
-            <div class="project-item large"> 
-                <video controls>
-                    <source src="/project-robot-hand/compressed-proto-robot-hand.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-
-            <div class="project-item large"> 
-                <video controls>
-                    <source src="/project-robot-hand/demo-robot-hand.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-
-
-            <div class="project-item rectangle"><img src="/project-robot-hand/robot-hand-view-project-cover.jpeg" alt="Image 2"></div>
-          
-       
-            <div class="project-item small">
-                <a href="/project-robot-hand/POO rapport - Version Final.pdf" target="_blank">
-                  <img src="/img/PDF-logo.jpeg" alt="Ouvrir le PDF">
-                </a>
-              </div>
-              
-            <div class="project-item small">
-                <a href="https://github.com/cmrabdu/Hand-tracking-with-open-CV" target="_blank">
-                  <img src="/img/Github-logo.jpeg" alt="Voir sur GitHub">
-                </a>
-            </div>
-              
-
-
-            <!-- Ajoute plus d'images ici -->
-        </section>        <div class="blog-content">
+      <!-- Carrousel ergonomique -->
+      <div class="carousel-gallery">
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <video controls>
+              <source src="/project-robot-hand/compressed-proto-robot-hand.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="carousel-slide">
+            <video controls>
+              <source src="/project-robot-hand/demo-robot-hand.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="carousel-slide">
+            <img src="/project-robot-hand/robot-hand-view-project-cover.jpeg" alt="Image 2">
+          </div>
+          <div class="carousel-slide">
+            <a href="/project-robot-hand/POO rapport - Version Final.pdf" target="_blank">
+              <img src="/img/PDF-logo.jpeg" alt="Ouvrir le PDF">
+            </a>
+          </div>
+          <div class="carousel-slide">
+            <a href="https://github.com/cmrabdu/Hand-tracking-with-open-CV" target="_blank">
+              <img src="/img/Github-logo.jpeg" alt="Voir sur GitHub">
+            </a>
+          </div>
+        </div>
+      </div>
+      <script>
+        // Scroll horizontal natif, pas besoin de JS pour swipe
+      </script>
+    </section>
+        <div class="blog-content">
             <p>
               Robotics and artificial intelligence offer fascinating possibilities, and this project is a concrete example of that.
               I designed and built a 3D-printed robotic hand, fully controllable via a Python program.
@@ -119,7 +117,7 @@
               Source files, videos, and 3D models are available for those interested in exploring the project further.
               Feel free to contact me to discuss it!
             </p>
-        </section>
+        </div>
     <footer>
         <p>...</p>
     </footer>
