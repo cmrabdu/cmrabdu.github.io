@@ -10,7 +10,12 @@ img {
     width: 400px;
     height: auto;
     display: block;
-    margin: auto;
+    margin: 20px auto;
+}
+
+/* Images dans les articles de blog avec plus d'espacement */
+.blog-image {
+    margin: 30px auto;
 }
 
 /* Navigation principale */
@@ -105,6 +110,7 @@ h1 {
     height: auto;
     border-bottom: 2px solid #ccc;
     max-width: 400px;
+    margin: 0;
 }
 .project-card h3, .blog-card h3 {
     margin: 10px 0;
@@ -296,6 +302,7 @@ h1 {
     max-width: 100% !important;
     margin: 0 auto !important;
     padding: 10px !important;
+    background-color: #f0f0f0 !important;
   }
   .blog-article {
     padding: 5px !important;
@@ -440,16 +447,25 @@ h1 {
   }
 }
 
+/* Style pour le contenu des blogs et projets avec fond gris */
+.blog-content {
+  background-color: #f0f0f0;
+  padding: 15px;
+  margin: 30px auto;
+  text-align: left;
+  max-width: 900px;
+}
+
 /* Aligner le texte du blog-content sur desktop */
 @media (min-width: 900px) {
   .blog-content {
     width: 60vw;
     min-width: 400px;
     max-width: 900px;
-    margin: 0 auto;
+    margin: 30px auto;
     text-align: left;
-    padding: 32px 32px 32px 32px;
+    padding: 20px;
     box-sizing: border-box;
-    border-radius: 8px;
+    background-color: #f0f0f0;
   }
 }
