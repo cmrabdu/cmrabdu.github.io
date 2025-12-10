@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Virtual Library | Abdullah Camur</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/png" href="/img/logo_favicon_2.png">
+</head>
+
+<body>
+    <nav id="main-nav" class="loading"></nav>
+    <script>
+    (function() {
+      const el = document.getElementById('main-nav');
+      fetch('/nav.html', { cache: 'no-store' })
+        .then(r => r.text())
+        .then(html => {
+          el.innerHTML = html;
+          el.classList.remove('loading');
+          el.classList.add('ready');
+        })
+        .catch(() => {
+          el.innerHTML = '<a href="/index.html">home</a>';
+          el.classList.remove('loading');
+          el.classList.add('ready');
+        });
+    })();
+    </script>
+
+  <header>
+    <h1>My Virtual Library</h1>
+  </header>
+
+  <section class="blog-article">
+    <img class="blog-image" src="/project-library/cover-library-project.png" alt="My Virtual Library">
+
+    <div class="blog-content">
+
+      <h2>About This Project</h2>
+      <p>I'm currently developing a virtual library application to manage and track my physical book collection. The app allows me to digitally organize my books, update their status, and monitor my reading progress and knowledge.</p>
+      
+      <p>The project is still under development, and more details will be added as it progresses. In the meantime, you can check out the project here: <a href="https://www.cmrabdu.com/My-virtual-library/" target="_blank">https://www.cmrabdu.com/My-virtual-library/</a></p>
+     
+  </section>
+  <footer>
+    <p>...</p>
+  </footer>
+</body>
+
+</html>
