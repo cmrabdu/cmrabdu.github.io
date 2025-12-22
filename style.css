@@ -470,3 +470,257 @@ h1 {
     background-color: #f0f0f0;
   }
 }
+
+/* -------- Stream Schedule Styles -------- */
+
+#schedule-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.schedule-intro-box {
+  background-color: #f0f0f0;
+  padding: 15px 20px;
+  margin: 20px auto;
+  max-width: 700px;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Timezone Selector */
+.timezone-selector {
+  background-color: #f0f0f0;
+  padding: 15px 20px;
+  margin: 20px auto;
+  max-width: 700px;
+  text-align: center;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.timezone-selector label {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.timezone-selector select {
+  padding: 8px 12px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+  color: #333;
+  min-width: 250px;
+}
+
+.timezone-selector select:hover {
+  border-color: #666;
+}
+
+.timezone-selector select:focus {
+  outline: none;
+  border-color: darkblue;
+}
+
+.timezone-info {
+  font-size: 13px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Schedule Grid */
+.schedule-container {
+  margin: 30px auto;
+  max-width: 1000px;
+}
+
+#schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 0 10px;
+  margin: 20px 0;
+}
+
+/* Day Card */
+.schedule-day-card {
+  background-color: white;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.schedule-day-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.schedule-day-header {
+  background-color: #333;
+  color: white;
+  padding: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.schedule-day-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 80px;
+  justify-content: center;
+}
+
+/* Schedule Block */
+.schedule-block {
+  padding: 12px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform 0.15s ease;
+}
+
+.schedule-block:hover {
+  transform: translateY(-2px);
+}
+
+/* Studying Block - Blue */
+.studying-block {
+  background-color: #e3f2fd;
+  border-left: 4px solid #1976d2;
+  color: #0d47a1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.block-label {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+
+.block-time {
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* Off Block - Gray color */
+.off-block {
+  background-color: #f5f5f5;
+  border-left: 4px solid #999;
+  color: #666;
+  font-style: italic;
+}
+
+/* Legend */
+.schedule-legend {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 700px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.legend-box {
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+  border-left: 4px solid;
+}
+
+.legend-box.studying {
+  background-color: #e3f2fd;
+  border-left-color: #1976d2;
+}
+
+.legend-box.off {
+  background-color: #f5f5f5;
+  border-left-color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+  #schedule-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .schedule-intro-box {
+    font-size: 15px;
+    padding: 12px 15px;
+  }
+
+  .timezone-selector {
+    padding: 12px 15px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .timezone-selector select {
+    min-width: 100%;
+  }
+
+  .schedule-day-card {
+    border-width: 1px;
+  }
+
+  .schedule-day-header {
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .schedule-day-body {
+    padding: 10px;
+    min-height: 60px;
+  }
+
+  .schedule-block {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .block-label {
+    font-size: 12px;
+  }
+
+  .block-time {
+    font-size: 12px;
+  }
+
+  .schedule-legend {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .legend-item {
+    font-size: 13px;
+  }
+}

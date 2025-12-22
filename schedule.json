@@ -1,0 +1,80 @@
+{
+  "baseTimezone": "Europe/Brussels",
+  "schedule": [
+    {
+      "day": "Monday",
+      "blocks": [
+        {
+          "type": "studying",
+          "startTime": "15:00",
+          "endTime": "22:00",
+          "label": "Studying"
+        }
+      ]
+    },
+    {
+      "day": "Tuesday",
+      "blocks": [
+        {
+          "type": "studying",
+          "startTime": "15:00",
+          "endTime": "22:00",
+          "label": "Studying"
+        }
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "blocks": [
+        {
+          "type": "studying",
+          "startTime": "15:00",
+          "endTime": "22:00",
+          "label": "Studying"
+        }
+      ]
+    },
+    {
+      "day": "Thursday",
+      "blocks": [
+        {
+          "type": "studying",
+          "startTime": "08:00",
+          "endTime": "17:00",
+          "label": "Studying"
+        }
+      ]
+    },
+    {
+      "day": "Friday",
+      "blocks": [
+        {
+          "type": "studying",
+          "startTime": "08:00",
+          "endTime": "17:00",
+          "label": "Studying"
+        }
+      ]
+    },
+    {
+      "day": "Saturday",
+      "blocks": [
+        {
+          "type": "studying",
+          "startTime": "08:00",
+          "endTime": "17:00",
+          "label": "Studying"
+        }
+      ]
+    },
+    {
+      "day": "Sunday",
+      "blocks": [
+        {
+          "type": "off",
+          "label": "Off"
+        }
+      ]
+    }
+  ]
+}

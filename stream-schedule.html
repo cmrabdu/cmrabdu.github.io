@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream Schedule | Abdullah Camur</title>
+    <meta name="description" content="Abdullah Camur's streaming schedule. Check when he streams live on Twitch or YouTube.">        
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/logo_favicon_2.png">
+    <link rel="canonical" href="https://cmrabdu.com/stream-schedule.html" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Stream Schedule | Abdullah Camur" />
+    <meta property="og:description" content="Abdullah Camur's streaming schedule. Check when he streams live." />
+    <meta property="og:image" content="https://cmrabdu.com/img/logo_favicon_2.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cmrabdu.com/stream-schedule.html" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Stream Schedule | Abdullah Camur" />
+    <meta name="twitter:description" content="Abdullah Camur's streaming schedule. Check when he streams live." />
+    <meta name="twitter:image" content="https://cmrabdu.com/img/logo_favicon_2.png" />
+</head>
+<body>
+
+<nav id="main-nav" class="loading"></nav>
+<script>
+(function() {
+  const el = document.getElementById('main-nav');
+  fetch('/nav.html', { cache: 'no-store' })
+    .then(r => r.text())
+    .then(html => {
+      el.innerHTML = html;
+      el.classList.remove('loading');
+      el.classList.add('ready');
+    })
+    .catch(() => {
+      el.innerHTML = '<a href="/index.html">home</a>';
+      el.classList.remove('loading');
+      el.classList.add('ready');
+    });
+})();
+</script>
+
+<header>
+    <h1>Stream Schedule</h1>
+</header>
+
+<section id="schedule-content">
+    <div class="schedule-intro-box">
+        <p>Weekly streaming and availability schedule. All times are displayed in your local timezone.</p>
+    </div>
+
+    <div class="timezone-selector">
+        <label for="timezone-select">Display timezone:</label>
+        <select id="timezone-select">
+            <option value="auto">Auto-detect (Your timezone)</option>
+        </select>
+        <span id="current-timezone" class="timezone-info"></span>
+    </div>
+
+    <div class="schedule-container">
+        <div id="schedule-grid"></div>
+    </div>
+
+    <div class="schedule-legend">
+        <div class="legend-item">
+            <div class="legend-box studying"></div>
+            <span>Studying</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-box off"></div>
+            <span>Off</span>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>...</p>
+</footer>
+
+<script>
+// Timezone data: Common timezones with their UTC offsets
+const timezones = [
+    { name: "Europe/Brussels", label: "Brussels, Belgium (UTC+1/+2)" },
+    { name: "Europe/London", label: "London, UK (UTC+0/+1)" },
+    { name: "Europe/Paris", label: "Paris, France (UTC+1/+2)" },
+    { name: "Europe/Berlin", label: "Berlin, Germany (UTC+1/+2)" },
+    { name: "Europe/Amsterdam", label: "Amsterdam, Netherlands (UTC+1/+2)" },
+    { name: "Europe/Madrid", label: "Madrid, Spain (UTC+1/+2)" },
+    { name: "Europe/Rome", label: "Rome, Italy (UTC+1/+2)" },
+    { name: "America/New_York", label: "New York, USA (UTC-5/-4)" },
+    { name: "America/Los_Angeles", label: "Los Angeles, USA (UTC-8/-7)" },
+    { name: "America/Chicago", label: "Chicago, USA (UTC-6/-5)" },
+    { name: "America/Toronto", label: "Toronto, Canada (UTC-5/-4)" },
+    { name: "Asia/Tokyo", label: "Tokyo, Japan (UTC+9)" },
+    { name: "Asia/Shanghai", label: "Shanghai, China (UTC+8)" },
+    { name: "Asia/Singapore", label: "Singapore (UTC+8)" },
+    { name: "Asia/Hong_Kong", label: "Hong Kong (UTC+8)" },
+    { name: "Australia/Sydney", label: "Sydney, Australia (UTC+10/+11)" },
+    { name: "UTC", label: "UTC (UTC+0)" }
+];
+
+let scheduleData = null;
+let userTimezone = null;
+let displayTimezone = null;
+
+// Function to get user's timezone
+function getUserTimezone() {
+    try {
+        return Intl.DateTimeFormat().resolvedOptions().timeZone;
+    } catch (e) {
+        return "UTC";
+    }
+}
+
+// Function to convert time between timezones
+function convertTime(timeStr, fromTz, toTz) {
+    if (fromTz === toTz) return timeStr;
+    
+    const [hours, minutes] = timeStr.split(':').map(Number);
+    
+    // Create a reference date (using today to account for DST)
+    const today = new Date();
+    const refDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), hours, minutes, 0);
+    
+    // Get offset for fromTz
+    const formatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: fromTz,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    });
+    
+    const parts = formatter.formatToParts(refDate);
+    const tzDate = new Date(
+        parseInt(parts[4].value),
+        parseInt(parts[0].value) - 1,
+        parseInt(parts[2].value),
+        parseInt(parts[6].value),
+        parseInt(parts[8].value),
+        0
+    );
+    
+    const offset1 = (refDate - tzDate) / 60000; // minutes
+    
+    // Get offset for toTz
+    const formatter2 = new Intl.DateTimeFormat('en-US', {
+        timeZone: toTz,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    });
+    
+    const parts2 = formatter2.formatToParts(refDate);
+    const tzDate2 = new Date(
+        parseInt(parts2[4].value),
+        parseInt(parts2[0].value) - 1,
+        parseInt(parts2[2].value),
+        parseInt(parts2[6].value),
+        parseInt(parts2[8].value),
+        0
+    );
+    
+    const offset2 = (refDate - tzDate2) / 60000; // minutes
+    
+    const offsetDiff = offset1 - offset2;
+    const newMinutes = refDate.getMinutes() + offsetDiff;
+    const newHours = refDate.getHours() + Math.floor(newMinutes / 60);
+    
+    const finalHours = ((newHours % 24) + 24) % 24;
+    const finalMinutes = ((newMinutes % 60) + 60) % 60;
+    
+    return `${String(finalHours).padStart(2, '0')}:${String(finalMinutes).padStart(2, '0')}`;
+}
+
+// Function to get timezone abbreviation
+function getTimezoneAbbr(tzName) {
+    const date = new Date();
+    const formatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: tzName,
+        timeZoneName: 'short'
+    });
+    const parts = formatter.formatToParts(date);
+    const tzPart = parts.find(p => p.type === 'timeZoneName');
+    return tzPart ? tzPart.value : tzName;
+}
+
+// Load schedule data
+async function loadSchedule() {
+    try {
+        const response = await fetch('/schedule.json', { cache: 'no-store' });
+        scheduleData = await response.json();
+        
+        userTimezone = getUserTimezone();
+        displayTimezone = userTimezone;
+        
+        populateTimezoneSelect();
+        updateScheduleDisplay();
+    } catch (error) {
+        console.error('Error loading schedule:', error);
+        document.getElementById('schedule-grid').innerHTML = 
+            '<p style="grid-column: 1/-1; color: #666;">Unable to load schedule. Please refresh the page.</p>';
+    }
+}
+
+// Populate timezone dropdown
+function populateTimezoneSelect() {
+    const select = document.getElementById('timezone-select');
+    
+    // Clear existing options except the first one
+    while (select.options.length > 1) {
+        select.remove(1);
+    }
+    
+    // Add all timezones
+    timezones.forEach(tz => {
+        const option = document.createElement('option');
+        option.value = tz.name;
+        option.textContent = tz.label;
+        select.appendChild(option);
+    });
+    
+    select.addEventListener('change', (e) => {
+        if (e.target.value === 'auto') {
+            displayTimezone = userTimezone;
+        } else {
+            displayTimezone = e.target.value;
+        }
+        updateScheduleDisplay();
+    });
+    
+    updateTimezoneInfo();
+}
+
+// Update timezone info display
+function updateTimezoneInfo() {
+    const tz = displayTimezone === userTimezone ? 'auto' : displayTimezone;
+    const tzInfo = timezones.find(t => t.name === displayTimezone || (tz === 'auto' && t.name === userTimezone));
+    const label = tzInfo ? tzInfo.label : displayTimezone;
+    document.getElementById('current-timezone').textContent = `Showing: ${label}`;
+}
+
+// Update schedule display
+function updateScheduleDisplay() {
+    if (!scheduleData) return;
+    
+    const grid = document.getElementById('schedule-grid');
+    grid.innerHTML = '';
+    
+    updateTimezoneInfo();
+    
+    scheduleData.schedule.forEach(daySchedule => {
+        const dayCard = document.createElement('div');
+        dayCard.className = 'schedule-day-card';
+        
+        const dayHeader = document.createElement('div');
+        dayHeader.className = 'schedule-day-header';
+        dayHeader.textContent = daySchedule.day;
+        dayCard.appendChild(dayHeader);
+        
+        const dayBody = document.createElement('div');
+        dayBody.className = 'schedule-day-body';
+        
+        if (daySchedule.blocks.length === 0) {
+            const offBlock = document.createElement('div');
+            offBlock.className = 'schedule-block off-block';
+            offBlock.textContent = 'Off';
+            dayBody.appendChild(offBlock);
+        } else {
+            daySchedule.blocks.forEach(block => {
+                const blockElement = document.createElement('div');
+                blockElement.className = `schedule-block ${block.type}-block`;
+                
+                if (block.type === 'off') {
+                    blockElement.textContent = block.label;
+                } else {
+                    const startTime = convertTime(block.startTime, scheduleData.baseTimezone, displayTimezone);
+                    const endTime = convertTime(block.endTime, scheduleData.baseTimezone, displayTimezone);
+                    
+                    blockElement.innerHTML = `
+                        <div class="block-label">${block.label}</div>
+                        <div class="block-time">${startTime} – ${endTime}</div>
+                    `;
+                }
+                
+                dayBody.appendChild(blockElement);
+            });
+        }
+        
+        dayCard.appendChild(dayBody);
+        grid.appendChild(dayCard);
+    });
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', loadSchedule);
+</script>
+
+</body>
+</html>
