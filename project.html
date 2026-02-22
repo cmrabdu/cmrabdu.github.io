@@ -22,12 +22,13 @@
 
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
     <nav id="main-nav" class="loading"></nav>
 <script>
 (function() {
   const el = document.getElementById('main-nav');
-  fetch('/nav.html', { cache: 'no-store' })
+  fetch('/nav.html', { cache: 'no-cache' })
     .then(r => r.text())
     .then(html => {
       el.innerHTML = html;           // on injecte SEULEMENT la liste
@@ -43,31 +44,31 @@
 </script>
 
 
-    <header>
+    <header id="main-content">
         <h1>My Projects</h1>
     </header>
 
-    <section class="blog-container">
+    <section class="project-grid">
 
-        <div class="blog-card">
+        <div class="project-listing-card">
             <a href="/project/my-virtual-library.html">
-                <img src="/project-library/cover-library-project.png" alt="My Virtual Library">
+                <img src="/project-library/cover-library-project.png" alt="My Virtual Library" loading="lazy">
                 <h3>My Virtual Library</h3>
                 <p>A digital library management system to organize and track your book collection</p>
             </a>
         </div>
 
-        <div class="blog-card">
+        <div class="project-listing-card">
             <a href="/project/project-robot-hand.html">
-                <img src="/project-robot-hand/robot-hand-view-project-cover.jpeg" alt="Project 1">
+                <img src="/project-robot-hand/robot-hand-view-project-cover.jpeg" alt="Project 1" loading="lazy">
                 <h3>Hand Tracking With Open CV and Python</h3>
                 <p>Robotics and AI project - 3D printed robotic hand controlled via Python with gesture recognition</p>
             </a>
         </div>
 
-        <div class="blog-card">
+        <div class="project-listing-card">
             <a href="/project/Building-a-Racing-FPV-Drone.html">
-                <img src="/project-fpv-drone/banner-fpv.jpeg" alt="Project 2">
+                <img src="/project-fpv-drone/banner-fpv.jpeg" alt="Project 2" loading="lazy">
                 <h3>Building a Racing FPV Drone</h3>
                 <p>From simulation training to hands-on assembly - my journey building a racing FPV drone</p>
             </a>
@@ -76,9 +77,9 @@
         <!-- Ajoute plus de projets ici -->
     </section>
 
-   
+
+    <footer>
+        <p>...</p>
+    </footer>
 </body>
-<footer>
-    <p>...</p>
-</footer>
 </html>

@@ -19,40 +19,32 @@
     <meta name="twitter:title" content="Abdullah Camur | cmrabdu - Computer Engineering Student & Tech Projects" />
     <meta name="twitter:description" content="Personal website of Abdullah Camur — computer engineering student passionate about robotics, cybersecurity, and FPV drones. Explore personal projects, blog posts, and photos." />
     <meta name="twitter:image" content="https://cmrabdu.com/img/logo_favicon_2.png" />
-</head>
-
-
-<script>
-    // (YYYY, MM - 1, DD, HH, MM, SS)
-    const lastUpdate = new Date(2025, 11, 22, 10, 0, 0);
-    function updateTimer() {
-        const now = new Date();
-        const diff = Math.floor((now - lastUpdate) / 1000); // Différence en secondes
-
-        const days = Math.floor(diff / (60 * 60 * 24));
-        const hours = Math.floor((diff % (60 * 60 * 24)) / (60 * 60));
-        const minutes = Math.floor((diff % (60 * 60)) / 60);
-        const seconds = diff % 60;
-
-        // Afficher le temps écoulé
-        document.getElementById("last-update-timer").textContent = 
-            `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Abdullah Camur",
+      "url": "https://cmrabdu.com",
+      "sameAs": [
+        "https://github.com/cmrabdu",
+        "https://www.youtube.com/@cmrabdu",
+        "https://www.reddit.com/user/cmrabdu/",
+        "https://www.chess.com/member/cmrabdu",
+        "https://www.goodreads.com/user/show/182990351-cmrabdu"
+      ],
+      "jobTitle": "Computer Engineering Student",
+      "description": "Computer engineering student passionate about robotics, cybersecurity, and FPV drones."
     }
-
-    // Mettre à jour le chronomètre toutes les secondes
-    setInterval(updateTimer, 1000);
-    
-    // Lancer immédiatement au chargement de la page
-    updateTimer();
-</script>
-
+    </script>
+</head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <nav id="main-nav" class="loading"></nav>
 <script>
 (function() {
   const el = document.getElementById('main-nav');
-  fetch('/nav.html', { cache: 'no-store' })
+  fetch('/nav.html', { cache: 'no-cache' })
     .then(r => r.text())
     .then(html => {
       el.innerHTML = html;           // on injecte SEULEMENT la liste
@@ -72,40 +64,56 @@
 
     <header>
         <h1>Abdullah Camur</h1>
-        <img src="img/steam-deck.jpg" alt="Steam Deck running a Linux desktop interface with a laptop and iPod nearby">
+        <img src="img/steam-deck.jpg" alt="Steam Deck running a Linux desktop interface with a laptop and iPod nearby" fetchpriority="high" width="400" height="300">
     </header>
 
+    <main id="main-content">
     <section id="homepage">
         <p>I modded my Steam Deck</p>
         <br>
         <p>I change the photo from time to time...</a></p>
         <p>Last update: <span id="last-update-timer"></span></p>
-        <br>
-        <p><a href="/stream-schedule.html" style="color: #1976d2; text-decoration: underline;">Check my streaming schedule</a> for live study and reading sessions</p>
     </section>
 
     <!-- Réseaux sociaux ronds centrés -->
     <div id="socials">
-        <a href="https://www.youtube.com/@cmrabdu" target="_blank">
-            <img src="img/ytb-icon.jpeg" alt="GitHub" class="social-logo">
+        <a href="https://www.youtube.com/@cmrabdu" target="_blank" rel="noopener noreferrer" aria-label="YouTube channel">
+            <img src="img/ytb-icon.jpeg" alt="YouTube" class="social-logo">
         </a>
-        <a href="https://github.com/cmrabdu" target="_blank">
-            <img src="img/github-icon.jpeg" alt="Instagram" class="social-logo">
+        <a href="https://github.com/cmrabdu" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+            <img src="img/github-icon.jpeg" alt="GitHub" class="social-logo">
         </a>
-        <a href="https://www.reddit.com/user/cmrabdu/" target="_blank">
-            <img src="img/reddit-icon.jpeg" alt="YouTube" class="social-logo">
+        <a href="https://www.reddit.com/user/cmrabdu/" target="_blank" rel="noopener noreferrer" aria-label="Reddit profile">
+            <img src="img/reddit-icon.jpeg" alt="Reddit" class="social-logo">
         </a>
-        <a href="https://www.chess.com/member/cmrabdu" target="_blank">
-            <img src="img/chess-icon.jpeg" alt="GitHub" class="social-logo">
+        <a href="https://www.chess.com/member/cmrabdu" target="_blank" rel="noopener noreferrer" aria-label="Chess.com profile">
+            <img src="img/chess-icon.jpeg" alt="Chess.com" class="social-logo">
         </a>
-        <a href="https://www.goodreads.com/user/show/182990351-cmrabdu" target="_blank">
-            <img src="img/goodread-icon.jpeg" alt="Instagram" class="social-logo">
+        <a href="https://www.goodreads.com/user/show/182990351-cmrabdu" target="_blank" rel="noopener noreferrer" aria-label="Goodreads profile">
+            <img src="img/goodread-icon.jpeg" alt="Goodreads" class="social-logo">
         </a>
     </div>
+    </main>
 
     <footer>
         <p>...</p>
     </footer>
 
+    <script>
+        // (YYYY, MM - 1, DD, HH, MM, SS)
+        const lastUpdate = new Date(2025, 11, 22, 10, 0, 0);
+        function updateTimer() {
+            const now = new Date();
+            const diff = Math.floor((now - lastUpdate) / 1000);
+            const days = Math.floor(diff / (60 * 60 * 24));
+            const hours = Math.floor((diff % (60 * 60 * 24)) / (60 * 60));
+            const minutes = Math.floor((diff % (60 * 60)) / 60);
+            const seconds = diff % 60;
+            document.getElementById("last-update-timer").textContent =
+                `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
 </body>
 </html>

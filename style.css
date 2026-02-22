@@ -1,3 +1,20 @@
+/* Skip link accessibilité */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 8px 16px;
+    z-index: 9999;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 0 0 4px 0;
+}
+.skip-link:focus {
+    top: 0;
+}
+
 /* Centrer le contenu */
 body {
     text-align: center;
@@ -7,10 +24,21 @@ body {
 
 /* Images générales */
 img {
-    width: 400px;
     height: auto;
     display: block;
+    max-width: 100%;
     margin: 20px auto;
+}
+
+/* Image hero */
+header img {
+    width: min(400px, 100%);
+}
+
+/* Images de contenu (blog, projets) */
+.blog-content img,
+.project-content img {
+    width: min(400px, 100%);
 }
 
 /* Images dans les articles de blog avec plus d'espacement */
@@ -86,7 +114,7 @@ h1 {
 }
 
 /* Projets et blog */
-.projects-container, .blog-container {
+.projects-container, .blog-container, .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, 400px);
     gap: 30px;
@@ -95,7 +123,7 @@ h1 {
     margin: auto;
     justify-content: center;
 }
-.project-card, .blog-card {
+.project-card, .blog-card, .project-listing-card {
     background-color: #f0f0f0;
     overflow: hidden;
     text-align: center;
@@ -103,27 +131,27 @@ h1 {
     width: 400px;
     padding-bottom: 15px;
 }
-.project-card:hover, .blog-card:hover {
+.project-card:hover, .blog-card:hover, .project-listing-card:hover {
     transform: scale(1.02);
 }
-.project-card img, .blog-card img {
+.project-card img, .blog-card img, .project-listing-card img {
     width: 100%;
     height: 225px;
     object-fit: cover;
     border-bottom: 2px solid #ccc;
     margin: 0;
 }
-.project-card h3, .blog-card h3 {
+.project-card h3, .blog-card h3, .project-listing-card h3 {
     margin: 10px 0;
     font-size: 18px;
     color: #333;
 }
-.project-card a, .blog-card a {
+.project-card a, .blog-card a, .project-listing-card a {
     text-decoration: none;
     color: inherit;
     display: block;
 }
-.blog-card p {
+.blog-card p, .project-listing-card p {
     font-size: 14px;
     color: #666;
     margin: 0 10px;
@@ -310,7 +338,8 @@ h1 {
   }
   .project-item,
   .blog-card,
-  .project-card {
+  .project-card,
+  .project-listing-card {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /blocus.html
+
+Sitemap: https://cmrabdu.com/sitemap.xml

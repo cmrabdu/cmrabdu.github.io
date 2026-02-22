@@ -21,27 +21,37 @@
     <meta name="twitter:image" content="https://cmrabdu.com/img/cmrabdu-opel-rekord-2.png" />
 </head>
 <body>
-    <nav id="main-nav">
-        <ul>
-          <li><a href="index.html">home</a></li>
-          <li><a href="about.html">about</a></li>
-          <li><a href="project.html">project</a></li>
-          <li><a href="blog.html">blog</a></li>
-          <li><a href="contact.html">contact</a></li>
-        </ul>
-      </nav>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav id="main-nav" class="loading"></nav>
+<script>
+(function() {
+  const el = document.getElementById('main-nav');
+  fetch('/nav.html', { cache: 'no-cache' })
+    .then(r => r.text())
+    .then(html => {
+      el.innerHTML = html;
+      el.classList.remove('loading');
+      el.classList.add('ready');
+    })
+    .catch(() => {
+      el.innerHTML = '<a href="/index.html">home</a>';
+      el.classList.remove('loading');
+      el.classList.add('ready');
+    });
+})();
+</script>
 
-    <header>
+    <header id="main-content">
         <h1>My Gallery</h1>
     </header>
 
     <section class="gallery-container">
-        <div class="gallery-item small"><img src="img/cmrabdu-opel-rekord-2.png" alt="Image 1"></div>
-        <div class="gallery-item rectangle"><img src="img/steam-deck.jpg" alt="Image 2"></div>
-        <div class="gallery-item large"><img src="img/street.jpg" alt="Image 3"></div>
-        <div class="gallery-item small"><img src="img/rino.jpg" alt="Image 4"></div>
-        <div class="gallery-item rectangle"><img src="img/pendul.jpg" alt="Image 5"></div>
-        <div class="gallery-item small"><img src="img/busbos.jpg" alt="Image 7"></div>
+        <div class="gallery-item small"><img src="img/cmrabdu-opel-rekord-2.png" alt="Image 1" loading="lazy"></div>
+        <div class="gallery-item rectangle"><img src="img/steam-deck.jpg" alt="Image 2" loading="lazy"></div>
+        <div class="gallery-item large"><img src="img/street.jpg" alt="Image 3" loading="lazy"></div>
+        <div class="gallery-item small"><img src="img/rino.jpg" alt="Image 4" loading="lazy"></div>
+        <div class="gallery-item rectangle"><img src="img/pendul.jpg" alt="Image 5" loading="lazy"></div>
+        <div class="gallery-item small"><img src="img/busbos.jpg" alt="Image 7" loading="lazy"></div>
         <!-- Ajoute plus d'images ici -->
     </section>
 

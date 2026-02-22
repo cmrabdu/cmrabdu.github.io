@@ -20,18 +20,31 @@
     <meta name="twitter:image" content="https://cmrabdu.com/img/logo_favicon_2.png" />
 </head>
 <body>
-    <nav id="main-nav">
-        <ul>
-          <li><a href="index.html">home</a></li>
-          <li><a href="about.html">about</a></li>
-          <li><a href="project.html">project</a></li>
-          <li><a href="blog.html">blog</a></li>
-          <li><a href="contact.html">contact</a></li>
-        </ul>
-      </nav>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav id="main-nav" class="loading"></nav>
+<script>
+(function() {
+  const el = document.getElementById('main-nav');
+  fetch('/nav.html', { cache: 'no-cache' })
+    .then(r => r.text())
+    .then(html => {
+      el.innerHTML = html;
+      el.classList.remove('loading');
+      el.classList.add('ready');
+    })
+    .catch(() => {
+      el.innerHTML = '<a href="/index.html">home</a>';
+      el.classList.remove('loading');
+      el.classList.add('ready');
+    });
+})();
+</script>
 
     <header>
         <h1>FAQ</h1>
+    </header>
+
+    <main id="main-content">
         <section id="faq-content">
             <div class="faq-container">
                 <div class="faq-row">
@@ -51,8 +64,8 @@
                     <div class="faq-answer">INTJ</div>
                 </div>
             </div>
-        </section>        
-    </header>
+        </section>
+    </main>
 
 
 

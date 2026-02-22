@@ -21,12 +21,13 @@
     <meta name="twitter:image" content="https://cmrabdu.com/img/logo_favicon_2.png" />
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <nav id="main-nav" class="loading"></nav>
 <script>
 (function() {
   const el = document.getElementById('main-nav');
-  fetch('/nav.html', { cache: 'no-store' })
+  fetch('/nav.html', { cache: 'no-cache' })
     .then(r => r.text())
     .then(html => {
       el.innerHTML = html;
@@ -41,7 +42,7 @@
 })();
 </script>
 
-<header>
+<header id="main-content">
     <h1>Stream Schedule</h1>
 </header>
 

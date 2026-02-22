@@ -11,12 +11,13 @@
   </head>
 
   <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
   <nav id="main-nav" class="loading"></nav>
 <script>
 (function() {
   const el = document.getElementById('main-nav');
-  fetch('/nav.html', { cache: 'no-store' })
+  fetch('/nav.html', { cache: 'no-cache' })
     .then(r => r.text())
     .then(html => {
       el.innerHTML = html;           // on injecte SEULEMENT la liste
@@ -31,7 +32,7 @@
 })();
 </script>
 
-    <header>
+    <header id="main-content">
       <h1>Building a Racing FPV Drone</h1>
     </header>
 
@@ -40,13 +41,13 @@
       <div class="carousel-gallery">
         <div class="carousel-track">
           <div class="carousel-slide">
-            <img src="/project-fpv-drone/banner-fpv.jpeg" alt="FPV Racing Drone Banner">
+            <img src="/project-fpv-drone/banner-fpv.jpeg" alt="FPV Racing Drone Banner" loading="lazy">
           </div>
           <div class="carousel-slide">
-            <img src="/project-fpv-drone/IMG_6317.jpg" alt="FPV Drone Assembly Process">
+            <img src="/project-fpv-drone/IMG_6317.jpg" alt="FPV Drone Assembly Process" loading="lazy">
           </div>
           <div class="carousel-slide">
-            <img src="/project-fpv-drone/cover2.jpg" alt="Completed FPV Racing Drone">
+            <img src="/project-fpv-drone/cover2.jpg" alt="Completed FPV Racing Drone" loading="lazy">
           </div>
         </div>
       </div>
@@ -85,7 +86,7 @@
         <p>
           At 15, I finally had enough money to buy my first set of components. It was time to move from virtual to real.
           For the build, I followed the guidance of a French content creator, <a
-            href="https://www.youtube.com/@AirFlexfpv" target="_blank">Airflex</a>,
+            href="https://www.youtube.com/@AirFlexfpv" target="_blank" rel="noopener noreferrer">Airflex</a>,
           whose tutorials and explanations were clear and detailed. I related to him—young, passionate, and technically
           sharp.
           Thanks to his content and everything I had learned, I was able to build my first racing FPV drone step by step.

@@ -10,11 +10,12 @@
 </head>
 
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
     <nav id="main-nav" class="loading"></nav>
     <script>
     (function() {
       const el = document.getElementById('main-nav');
-      fetch('/nav.html', { cache: 'no-store' })
+      fetch('/nav.html', { cache: 'no-cache' })
         .then(r => r.text())
         .then(html => {
           el.innerHTML = html;
@@ -29,19 +30,19 @@
     })();
     </script>
 
-  <header>
+  <header id="main-content">
     <h1>My Virtual Library</h1>
   </header>
 
   <section class="blog-article">
-    <img class="blog-image" src="/project-library/cover-library-project.png" alt="My Virtual Library">
+    <img class="blog-image" src="/project-library/cover-library-project.png" alt="My Virtual Library" loading="lazy">
 
     <div class="blog-content">
 
       <h2>About This Project</h2>
       <p>I'm currently developing a virtual library application to manage and track my physical book collection. The app allows me to digitally organize my books, update their status, and monitor my reading progress and knowledge.</p>
       
-      <p>The project is still under development, and more details will be added as it progresses. In the meantime, you can check out the project here: <a href="https://www.cmrabdu.com/My-virtual-library/" target="_blank">https://www.cmrabdu.com/My-virtual-library/</a></p>
+      <p>The project is still under development, and more details will be added as it progresses. In the meantime, you can check out the project here: <a href="https://www.cmrabdu.com/My-virtual-library/" target="_blank" rel="noopener noreferrer">https://www.cmrabdu.com/My-virtual-library/</a></p>
      
   </section>
   <footer>

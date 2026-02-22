@@ -21,12 +21,13 @@
     <meta name="twitter:image" content="https://cmrabdu.com/project-robot-hand/robot-hand-view-project-cover.jpeg" />
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <nav id="main-nav" class="loading"></nav>
 <script>
 (function() {
   const el = document.getElementById('main-nav');
-  fetch('/nav.html', { cache: 'no-store' })
+  fetch('/nav.html', { cache: 'no-cache' })
     .then(r => r.text())
     .then(html => {
       el.innerHTML = html;           // on injecte SEULEMENT la liste
@@ -42,8 +43,8 @@
 </script>
 
 
-    <header>
-        <h1>Hand Tracking With Open CV and Pyhton</h1>
+    <header id="main-content">
+        <h1>Hand Tracking With OpenCV and Python</h1>
     </header>
 
     <section class="blog-article">
@@ -63,16 +64,16 @@
             </video>
           </div>
           <div class="carousel-slide">
-            <img src="/project-robot-hand/robot-hand-view-project-cover.jpeg" alt="Image 2">
+            <img src="/project-robot-hand/robot-hand-view-project-cover.jpeg" alt="Image 2" loading="lazy">
           </div>
           <div class="carousel-slide">
-            <a href="/project-robot-hand/POO rapport - Version Final.pdf" target="_blank">
-              <img src="/img/PDF-logo.jpeg" alt="Ouvrir le PDF">
+            <a href="/project-robot-hand/POO rapport - Version Final.pdf" target="_blank" rel="noopener noreferrer">
+              <img src="/img/PDF-logo.jpeg" alt="Ouvrir le PDF" loading="lazy">
             </a>
           </div>
           <div class="carousel-slide">
-            <a href="https://github.com/cmrabdu/Hand-tracking-with-open-CV" target="_blank">
-              <img src="/img/Github-logo.jpeg" alt="Voir sur GitHub">
+            <a href="https://github.com/cmrabdu/Hand-tracking-with-open-CV" target="_blank" rel="noopener noreferrer">
+              <img src="/img/Github-logo.jpeg" alt="Voir sur GitHub" loading="lazy">
             </a>
           </div>
         </div>
