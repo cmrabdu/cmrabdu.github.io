@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="225" viewBox="0 0 400 225">
+  <!-- Background -->
+  <rect width="400" height="225" fill="#f0f0f0"/>
+
+  <!-- Left panel -->
+  <rect x="18" y="18" width="158" height="189" fill="white" stroke="#ccc" stroke-width="1"/>
+
+  <!-- Right panel -->
+  <rect x="186" y="18" width="196" height="189" fill="white" stroke="#ccc" stroke-width="1"/>
+
+  <!-- Left panel header -->
+  <rect x="18" y="18" width="158" height="36" fill="#f0f0f0"/>
+  <text x="30" y="31" font-family="monospace" font-size="8" fill="#999" letter-spacing="1">INPUTS</text>
+  <text x="30" y="46" font-family="sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Your profile</text>
+  <line x1="18" y1="54" x2="176" y2="54" stroke="#ccc" stroke-width="1"/>
+
+  <!-- Body section label -->
+  <text x="30" y="68" font-family="sans-serif" font-size="8" font-weight="700" fill="#333" letter-spacing="1">BODY</text>
+
+  <!-- Age label + value -->
+  <text x="30" y="82" font-family="sans-serif" font-size="10" font-weight="600" fill="#333">Age</text>
+  <rect x="140" y="73" width="26" height="13" fill="white" stroke="#ccc" stroke-width="1"/>
+  <text x="153" y="83" font-family="monospace" font-size="9" fill="#00008b" text-anchor="middle">25</text>
+  <!-- Age slider -->
+  <rect x="30" y="88" width="136" height="4" fill="#ccc"/>
+  <rect x="30" y="88" width="65" height="4" fill="#00008b"/>
+  <circle cx="95" cy="90" r="5" fill="#00008b" stroke="white" stroke-width="2"/>
+
+  <!-- Weight label + value -->
+  <text x="30" y="107" font-family="sans-serif" font-size="10" font-weight="600" fill="#333">Weight</text>
+  <rect x="126" y="98" width="40" height="13" fill="white" stroke="#ccc" stroke-width="1"/>
+  <text x="146" y="108" font-family="monospace" font-size="9" fill="#00008b" text-anchor="middle">74 kg</text>
+  <!-- Weight slider -->
+  <rect x="30" y="113" width="136" height="4" fill="#ccc"/>
+  <rect x="30" y="113" width="49" height="4" fill="#00008b"/>
+  <circle cx="79" cy="115" r="5" fill="#00008b" stroke="white" stroke-width="2"/>
+
+  <!-- Height label + value -->
+  <text x="30" y="132" font-family="sans-serif" font-size="10" font-weight="600" fill="#333">Height</text>
+  <rect x="120" y="123" width="46" height="13" fill="white" stroke="#ccc" stroke-width="1"/>
+  <text x="143" y="133" font-family="monospace" font-size="9" fill="#00008b" text-anchor="middle">173 cm</text>
+  <!-- Height slider -->
+  <rect x="30" y="138" width="136" height="4" fill="#ccc"/>
+  <rect x="30" y="138" width="100" height="4" fill="#00008b"/>
+  <circle cx="130" cy="140" r="5" fill="#00008b" stroke="white" stroke-width="2"/>
+
+  <!-- Training section -->
+  <line x1="18" y1="155" x2="176" y2="155" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="30" y="168" font-family="sans-serif" font-size="8" font-weight="700" fill="#333" letter-spacing="1">TRAINING</text>
+
+  <!-- Toggle buttons -->
+  <rect x="30" y="174" width="38" height="16" fill="white" stroke="#00008b" stroke-width="1"/>
+  <text x="49" y="185" font-family="sans-serif" font-size="9" fill="#00008b" text-anchor="middle" font-weight="600">Strength</text>
+  <rect x="72" y="174" width="28" height="16" fill="white" stroke="#ccc" stroke-width="1"/>
+  <text x="86" y="185" font-family="sans-serif" font-size="9" fill="#666" text-anchor="middle">Cardio</text>
+  <rect x="104" y="174" width="26" height="16" fill="white" stroke="#ccc" stroke-width="1"/>
+  <text x="117" y="185" font-family="sans-serif" font-size="9" fill="#666" text-anchor="middle">Mixed</text>
+
+  <!-- Right panel header -->
+  <rect x="186" y="18" width="196" height="36" fill="#f0f0f0"/>
+  <text x="198" y="31" font-family="monospace" font-size="8" fill="#999" letter-spacing="1">RESULTS</text>
+  <text x="198" y="46" font-family="sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Daily estimates</text>
+  <line x1="186" y1="54" x2="382" y2="54" stroke="#ccc" stroke-width="1"/>
+
+  <!-- BMR section -->
+  <text x="198" y="68" font-family="sans-serif" font-size="9" font-weight="700" fill="#1a1a1a">Basal metabolic rate</text>
+
+  <!-- BMR cards -->
+  <rect x="198" y="73" width="82" height="38" fill="white" stroke="#00008b" stroke-width="1"/>
+  <text x="204" y="83" font-family="monospace" font-size="7" fill="#00008b" letter-spacing="1">MIFFLIN-ST JEOR</text>
+  <text x="204" y="100" font-family="monospace" font-size="15" font-weight="700" fill="#00008b">1,814</text>
+  <text x="204" y="108" font-family="monospace" font-size="7" fill="#666">kcal/day</text>
+
+  <rect x="288" y="73" width="82" height="38" fill="white" stroke="#ccc" stroke-width="1"/>
+  <text x="294" y="83" font-family="monospace" font-size="7" fill="#999" letter-spacing="1">HARRIS-BENEDICT</text>
+  <text x="294" y="100" font-family="monospace" font-size="15" font-weight="700" fill="#1a1a1a">1,863</text>
+  <text x="294" y="108" font-family="monospace" font-size="7" fill="#666">kcal/day</text>
+
+  <!-- Breakdown bar -->
+  <text x="198" y="124" font-family="sans-serif" font-size="9" font-weight="700" fill="#1a1a1a">Energy breakdown</text>
+  <rect x="198" y="129" width="90" height="7" fill="#94a3b8"/>
+  <rect x="290" y="129" width="22" height="7" fill="#f59e0b"/>
+  <rect x="314" y="129" width="28" height="7" fill="#14b8a6"/>
+  <rect x="344" y="129" width="24" height="7" fill="#60a5fa"/>
+
+  <!-- Legend dots -->
+  <rect x="198" y="142" width="7" height="7" fill="#94a3b8"/>
+  <text x="208" y="149" font-family="sans-serif" font-size="8" fill="#666">BMR</text>
+  <rect x="228" y="142" width="7" height="7" fill="#f59e0b"/>
+  <text x="238" y="149" font-family="sans-serif" font-size="8" fill="#666">NEAT</text>
+  <rect x="264" y="142" width="7" height="7" fill="#14b8a6"/>
+  <text x="274" y="149" font-family="sans-serif" font-size="8" fill="#666">Training</text>
+  <rect x="313" y="142" width="7" height="7" fill="#60a5fa"/>
+  <text x="323" y="149" font-family="sans-serif" font-size="8" fill="#666">Steps</text>
+
+  <!-- Goal cards -->
+  <text x="198" y="165" font-family="sans-serif" font-size="9" font-weight="700" fill="#1a1a1a">Calorie target</text>
+
+  <rect x="198" y="170" width="42" height="30" fill="white" stroke="#ccc" stroke-width="1"/>
+  <text x="204" y="179" font-family="monospace" font-size="6" fill="#999" letter-spacing="0.5">TDEE</text>
+  <text x="204" y="192" font-family="monospace" font-size="11" font-weight="700" fill="#1a1a1a">2,847</text>
+
+  <rect x="244" y="170" width="42" height="30" fill="white" stroke="#ccc" stroke-width="1"/>
+  <text x="250" y="179" font-family="monospace" font-size="6" fill="#999" letter-spacing="0.5">ADJUST.</text>
+  <text x="250" y="192" font-family="monospace" font-size="11" font-weight="700" fill="#1a1a1a">0 kcal</text>
+
+  <rect x="290" y="170" width="42" height="30" fill="white" stroke="#ccc" stroke-width="1"/>
+  <text x="296" y="179" font-family="monospace" font-size="6" fill="#999" letter-spacing="0.5">PACE</text>
+  <text x="296" y="192" font-family="monospace" font-size="11" font-weight="700" fill="#1a1a1a">0 kg/w</text>
+
+  <rect x="336" y="170" width="42" height="30" fill="white" stroke="#00008b" stroke-width="1"/>
+  <text x="342" y="179" font-family="monospace" font-size="6" fill="#00008b" letter-spacing="0.5">TARGET</text>
+  <text x="342" y="192" font-family="monospace" font-size="11" font-weight="700" fill="#00008b">2,847</text>
+</svg>

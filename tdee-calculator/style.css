@@ -1,0 +1,603 @@
+/* TDEE Calculator — design aligned with cmrabdu.com */
+
+/* ---- Reset body alignment from main style.css ---- */
+.layout,
+.layout * {
+  text-align: left;
+}
+
+.calc-intro {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* ---- Two-column layout ---- */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+  gap: 20px;
+  padding: 0 20px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* ---- Panels ---- */
+.panel {
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+}
+
+.panel-head h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #1a1a1a;
+}
+
+.panel-head > p {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.section-kicker {
+  display: block;
+  margin: 0 0 4px;
+  font-family: monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #999;
+}
+
+/* ---- Groups ---- */
+.group + .group {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+}
+
+.group-title {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #333;
+}
+
+/* ---- Field groups ---- */
+.field-group {
+  margin: 0 0 14px;
+  padding: 0;
+  border: 0;
+}
+
+.field-group:last-child {
+  margin-bottom: 0;
+}
+
+legend,
+.field-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Value badge */
+.field-val {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border: 1px solid #ccc;
+  background: white;
+  color: darkblue;
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ---- Toggle buttons ---- */
+.toggle-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 6px;
+}
+
+.toggle-btn {
+  appearance: none;
+  padding: 7px 10px;
+  border: 1px solid #999;
+  background: white;
+  color: #333;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.1s ease, color 0.1s ease;
+  font-family: inherit;
+}
+
+.toggle-btn:hover {
+  border-color: darkblue;
+  color: darkblue;
+}
+
+.toggle-btn.active {
+  border-color: darkblue;
+  background: white;
+  color: darkblue;
+  text-decoration: underline;
+}
+
+/* ---- Range sliders ---- */
+input[type="range"] {
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 0;
+  background: linear-gradient(
+    90deg,
+    darkblue 0%,
+    darkblue var(--fill, 0%),
+    #ccc var(--fill, 0%),
+    #ccc 100%
+  );
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background: darkblue;
+  box-shadow: 0 1px 3px rgba(0, 0, 80, 0.25);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background: darkblue;
+  box-shadow: 0 1px 3px rgba(0, 0, 80, 0.25);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 5px;
+  background: transparent;
+}
+
+.toggle-btn:focus-visible,
+input[type="range"]:focus-visible,
+.formula-card:focus-visible,
+.formula-guide summary:focus-visible {
+  outline: 2px solid darkblue;
+  outline-offset: 2px;
+}
+
+.range-hints {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  color: #999;
+  font-family: monospace;
+  font-size: 10px;
+}
+
+/* ---- Goal help text ---- */
+.goal-help {
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border: 1px dashed #bbb;
+  background: white;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ---- Result blocks ---- */
+.result-block + .result-block {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+}
+
+.result-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.block-label {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.block-copy {
+  margin: 3px 0 0;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.block-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border: 1px solid #ccc;
+  background: white;
+  color: #666;
+  font-family: monospace;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* ---- Formula cards (BMR / TDEE display) ---- */
+.formula-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+}
+
+.formula-card {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  background: white;
+  color: #333;
+  text-align: left;
+  transition: border-color 0.1s ease;
+}
+
+button.formula-card {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+button.formula-card:hover {
+  border-color: darkblue;
+}
+
+.formula-card.selected {
+  border-color: darkblue;
+  background: white;
+}
+
+.fc-name,
+.gc-label {
+  margin: 0 0 6px;
+  color: #999;
+  font-family: monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.formula-card.selected .fc-name {
+  color: darkblue;
+}
+
+.fc-val,
+.gc-val {
+  margin: 0;
+  font-family: monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+
+.formula-card.selected .fc-val {
+  color: darkblue;
+}
+
+.fc-unit {
+  color: #666;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.fc-meta,
+.gc-help {
+  display: block;
+  margin-top: 4px;
+  color: #666;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+/* ---- Breakdown bar ---- */
+.breakdown-bar {
+  display: flex;
+  gap: 3px;
+  height: 10px;
+  margin-bottom: 12px;
+}
+
+.bar-seg {
+  height: 100%;
+  border-radius: 0;
+}
+
+.breakdown-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-bottom: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #666;
+  font-size: 12px;
+}
+
+.legend-dot,
+.bd-dot {
+  flex-shrink: 0;
+  border-radius: 0;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+}
+
+.breakdown-rows {
+  display: grid;
+  gap: 8px;
+}
+
+.bd-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+  padding-bottom: 8px;
+  border-bottom: 1px dotted #ccc;
+}
+
+.bd-row:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.bd-label {
+  display: flex;
+  gap: 7px;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.bd-dot {
+  width: 10px;
+  height: 10px;
+  margin-top: 3px;
+}
+
+.bd-val {
+  font-family: monospace;
+  font-size: 13px;
+  color: #333;
+  white-space: nowrap;
+}
+
+.bd-pct {
+  margin-left: 4px;
+  color: #999;
+}
+
+/* ---- Goal grid ---- */
+.goal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 8px;
+}
+
+.goal-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+.goal-card.highlight {
+  border-color: darkblue;
+}
+
+.goal-card.caution {
+  border-color: #b36200;
+  background: #fff7ee;
+}
+
+.goal-card.success {
+  border-color: #2a6a2a;
+  background: #f0f7f0;
+}
+
+.gc-val {
+  font-size: 18px;
+}
+
+/* ---- Weekly note ---- */
+.weekly-note {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  background: white;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.weekly-note strong {
+  color: #333;
+}
+
+.note-alert {
+  color: #cc3300;
+  font-weight: 600;
+}
+
+/* ---- Expandable guide ---- */
+.formula-guide {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+.formula-guide summary {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  color: #333;
+}
+
+.formula-guide summary::-webkit-details-marker {
+  display: none;
+}
+
+.formula-guide summary::after {
+  content: "+";
+  color: #999;
+  font-family: monospace;
+  font-size: 16px;
+}
+
+.formula-guide[open] summary::after {
+  content: "−";
+}
+
+.guide-content {
+  display: grid;
+  gap: 10px;
+  padding: 0 12px 12px;
+  border-top: 1px solid #ccc;
+}
+
+.guide-content p {
+  margin: 0;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.guide-content strong {
+  color: #333;
+}
+
+/* ---- Source note ---- */
+.source-note {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 10px;
+  text-align: center;
+}
+
+.source-note p {
+  margin: 0;
+  color: #bbb;
+  font-size: 12px;
+}
+
+.source-note a {
+  color: #999;
+  text-decoration: underline;
+}
+
+.source-note a:hover {
+  color: #666;
+}
+
+/* ---- Responsive ---- */
+@media (min-width: 980px) {
+  .inputs-panel {
+    position: sticky;
+    top: 20px;
+  }
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .goal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .layout {
+    padding: 0 10px 30px;
+    gap: 12px;
+  }
+
+  .panel {
+    padding: 15px;
+  }
+
+  .formula-cards,
+  .goal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fc-val {
+    font-size: 18px;
+  }
+
+  .gc-val {
+    font-size: 16px;
+  }
+
+  .bd-row {
+    flex-direction: column;
+  }
+
+  .bd-val {
+    white-space: normal;
+  }
+}

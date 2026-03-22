@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TDEE Calculator | Abdullah Camur</title>
+  <meta name="description" content="Free TDEE calculator — estimate your total daily energy expenditure, compare Mifflin-St Jeor and Harris-Benedict formulas, and set a realistic calorie target." />
+  <meta name="theme-color" content="#f0f0f0" />
+  <link rel="canonical" href="https://cmrabdu.com/tdee-calculator/" />
+  <link rel="icon" type="image/png" href="/img/logo_favicon_2.png" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="TDEE Calculator | Abdullah Camur" />
+  <meta property="og:description" content="Estimate your daily calorie needs, compare two trusted formulas, and set a realistic calorie target." />
+  <meta property="og:image" content="https://cmrabdu.com/tdee-calculator/cover.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cmrabdu.com/tdee-calculator/" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TDEE Calculator | Abdullah Camur" />
+  <meta name="twitter:description" content="Estimate your daily calorie needs, compare two trusted formulas, and set a realistic calorie target." />
+  <meta name="twitter:image" content="https://cmrabdu.com/tdee-calculator/cover.svg" />
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "TDEE Calculator",
+    "description": "Estimate your total daily energy expenditure, compare Mifflin-St Jeor and Harris-Benedict formulas, and set a realistic calorie target.",
+    "url": "https://cmrabdu.com/tdee-calculator/",
+    "author": {
+      "@type": "Person",
+      "name": "Abdullah Camur",
+      "url": "https://cmrabdu.com"
+    },
+    "applicationCategory": "HealthApplication"
+  }
+  </script>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav id="main-nav" class="loading"></nav>
+<script>
+(function() {
+  const el = document.getElementById('main-nav');
+  fetch('/nav.html', { cache: 'no-cache' })
+    .then(r => r.text())
+    .then(html => {
+      el.innerHTML = html;
+      el.classList.remove('loading');
+      el.classList.add('ready');
+    })
+    .catch(() => {
+      el.innerHTML = '<a href="/index.html">home</a>';
+      el.classList.remove('loading');
+      el.classList.add('ready');
+    });
+})();
+</script>
+
+<header id="main-content">
+  <h1>TDEE Calculator</h1>
+  <p class="calc-intro">Estimate your daily calorie needs, compare two trusted formulas, and set a realistic calorie target.</p>
+</header>
+
+<main class="layout">
+  <section class="panel inputs-panel" aria-labelledby="inputs-title">
+    <div class="panel-head">
+      <div>
+        <span class="section-kicker">Inputs</span>
+        <h2 id="inputs-title">Your profile</h2>
+      </div>
+      <p>Adjust the sliders to match your current routine.</p>
+    </div>
+
+    <div class="group">
+      <h3 class="group-title">Body</h3>
+
+      <fieldset class="field-group">
+        <legend>Sex</legend>
+        <div class="toggle-row" role="group" aria-label="Sex">
+          <button type="button" class="toggle-btn active" data-group="sex" data-value="male" aria-pressed="true">Male</button>
+          <button type="button" class="toggle-btn" data-group="sex" data-value="female" aria-pressed="false">Female</button>
+        </div>
+      </fieldset>
+
+      <div class="field-group">
+        <label class="field-label" for="age">
+          <span>Age</span>
+          <span class="field-val" id="age-out">25</span>
+        </label>
+        <input type="range" id="age" min="15" max="80" step="1" value="25" />
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="weight">
+          <span>Weight</span>
+          <span class="field-val" id="weight-out">74 kg</span>
+        </label>
+        <input type="range" id="weight" min="40" max="180" step="0.5" value="74" />
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="height">
+          <span>Height</span>
+          <span class="field-val" id="height-out">173 cm</span>
+        </label>
+        <input type="range" id="height" min="140" max="220" step="1" value="173" />
+      </div>
+    </div>
+
+    <div class="group">
+      <h3 class="group-title">Training</h3>
+
+      <div class="field-group">
+        <label class="field-label" for="sessions">
+          <span>Sessions per week</span>
+          <span class="field-val" id="sessions-out">4</span>
+        </label>
+        <input type="range" id="sessions" min="0" max="7" step="1" value="4" />
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="duration">
+          <span>Session duration</span>
+          <span class="field-val" id="duration-out">50 min</span>
+        </label>
+        <input type="range" id="duration" min="20" max="120" step="5" value="50" />
+      </div>
+
+      <fieldset class="field-group">
+        <legend>Training type</legend>
+        <div class="toggle-row" role="group" aria-label="Training type">
+          <button type="button" class="toggle-btn active" data-group="training" data-value="strength" aria-pressed="true">Strength</button>
+          <button type="button" class="toggle-btn" data-group="training" data-value="cardio" aria-pressed="false">Cardio</button>
+          <button type="button" class="toggle-btn" data-group="training" data-value="mixed" aria-pressed="false">Mixed</button>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="group">
+      <h3 class="group-title">Daily activity</h3>
+
+      <div class="field-group">
+        <label class="field-label" for="steps">
+          <span>Daily steps</span>
+          <span class="field-val" id="steps-out">8,000</span>
+        </label>
+        <input type="range" id="steps" min="1000" max="25000" step="500" value="8000" />
+        <div class="range-hints"><span>1k</span><span>25k</span></div>
+      </div>
+    </div>
+
+    <div class="group">
+      <h3 class="group-title">Goal</h3>
+
+      <fieldset class="field-group">
+        <legend>Goal type</legend>
+        <div class="toggle-row" role="group" aria-label="Goal type">
+          <button type="button" class="toggle-btn active" data-group="goalMode" data-value="maintain" aria-pressed="true">Maintain</button>
+          <button type="button" class="toggle-btn" data-group="goalMode" data-value="lose" aria-pressed="false">Lose</button>
+          <button type="button" class="toggle-btn" data-group="goalMode" data-value="gain" aria-pressed="false">Gain</button>
+        </div>
+      </fieldset>
+
+      <div id="goal-controls" hidden>
+        <div class="field-group">
+          <label class="field-label" for="goal-change">
+            <span id="goal-change-label">Weight to lose</span>
+            <span class="field-val" id="goal-change-out">4 kg</span>
+          </label>
+          <input type="range" id="goal-change" min="0.5" max="20" step="0.5" value="4" />
+          <div class="range-hints"><span>0.5 kg</span><span>20 kg</span></div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="adjustment">
+            <span id="adjustment-label">Daily deficit</span>
+            <span class="field-val" id="adjustment-out">400 kcal</span>
+          </label>
+          <input type="range" id="adjustment" min="100" max="1000" step="50" value="400" />
+          <div class="range-hints"><span>100 kcal</span><span>1000 kcal</span></div>
+        </div>
+      </div>
+
+      <p class="goal-help" id="goal-help">
+        Maintenance uses your selected TDEE with no calorie adjustment.
+      </p>
+    </div>
+  </section>
+
+  <section class="panel results-panel" aria-labelledby="results-title">
+    <div class="panel-head">
+      <div>
+        <span class="section-kicker">Results</span>
+        <h2 id="results-title">Daily estimates</h2>
+      </div>
+      <p>Tap a TDEE card to use that formula for the target below.</p>
+    </div>
+
+    <div class="result-block">
+      <div class="result-block-header">
+        <div>
+          <h3 class="block-label">Basal metabolic rate</h3>
+          <p class="block-copy">Calories your body uses at rest.</p>
+        </div>
+      </div>
+      <div class="formula-cards" id="bmr-cards"></div>
+    </div>
+
+    <div class="result-block">
+      <div class="result-block-header">
+        <div>
+          <h3 class="block-label">Energy breakdown</h3>
+          <p class="block-copy">Estimated average calories burned per day.</p>
+        </div>
+        <span class="block-tag">Average day</span>
+      </div>
+      <div class="breakdown-bar" id="breakdown-bar" aria-hidden="true"></div>
+      <div class="breakdown-legend" id="breakdown-legend"></div>
+      <div class="breakdown-rows" id="breakdown-rows"></div>
+    </div>
+
+    <div class="result-block">
+      <div class="result-block-header">
+        <div>
+          <h3 class="block-label">Total daily energy expenditure</h3>
+          <p class="block-copy">Pick the estimate you want to use for your target.</p>
+        </div>
+        <span class="block-tag" id="selected-formula-tag">Using Mifflin-St Jeor</span>
+      </div>
+      <div class="formula-cards" id="tdee-cards"></div>
+    </div>
+
+    <div class="result-block">
+      <div class="result-block-header">
+        <div>
+          <h3 class="block-label">Calorie target</h3>
+          <p class="block-copy">Built from the selected TDEE formula.</p>
+        </div>
+        <span class="block-tag" id="goal-tag">Maintenance</span>
+      </div>
+      <div class="goal-grid" id="goal-grid"></div>
+      <div class="weekly-note" id="weekly-note" aria-live="polite"></div>
+    </div>
+
+    <details class="formula-guide">
+      <summary>How this estimate works</summary>
+      <div class="guide-content">
+        <p><strong>Mifflin-St Jeor</strong> is the recommended default for most adults.</p>
+        <p><strong>Harris-Benedict</strong> is included as a comparison reference.</p>
+        <p>Daily expenditure combines BMR, a base NEAT estimate, training, and walking calories estimated from steps and body weight.</p>
+      </div>
+    </details>
+  </section>
+</main>
+
+<div class="source-note">
+  <p>Source code available on <a href="https://github.com/cmrabdu/tdee-calculator" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+</div>
+
+<footer>
+  <p>made with <span class="footer-heart">❤</span> by Abdullah Camur</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
