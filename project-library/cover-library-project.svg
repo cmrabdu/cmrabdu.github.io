@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="225" viewBox="0 0 400 225">
+  <!-- Background -->
+  <rect width="400" height="225" fill="#f0f0f0"/>
+
+  <!-- Main panel -->
+  <rect x="18" y="18" width="364" height="189" fill="white" stroke="#ccc" stroke-width="1"/>
+
+  <!-- Header bar -->
+  <rect x="18" y="18" width="364" height="38" fill="#f0f0f0"/>
+  <text x="32" y="31" font-family="monospace" font-size="8" fill="#999" letter-spacing="1">MY VIRTUAL LIBRARY</text>
+  <text x="32" y="47" font-family="sans-serif" font-size="13" font-weight="700" fill="#1a1a1a">Book Collection</text>
+  <!-- Stats top right -->
+  <text x="290" y="31" font-family="monospace" font-size="8" fill="#999">24 books</text>
+  <rect x="290" y="36" width="38" height="13" fill="#f0f7f0" stroke="#2a6a2a" stroke-width="1"/>
+  <text x="309" y="46" font-family="monospace" font-size="8" fill="#2a6a2a" text-anchor="middle">12 read</text>
+  <rect x="334" y="36" width="38" height="13" fill="white" stroke="#ccc" stroke-width="1"/>
+  <text x="353" y="46" font-family="monospace" font-size="8" fill="#666" text-anchor="middle">8 reading</text>
+
+  <!-- Column headers -->
+  <line x1="18" y1="56" x2="382" y2="56" stroke="#ccc" stroke-width="1"/>
+  <text x="32" y="68" font-family="sans-serif" font-size="9" font-weight="700" fill="#999">TITLE</text>
+  <text x="220" y="68" font-family="sans-serif" font-size="9" font-weight="700" fill="#999">AUTHOR</text>
+  <text x="310" y="68" font-family="sans-serif" font-size="9" font-weight="700" fill="#999">YEAR</text>
+  <text x="348" y="68" font-family="sans-serif" font-size="9" font-weight="700" fill="#999">STATUS</text>
+  <line x1="18" y1="72" x2="382" y2="72" stroke="#ccc" stroke-width="1"/>
+
+  <!-- Row 1 -->
+  <text x="32" y="85" font-family="sans-serif" font-size="10" fill="#1a1a1a">The Pragmatic Programmer</text>
+  <text x="220" y="85" font-family="sans-serif" font-size="10" fill="#666">Hunt, Thomas</text>
+  <text x="310" y="85" font-family="monospace" font-size="10" fill="#666">1999</text>
+  <rect x="346" y="76" width="30" height="13" fill="#f0f7f0" stroke="#2a6a2a" stroke-width="1"/>
+  <text x="361" y="86" font-family="monospace" font-size="7" fill="#2a6a2a" text-anchor="middle">read</text>
+  <line x1="28" y1="91" x2="378" y2="91" stroke="#f0f0f0" stroke-width="1"/>
+
+  <!-- Row 2 -->
+  <text x="32" y="104" font-family="sans-serif" font-size="10" fill="#1a1a1a">Clean Code</text>
+  <text x="220" y="104" font-family="sans-serif" font-size="10" fill="#666">Robert C. Martin</text>
+  <text x="310" y="104" font-family="monospace" font-size="10" fill="#666">2008</text>
+  <rect x="340" y="95" width="42" height="13" fill="#fff7ee" stroke="#b36200" stroke-width="1"/>
+  <text x="361" y="105" font-family="monospace" font-size="7" fill="#b36200" text-anchor="middle">reading</text>
+  <line x1="28" y1="110" x2="378" y2="110" stroke="#f0f0f0" stroke-width="1"/>
+
+  <!-- Row 3 -->
+  <text x="32" y="123" font-family="sans-serif" font-size="10" fill="#1a1a1a">The Mythical Man-Month</text>
+  <text x="220" y="123" font-family="sans-serif" font-size="10" fill="#666">F. Brooks</text>
+  <text x="310" y="123" font-family="monospace" font-size="10" fill="#666">1975</text>
+  <rect x="346" y="114" width="30" height="13" fill="#f0f7f0" stroke="#2a6a2a" stroke-width="1"/>
+  <text x="361" y="124" font-family="monospace" font-size="7" fill="#2a6a2a" text-anchor="middle">read</text>
+  <line x1="28" y1="129" x2="378" y2="129" stroke="#f0f0f0" stroke-width="1"/>
+
+  <!-- Row 4 -->
+  <text x="32" y="142" font-family="sans-serif" font-size="10" fill="#1a1a1a">Structure and Interpretation...</text>
+  <text x="220" y="142" font-family="sans-serif" font-size="10" fill="#666">Abelson, Sussman</text>
+  <text x="310" y="142" font-family="monospace" font-size="10" fill="#666">1996</text>
+  <rect x="340" y="133" width="42" height="13" fill="white" stroke="#ccc" stroke-width="1"/>
+  <text x="361" y="143" font-family="monospace" font-size="7" fill="#999" text-anchor="middle">wishlist</text>
+  <line x1="28" y1="148" x2="378" y2="148" stroke="#f0f0f0" stroke-width="1"/>
+
+  <!-- Row 5 -->
+  <text x="32" y="161" font-family="sans-serif" font-size="10" fill="#1a1a1a">Introduction to Algorithms</text>
+  <text x="220" y="161" font-family="sans-serif" font-size="10" fill="#666">Cormen et al.</text>
+  <text x="310" y="161" font-family="monospace" font-size="10" fill="#666">2009</text>
+  <rect x="340" y="152" width="42" height="13" fill="#fff7ee" stroke="#b36200" stroke-width="1"/>
+  <text x="361" y="162" font-family="monospace" font-size="7" fill="#b36200" text-anchor="middle">reading</text>
+  <line x1="28" y1="167" x2="378" y2="167" stroke="#f0f0f0" stroke-width="1"/>
+
+  <!-- Bottom fade -->
+  <rect x="18" y="175" width="364" height="32" fill="url(#fade)"/>
+  <defs>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="white" stop-opacity="0"/>
+      <stop offset="100%" stop-color="white" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+</svg>

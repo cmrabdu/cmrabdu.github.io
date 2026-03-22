@@ -43,6 +43,13 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Web apps -->
+  <url>
+    <loc>https://cmrabdu.com/tdee-calculator/</loc>
+    <lastmod>2026-03-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Pages projets -->
   <url>
     <loc>https://cmrabdu.com/project/project-robot-hand.html</loc>

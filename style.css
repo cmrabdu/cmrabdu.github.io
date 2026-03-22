@@ -43,6 +43,7 @@ header img {
 
 /* Images dans les articles de blog avec plus d'espacement */
 .blog-image {
+    width: min(400px, 100%);
     margin: 30px auto;
 }
 
@@ -752,4 +753,16 @@ h1 {
   .legend-item {
     font-size: 13px;
   }
+}
+
+/* Footer */
+footer p {
+  color: #aaa;
+  font-size: 13px;
+}
+
+.footer-heart {
+  color: #c0392b;
+  font-size: 16px;
+  vertical-align: -1px;
 }
