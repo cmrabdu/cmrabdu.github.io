@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Permis B Online | Abdullah Camur</title>
+  <meta name="description" content="Permis B Online — a web platform I'm building to help future drivers in Belgium prepare for the theoretical driving exam.">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/png" href="/img/logo_favicon_2.png">
+  <link rel="canonical" href="https://cmrabdu.com/project/permis-b-online.html" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Permis B Online | Abdullah Camur" />
+  <meta property="og:description" content="A web platform I'm building to help future drivers in Belgium prepare for the theoretical driving exam." />
+  <meta property="og:image" content="https://cmrabdu.com/project-permis-b-online/permis-b-online-logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cmrabdu.com/project/permis-b-online.html" />
+</head>
+
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav id="main-nav" class="loading"></nav>
+<script>
+(function() {
+  const el = document.getElementById('main-nav');
+  fetch('/nav.html', { cache: 'no-cache' })
+    .then(r => r.text())
+    .then(html => {
+      el.innerHTML = html;
+      el.classList.remove('loading');
+      el.classList.add('ready');
+    })
+    .catch(() => {
+      el.innerHTML = '<a href="/index.html">home</a>';
+      el.classList.remove('loading');
+      el.classList.add('ready');
+    });
+})();
+</script>
+
+  <header id="main-content">
+    <h1>Permis B Online</h1>
+  </header>
+
+  <section class="blog-article">
+    <img class="blog-image" src="/project-permis-b-online/permis-b-online-logo.png" alt="Permis B Online logo" loading="lazy">
+
+    <div class="blog-content">
+
+      <h2>The Idea</h2>
+      <p>
+        Permis B Online is a web platform I'm building to help future drivers in Belgium prepare for the
+        theoretical part of the category B driving exam. The Belgian theory test isn't easy — long chapters,
+        priority rules that always trip people up, and a pass mark that leaves very little room for error.
+        I wanted to build something that makes studying it actually feel doable.
+      </p>
+
+      <h2>What It Does</h2>
+      <p>
+        The platform brings together everything I would have wanted as a candidate: structured theory
+        chapters (signs, priorities, distances, road behaviour…), flashcards with spaced repetition to
+        lock things into long-term memory, themed quizzes to drill weak spots, and a full exam simulator
+        that mirrors the real test — 50 questions, time limit, and the same scoring logic. On top of that,
+        a progress dashboard so you can see exactly where you stand chapter by chapter.
+      </p>
+
+      <h2>Building It Solo</h2>
+      <p>
+        I'm building the whole thing end-to-end: Python and FastAPI on the backend, React on the frontend,
+        Docker for deployment. The content pipeline is the part I'm most proud of — I wrote tooling that
+        helps me generate, review and version the study material with consistency, instead of writing
+        thousands of questions by hand. It's the kind of project where you wear every hat: product, design,
+        backend, frontend, content, DevOps. Long, but the most fun way I know to learn.
+      </p>
+
+      <h2>Why This Project Matters to Me</h2>
+      <p>
+        I like projects that solve a real problem for real people, not just toy demos. Getting your driving
+        licence in Belgium is one of those small but important rites of passage, and the tools out there
+        often feel dated or boring. I wanted to ship something modern, focused, and genuinely useful — and
+        in the process, push myself on the full SaaS stack: auth, payments, deployment, monitoring, the
+        whole ride.
+      </p>
+
+      <h2>Status</h2>
+      <p>
+        The project is actively under development. You can follow along or try the early version here:
+        <a href="https://permis-b-online.be" target="_blank" rel="noopener noreferrer">permis-b-online.be</a>.
+      </p>
+
+    </div>
+  </section>
+  <footer>
+    <p>made with <span class="footer-heart">❤</span> by Abdullah Camur</p>
+  </footer>
+</body>
+
+</html>

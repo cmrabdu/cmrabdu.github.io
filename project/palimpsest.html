@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palimpsest | Abdullah Camur</title>
+  <meta name="description" content="Palimpsest — an open-source tool that turns old scanned STEM PDFs into clean, modern LaTeX documents.">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/png" href="/img/logo_favicon_2.png">
+  <link rel="canonical" href="https://cmrabdu.com/project/palimpsest.html" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Palimpsest | Abdullah Camur" />
+  <meta property="og:description" content="An open-source tool that turns old scanned STEM PDFs into clean, modern LaTeX documents." />
+  <meta property="og:image" content="https://cmrabdu.com/project-palimpsest/palimpsest-logo.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cmrabdu.com/project/palimpsest.html" />
+</head>
+
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav id="main-nav" class="loading"></nav>
+<script>
+(function() {
+  const el = document.getElementById('main-nav');
+  fetch('/nav.html', { cache: 'no-cache' })
+    .then(r => r.text())
+    .then(html => {
+      el.innerHTML = html;
+      el.classList.remove('loading');
+      el.classList.add('ready');
+    })
+    .catch(() => {
+      el.innerHTML = '<a href="/index.html">home</a>';
+      el.classList.remove('loading');
+      el.classList.add('ready');
+    });
+})();
+</script>
+
+  <header id="main-content">
+    <h1>Palimpsest</h1>
+  </header>
+
+  <section class="blog-article">
+    <img class="blog-image" src="/project-palimpsest/palimpsest-logo.svg" alt="Palimpsest logo" loading="lazy">
+
+    <div class="blog-content">
+
+      <h2>The Problem</h2>
+      <p>
+        I'm a student. My professors are great at teaching, but their course materials are stuck in the
+        past — scanned photocopies of handwritten notes from the 80s, image-only PDFs with no text layer,
+        no copy-paste, no search. Dense physics, statics, fluid dynamics, differential equations, tensor
+        notation — all locked inside blurry images. I tried the usual OCR tools. Tesseract chokes on
+        <code>∂²u/∂x²</code>. Google Docs mangles integrals. Nothing really works for STEM content.
+      </p>
+
+      <h2>The Idea</h2>
+      <p>
+        So I built <strong>Palimpsest</strong>: a tool that takes those old scans and rewrites them as
+        proper, structured, beautifully typeset LaTeX documents. Drop a PDF, get back a clean
+        <code>.tex</code> source and a compiled <code>.pdf</code>. That's it. The name comes from the
+        old manuscript pages that were scraped clean and rewritten over — which is basically what the
+        tool does to a tired scan.
+      </p>
+
+      <h2>How It Works</h2>
+      <p>
+        Under the hood it's a small pipeline: extract pages at high DPI, clean them up with OpenCV
+        (binarize, deskew, denoise), then send each page to a vision model that reads the formulas
+        directly and produces LaTeX. A context layer keeps track of variables and notation across pages
+        so equations stay consistent over a 50-page document. Everything is then merged into a single
+        <code>.tex</code> file and compiled with <code>xelatex</code>. There's a CLI for power users
+        and a small web UI for everyone else — drag, drop, watch the pages get processed live, download
+        the result.
+      </p>
+
+      <h2>Open Source</h2>
+      <p>
+        Palimpsest is free and open source under the MIT licence. I built it for myself, but it solves
+        a problem a lot of students share, so I put it on GitHub for anyone who wants to use it, fork
+        it, or contribute. Issues and PRs are welcome — if you're also stuck with terrible scanned
+        PDFs, jump in. The repo is here:
+        <a href="https://github.com/cmrabdu/Palimpsest" target="_blank" rel="noopener noreferrer">github.com/cmrabdu/Palimpsest</a>.
+      </p>
+
+      <h2>Why I Built It</h2>
+      <p>
+        I like the kind of small tools that quietly remove a daily friction. This one started as a
+        weekend hack to make my own revisions easier and ended up being a proper little project — with
+        a Docker image, a self-hosted deployment, and a roadmap I keep poking at. No profit, no startup,
+        no catch. Just a way to make old knowledge accessible again.
+      </p>
+
+    </div>
+  </section>
+  <footer>
+    <p>made with <span class="footer-heart">❤</span> by Abdullah Camur</p>
+  </footer>
+</body>
+
+</html>
