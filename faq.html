@@ -1,76 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - Abdullah Camur</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="img/logo_favicon_2.png">
-    <link rel="canonical" href="https://cmrabdu.com/faq.html" />
-    <!-- Open Graph -->
-    <meta property="og:title" content="FAQ - Abdullah Camur" />
-    <meta property="og:description" content="Frequently asked questions about Abdullah Camur, his background, and interests." />
-    <meta property="og:image" content="https://cmrabdu.com/img/logo_favicon_2.png" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://cmrabdu.com/faq.html" />
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="FAQ - Abdullah Camur" />
-    <meta name="twitter:description" content="Frequently asked questions about Abdullah Camur, his background, and interests." />
-    <meta name="twitter:image" content="https://cmrabdu.com/img/logo_favicon_2.png" />
+<meta charset="utf-8">
+<title>FAQ | Abdullah Camur</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Frequently asked questions about Abdullah Camur, his background, and interests.">
+<link rel="canonical" href="https://cmrabdu.com/faq.html" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<meta property="og:title" content="FAQ | Abdullah Camur" />
+<meta property="og:description" content="Frequently asked questions about Abdullah Camur." />
+<meta property="og:image" content="https://cmrabdu.com/assets/og-default.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cmrabdu.com/faq.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="FAQ | Abdullah Camur" />
+<meta name="twitter:description" content="Frequently asked questions about Abdullah Camur." />
+<meta name="twitter:image" content="https://cmrabdu.com/assets/og-default.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<a href="#main-content" class="skip-link">Skip to main content</a>
-    <nav id="main-nav" class="loading"></nav>
-<script>
-(function() {
-  const el = document.getElementById('main-nav');
-  fetch('/nav.html', { cache: 'no-cache' })
-    .then(r => r.text())
-    .then(html => {
-      el.innerHTML = html;
-      el.classList.remove('loading');
-      el.classList.add('ready');
-    })
-    .catch(() => {
-      el.innerHTML = '<a href="/index.html">home</a>';
-      el.classList.remove('loading');
-      el.classList.add('ready');
-    });
-})();
-</script>
 
-    <header>
-        <h1>FAQ</h1>
-    </header>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="mark"><svg viewBox="-6 -4 112 106" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g class="mark-paths"><path d="M 1.5,93.2 Q 0,98 5,98 L 21,98 Q 26,98 27.5,93.2 L 54.5,6.8 Q 56,2 51,2 L 35,2 Q 30,2 28.5,6.8 Z" fill="#0000ee"/><path d="M 45.5,93.2 Q 44,98 49,98 L 65,98 Q 70,98 71.5,93.2 L 98.5,6.8 Q 100,2 95,2 L 79,2 Q 74,2 72.5,6.8 Z" fill="#0000ee"/></g></svg></span>
+      <span class="wordmark">cmrabdu</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">home</a><span class="sep">//</span>
+      <a href="about.html">about</a><span class="sep">//</span>
+      <a href="project.html">project</a><span class="sep">//</span>
+      <a href="blog.html">blog</a><span class="sep">//</span>
+      <a href="contact.html">contact</a>
+    </div>
+    <a class="nav-burger" href="#menu" aria-label="menu">≡ menu</a>
+  </div>
+</nav>
 
-    <main id="main-content">
-        <section id="faq-content">
-            <div class="faq-container">
-                <div class="faq-row">
-                    <div class="faq-question">Birthday?</div>
-                    <div class="faq-answer">11/05/2005</div>
-                </div>
-                <div class="faq-row">
-                    <div class="faq-question">Where are you from?</div>
-                    <div class="faq-answer">Belgium</div>
-                </div>
-                <div class="faq-row">
-                    <div class="faq-question">What are you?</div>
-                    <div class="faq-answer">Half Turkish Half Arabic</div>
-                </div>
-                <div class="faq-row">
-                    <div class="faq-question">What's your MBTI?</div>
-                    <div class="faq-answer">INTJ</div>
-                </div>
-            </div>
-        </section>
-    </main>
+<main class="article-page">
+  <div class="article-kicker">faq</div>
+  <h1 class="article-title">Frequently asked.</h1>
+  <p class="article-deck">Short answers to the questions I get the most.</p>
 
+  <dl class="article-meta">
+    <dt>birthday</dt><dd>11/05/2005</dd>
+    <dt>from</dt><dd>Belgium</dd>
+    <dt>origin</dt><dd>half Turkish, half Arab</dd>
+    <dt>mbti</dt><dd>INTJ</dd>
+  </dl>
+</main>
 
-
-    <footer>
-        <p>made with <span class="footer-heart">❤</span> by Abdullah Camur</p>
-    </footer>
+<footer class="foot">made with <span class="heart">♥</span> by Abdullah Camur</footer>
 </body>
 </html>

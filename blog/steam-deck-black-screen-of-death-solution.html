@@ -1,93 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steam Deck Black Screen Fix | Abdullah Camur</title>
-    <meta name="description" content="Struggling with the Steam Deck black screen of death? Here's how Abdullah Camur solved it after testing multiple fixes. Real-world experience and solution.">        
-    <link rel="stylesheet" href="/style.css">
-    <link rel="icon" type="image/png" href="/img/logo_favicon_2.png">
-    <link rel="canonical" href="https://cmrabdu.com/blog/steam-deck-black-screen-of-death-solution.html" />
-    <!-- Open Graph -->
-    <meta property="og:title" content="Steam Deck Black Screen Fix | Abdullah Camur" />
-    <meta property="og:description" content="Struggling with the Steam Deck black screen of death? Here's how Abdullah Camur solved it after testing multiple fixes." />
-    <meta property="og:image" content="https://cmrabdu.com/img/steam-deck.jpg" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://cmrabdu.com/blog/steam-deck-black-screen-of-death-solution.html" />
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Steam Deck Black Screen Fix | Abdullah Camur" />
-    <meta name="twitter:description" content="Struggling with the Steam Deck black screen of death? Here's how Abdullah Camur solved it after testing multiple fixes." />
-    <meta name="twitter:image" content="https://cmrabdu.com/img/steam-deck.jpg" />
+<meta charset="utf-8">
+<title>Steam Deck Black Screen Fix | Abdullah Camur</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Struggling with the Steam Deck black screen of death? Here's how Abdullah Camur solved it after testing multiple fixes.">
+<link rel="canonical" href="https://cmrabdu.com/blog/steam-deck-black-screen-of-death-solution.html" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<meta property="og:title" content="Steam Deck Black Screen Fix | Abdullah Camur" />
+<meta property="og:description" content="How I solved the Steam Deck black screen after testing multiple fixes." />
+<meta property="og:image" content="https://cmrabdu.com/img/steam-deck.jpg" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cmrabdu.com/blog/steam-deck-black-screen-of-death-solution.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Steam Deck Black Screen Fix | Abdullah Camur" />
+<meta name="twitter:description" content="How I solved the Steam Deck black screen after testing multiple fixes." />
+<meta name="twitter:image" content="https://cmrabdu.com/img/steam-deck.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<a href="#main-content" class="skip-link">Skip to main content</a>
 
-<nav id="main-nav" class="loading"></nav>
-<script>
-(function() {
-  const el = document.getElementById('main-nav');
-  fetch('/nav.html', { cache: 'no-cache' })
-    .then(r => r.text())
-    .then(html => {
-      el.innerHTML = html;           // on injecte SEULEMENT la liste
-      el.classList.remove('loading'); // enlève le masquage
-      el.classList.add('ready');      // (optionnel) tag de confort
-    })
-    .catch(() => {
-      el.innerHTML = '<a href="/index.html">home</a>'; // fallback minimal
-      el.classList.remove('loading');
-      el.classList.add('ready');
-    });
-})();
-</script>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/index.html">
+      <span class="mark"><svg viewBox="-6 -4 112 106" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g class="mark-paths"><path d="M 1.5,93.2 Q 0,98 5,98 L 21,98 Q 26,98 27.5,93.2 L 54.5,6.8 Q 56,2 51,2 L 35,2 Q 30,2 28.5,6.8 Z" fill="#0000ee"/><path d="M 45.5,93.2 Q 44,98 49,98 L 65,98 Q 70,98 71.5,93.2 L 98.5,6.8 Q 100,2 95,2 L 79,2 Q 74,2 72.5,6.8 Z" fill="#0000ee"/></g></svg></span>
+      <span class="wordmark">cmrabdu</span>
+    </a>
+    <div class="nav-links">
+      <a href="/index.html">home</a><span class="sep">//</span>
+      <a href="/about.html">about</a><span class="sep">//</span>
+      <a href="/project.html">project</a><span class="sep">//</span>
+      <a href="/blog.html" class="active">blog</a><span class="sep">//</span>
+      <a href="/contact.html">contact</a>
+    </div>
+    <a class="nav-burger" href="#menu" aria-label="menu">≡ menu</a>
+  </div>
+</nav>
 
+<main class="article-page">
+  <a class="article-back" href="/blog.html">← back to blog</a>
 
-    <header id="main-content">
-        <h1>Steam Deck Black Screen of Death - SOLUTION</h1>
-    </header>
+  <div class="article-kicker"><span class="blue">2025</span> &nbsp;·&nbsp; fix &nbsp;·&nbsp; 4 min read</div>
+  <h1 class="article-title">Steam Deck Black Screen of Death — solution.</h1>
+  <p class="article-deck">How I fixed the infamous Steam Deck black screen after trying multiple solutions — including a full screen replacement that didn't help.</p>
 
-    <article class="blog-article">
-        <img class="blog-image" src="/img/steam-deck.jpg" alt="Steam Deck Black Screen Fix" loading="lazy">
-        <div class="blog-content">
-            <p><strong>Hello everyone,</strong></p>
+  <div class="article-hero photo"><img src="/img/steam-deck.jpg" alt="Steam Deck"></div>
 
-            <p>Like many Steam Deck owners, I encountered the dreaded black screen issue…</p>
+  <article class="article-body">
+    <p><strong>Hello everyone,</strong></p>
+    <p>Like many Steam Deck owners, I encountered the dreaded black screen issue. After a few months of frustration, I decided to try multiple methods found in YouTube videos to finally <strong>recover</strong> my Steam Deck and enjoy it again.</p>
 
-            <p>After a few months of frustration, I decided to try multiple methods found in YouTube videos to finally <strong>recover</strong> my Steam Deck and enjoy it again.</p>
+    <h2>My experience.</h2>
+    <p>First, I decided to completely replace the screen (the screen <a href="https://www.ifixit.com/en-eu/products/steam-deck-64gb-or-256gb-screen" target="_blank" rel="noopener noreferrer">here</a>), as mine was already cracked. I thought that maybe, over time, the crack had caused the black screen issue. However, after replacing the screen, nothing worked on the built-in display. The Steam Deck was still functional on an external screen, though.</p>
+    <p>That's when I realized I had fallen victim to the infamous <strong>"Black Screen of Death"</strong> on the Steam Deck.</p>
+    <p>I'll spare you the details because I spent <strong>a lot</strong> of time testing all kinds of solutions, some more bizarre than others. But here's what actually worked for me.</p>
+    <p>This <strong>GOAT</strong> of a video saved me: <a href="https://www.youtube.com/watch?v=h6_u5M8qnCI&t=206s" target="_blank" rel="noopener noreferrer">here</a>.</p>
 
-            <p><strong>My Experience :</strong></p>
+    <h2>The steps.</h2>
+    <ol>
+      <li><strong>Turn off</strong> the Steam Deck completely (hold the Power button for 15 seconds).</li>
+      <li><strong>Enter recovery mode</strong>: hold <strong>Volume −</strong>, the <strong>menu button (three dots …)</strong>, and <strong>Power</strong> at the same time. The <strong>charging light</strong> should blink slowly. Wait <strong>15 to 30 minutes</strong>.</li>
+      <li><strong>Turn the Steam Deck back on</strong>. The screen should work normally.</li>
+    </ol>
 
-            <p>First, I decided to completely replace the screen (the screen <a href="https://www.ifixit.com/en-eu/products/steam-deck-64gb-or-256gb-screen" target="_blank" rel="noopener noreferrer">here</a>), as mine was already cracked. I thought that maybe, over time, the crack had caused the black screen issue. However, after replacing the screen, nothing worked on the built-in display. The Steam Deck was still functional on an external screen, though.</p>
+    <blockquote>I had to repeat the process three times before my Steam Deck came back to life. On the final attempt, I waited 1 hour instead of 15–30 minutes.</blockquote>
 
-            <p>That’s when I realized I had fallen victim to the infamous <strong>"Black Screen of Death"</strong> on the Steam Deck…</p>
+    <p>That's it! Let me know if this helped. If you have any questions, I'll do my best to answer them.</p>
+  </article>
 
-            <p>I’ll spare you the details because I spent <strong>a lot</strong> of time testing all kinds of solutions, some more bizarre than others. But here’s what actually worked for me.</p>
+  <nav class="article-foot-nav">
+    <a href="/blog.html">← all posts</a>
+    <span style="color: var(--muted);">next post · soon</span>
+  </nav>
+</main>
 
-            <p>This <strong>GOAT</strong> of a video saved me : <a href="https://www.youtube.com/watch?v=h6_u5M8qnCI&t=206s" target="_blank" rel="noopener noreferrer">here</a></p>
-
-            <p><strong>Here’s a quick summary of the steps :</strong></p>
-
-            <ol>
-                <li><strong>Turn off</strong> the Steam Deck completely (<strong>hold the Power button for 15 seconds</strong>).</li>
-                <li><strong>Enter recovery mode</strong>:
-                    <ul>
-                        <li>Hold <strong>Volume -</strong>, the <strong>menu button (three dots …)</strong>, and <strong>Power</strong> at the same time.</li>
-                        <li>The <strong>charging light</strong> should blink slowly.</li>
-                        <li>Wait <strong>15 to 30 minutes</strong>.</li>
-                    </ul>
-                </li>
-                <li><strong>Turn the Steam Deck back on</strong>—the screen should work normally.</li>
-            </ol>
-
-            <p><strong>Important :</strong> I had to <strong>repeat the process three times</strong> before my Steam Deck came back to life. On the final attempt, I waited <strong>1 hour</strong> instead of 15-30 minutes.</p>
-
-            <p>That’s it ! Let me know if this helped. If you have any questions, I’ll do my best to answer them !</p>
-        </div>
-    </article>
-
-    <footer>
-        <p>made with <span class="footer-heart">❤</span> by Abdullah Camur</p>
-    </footer>
+<footer class="foot">made with <span class="heart">♥</span> by Abdullah Camur</footer>
 </body>
 </html>

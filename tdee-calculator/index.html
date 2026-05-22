@@ -5,21 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TDEE Calculator | Abdullah Camur</title>
   <meta name="description" content="Free TDEE calculator — estimate your total daily energy expenditure, compare Mifflin-St Jeor and Harris-Benedict formulas, and set a realistic calorie target." />
-  <meta name="theme-color" content="#f0f0f0" />
   <link rel="canonical" href="https://cmrabdu.com/tdee-calculator/" />
-  <link rel="icon" type="image/png" href="/img/logo_favicon_2.png" />
-  <!-- Open Graph -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <meta property="og:title" content="TDEE Calculator | Abdullah Camur" />
   <meta property="og:description" content="Estimate your daily calorie needs, compare two trusted formulas, and set a realistic calorie target." />
-  <meta property="og:image" content="https://cmrabdu.com/tdee-calculator/cover.svg" />
+  <meta property="og:image" content="https://cmrabdu.com/tdee-calculator/cover-tdee-calculator.jpg" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://cmrabdu.com/tdee-calculator/" />
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="TDEE Calculator | Abdullah Camur" />
   <meta name="twitter:description" content="Estimate your daily calorie needs, compare two trusted formulas, and set a realistic calorie target." />
-  <meta name="twitter:image" content="https://cmrabdu.com/tdee-calculator/cover.svg" />
-  <!-- Structured data -->
+  <meta name="twitter:image" content="https://cmrabdu.com/tdee-calculator/cover-tdee-calculator.jpg" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -27,42 +23,48 @@
     "name": "TDEE Calculator",
     "description": "Estimate your total daily energy expenditure, compare Mifflin-St Jeor and Harris-Benedict formulas, and set a realistic calorie target.",
     "url": "https://cmrabdu.com/tdee-calculator/",
-    "author": {
-      "@type": "Person",
-      "name": "Abdullah Camur",
-      "url": "https://cmrabdu.com"
-    },
+    "author": { "@type": "Person", "name": "Abdullah Camur", "url": "https://cmrabdu.com" },
     "applicationCategory": "HealthApplication"
   }
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<nav id="main-nav" class="loading"></nav>
-<script>
-(function() {
-  const el = document.getElementById('main-nav');
-  fetch('/nav.html', { cache: 'no-cache' })
-    .then(r => r.text())
-    .then(html => {
-      el.innerHTML = html;
-      el.classList.remove('loading');
-      el.classList.add('ready');
-    })
-    .catch(() => {
-      el.innerHTML = '<a href="/index.html">home</a>';
-      el.classList.remove('loading');
-      el.classList.add('ready');
-    });
-})();
-</script>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/index.html">
+      <span class="mark"><svg viewBox="-6 -4 112 106" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g class="mark-paths"><path d="M 1.5,93.2 Q 0,98 5,98 L 21,98 Q 26,98 27.5,93.2 L 54.5,6.8 Q 56,2 51,2 L 35,2 Q 30,2 28.5,6.8 Z" fill="#0000ee"/><path d="M 45.5,93.2 Q 44,98 49,98 L 65,98 Q 70,98 71.5,93.2 L 98.5,6.8 Q 100,2 95,2 L 79,2 Q 74,2 72.5,6.8 Z" fill="#0000ee"/></g></svg></span>
+      <span class="wordmark">cmrabdu</span>
+    </a>
+    <div class="nav-links">
+      <a href="/index.html">home</a><span class="sep">//</span>
+      <a href="/about.html">about</a><span class="sep">//</span>
+      <a href="/project.html" class="active">project</a><span class="sep">//</span>
+      <a href="/blog.html">blog</a><span class="sep">//</span>
+      <a href="/contact.html">contact</a>
+    </div>
+    <a class="nav-burger" href="#menu" aria-label="menu">≡ menu</a>
+  </div>
+</nav>
 
-<header id="main-content">
-  <h1>TDEE Calculator</h1>
-  <p class="calc-intro">Estimate your daily calorie needs, compare two trusted formulas, and set a realistic calorie target.</p>
+<header class="article-page tdee-head" id="main-content">
+  <a class="article-back" href="/project.html">← back to projects</a>
+  <div class="article-kicker">project <span class="blue">04</span> &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; tool</div>
+  <h1 class="article-title">TDEE Calculator.</h1>
+  <p class="article-deck">Estimate your daily calorie needs, compare two trusted formulas, and set a realistic target. Built because every other calculator on the web is buried under ads.</p>
+
+  <dl class="article-meta">
+    <dt>year</dt><dd>2026</dd>
+    <dt>stack</dt><dd>vanilla JS &middot; HTML &middot; CSS</dd>
+    <dt>formulas</dt><dd>Mifflin-St Jeor &middot; Harris-Benedict</dd>
+    <dt>links</dt><dd><a href="https://github.com/cmrabdu/tdee-calculator" target="_blank" rel="noopener noreferrer">github.com/cmrabdu/tdee-calculator ↗</a></dd>
+  </dl>
 </header>
 
 <main class="layout">
@@ -258,12 +260,10 @@
 </main>
 
 <div class="source-note">
-  <p>Source code available on <a href="https://github.com/cmrabdu/tdee-calculator" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+  <p>Source code on <a href="https://github.com/cmrabdu/tdee-calculator" target="_blank" rel="noopener noreferrer">GitHub ↗</a></p>
 </div>
 
-<footer>
-  <p>made with <span class="footer-heart">❤</span> by Abdullah Camur</p>
-</footer>
+<footer class="foot">made with <span class="heart">♥</span> by Abdullah Camur</footer>
 
 <script src="script.js"></script>
 </body>

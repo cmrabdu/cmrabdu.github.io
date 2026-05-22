@@ -1,104 +1,114 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Palimpsest | Abdullah Camur</title>
-  <meta name="description" content="Palimpsest — an open-source tool that turns old scanned STEM PDFs into clean, modern LaTeX documents.">
-  <link rel="stylesheet" href="/style.css">
-  <link rel="icon" type="image/png" href="/img/logo_favicon_2.png">
-  <link rel="canonical" href="https://cmrabdu.com/project/palimpsest.html" />
-  <!-- Open Graph -->
-  <meta property="og:title" content="Palimpsest | Abdullah Camur" />
-  <meta property="og:description" content="An open-source tool that turns old scanned STEM PDFs into clean, modern LaTeX documents." />
-  <meta property="og:image" content="https://cmrabdu.com/project-palimpsest/palimpsest-logo.svg" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://cmrabdu.com/project/palimpsest.html" />
+<meta charset="utf-8">
+<title>Palimpsest | Abdullah Camur</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Palimpsest — an open-source tool that turns old scanned STEM PDFs into clean, modern LaTeX documents.">
+<link rel="canonical" href="https://cmrabdu.com/project/palimpsest.html" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<meta property="og:title" content="Palimpsest | Abdullah Camur" />
+<meta property="og:description" content="An open-source tool that turns old scanned STEM PDFs into clean, modern LaTeX documents." />
+<meta property="og:image" content="https://cmrabdu.com/project-palimpsest/og-palimpsest.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cmrabdu.com/project/palimpsest.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Palimpsest | Abdullah Camur" />
+<meta name="twitter:description" content="An open-source tool that turns old scanned STEM PDFs into clean, modern LaTeX documents." />
+<meta name="twitter:image" content="https://cmrabdu.com/project-palimpsest/og-palimpsest.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<style>
+  /* Palimpsest brand accent — scoped to this page */
+  .palimpsest-hero { aspect-ratio: 21/9; height: auto !important; max-height: 420px; border: 1px solid var(--ink); overflow: hidden; }
+  .palimpsest-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .palimpsest-card {
+    margin: 28px 0;
+    padding: 22px 24px;
+    background: #f6eedd;
+    border: 1px solid #5b4f3a33;
+    border-left: 3px solid #b8442a;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .palimpsest-card .pl-mark { width: 56px; height: 56px; flex-shrink: 0; }
+  .palimpsest-card .pl-text { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: #3a2f1f; line-height: 1.55; flex: 1; min-width: 200px; }
+  .palimpsest-card .pl-text strong { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 500; font-size: 22px; color: #1a1410; display: block; margin-bottom: 4px; }
+  .palimpsest-card .pl-rule { color: #b8442a; font-weight: 700; }
+</style>
 </head>
-
 <body>
-<a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <nav id="main-nav" class="loading"></nav>
-<script>
-(function() {
-  const el = document.getElementById('main-nav');
-  fetch('/nav.html', { cache: 'no-cache' })
-    .then(r => r.text())
-    .then(html => {
-      el.innerHTML = html;
-      el.classList.remove('loading');
-      el.classList.add('ready');
-    })
-    .catch(() => {
-      el.innerHTML = '<a href="/index.html">home</a>';
-      el.classList.remove('loading');
-      el.classList.add('ready');
-    });
-})();
-</script>
-
-  <header id="main-content">
-    <h1>Palimpsest</h1>
-  </header>
-
-  <section class="blog-article">
-    <img class="blog-image" src="/project-palimpsest/palimpsest-logo.svg" alt="Palimpsest logo" loading="lazy">
-
-    <div class="blog-content">
-
-      <h2>The Problem</h2>
-      <p>
-        I'm a student. My professors are great at teaching, but their course materials are stuck in the
-        past — scanned photocopies of handwritten notes from the 80s, image-only PDFs with no text layer,
-        no copy-paste, no search. Dense physics, statics, fluid dynamics, differential equations, tensor
-        notation — all locked inside blurry images. I tried the usual OCR tools. Tesseract chokes on
-        <code>∂²u/∂x²</code>. Google Docs mangles integrals. Nothing really works for STEM content.
-      </p>
-
-      <h2>The Idea</h2>
-      <p>
-        So I built <strong>Palimpsest</strong>: a tool that takes those old scans and rewrites them as
-        proper, structured, beautifully typeset LaTeX documents. Drop a PDF, get back a clean
-        <code>.tex</code> source and a compiled <code>.pdf</code>. That's it. The name comes from the
-        old manuscript pages that were scraped clean and rewritten over — which is basically what the
-        tool does to a tired scan.
-      </p>
-
-      <h2>How It Works</h2>
-      <p>
-        Under the hood it's a small pipeline: extract pages at high DPI, clean them up with OpenCV
-        (binarize, deskew, denoise), then send each page to a vision model that reads the formulas
-        directly and produces LaTeX. A context layer keeps track of variables and notation across pages
-        so equations stay consistent over a 50-page document. Everything is then merged into a single
-        <code>.tex</code> file and compiled with <code>xelatex</code>. There's a CLI for power users
-        and a small web UI for everyone else — drag, drop, watch the pages get processed live, download
-        the result.
-      </p>
-
-      <h2>Open Source</h2>
-      <p>
-        Palimpsest is free and open source under the MIT licence. I built it for myself, but it solves
-        a problem a lot of students share, so I put it on GitHub for anyone who wants to use it, fork
-        it, or contribute. Issues and PRs are welcome — if you're also stuck with terrible scanned
-        PDFs, jump in. The repo is here:
-        <a href="https://github.com/cmrabdu/Palimpsest" target="_blank" rel="noopener noreferrer">github.com/cmrabdu/Palimpsest</a>.
-      </p>
-
-      <h2>Why I Built It</h2>
-      <p>
-        I like the kind of small tools that quietly remove a daily friction. This one started as a
-        weekend hack to make my own revisions easier and ended up being a proper little project — with
-        a Docker image, a self-hosted deployment, and a roadmap I keep poking at. No profit, no startup,
-        no catch. Just a way to make old knowledge accessible again.
-      </p>
-
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/index.html">
+      <span class="mark"><svg viewBox="-6 -4 112 106" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g class="mark-paths"><path d="M 1.5,93.2 Q 0,98 5,98 L 21,98 Q 26,98 27.5,93.2 L 54.5,6.8 Q 56,2 51,2 L 35,2 Q 30,2 28.5,6.8 Z" fill="#0000ee"/><path d="M 45.5,93.2 Q 44,98 49,98 L 65,98 Q 70,98 71.5,93.2 L 98.5,6.8 Q 100,2 95,2 L 79,2 Q 74,2 72.5,6.8 Z" fill="#0000ee"/></g></svg></span>
+      <span class="wordmark">cmrabdu</span>
+    </a>
+    <div class="nav-links">
+      <a href="/index.html">home</a><span class="sep">//</span>
+      <a href="/about.html">about</a><span class="sep">//</span>
+      <a href="/project.html" class="active">project</a><span class="sep">//</span>
+      <a href="/blog.html">blog</a><span class="sep">//</span>
+      <a href="/contact.html">contact</a>
     </div>
-  </section>
-  <footer>
-    <p>made with <span class="footer-heart">❤</span> by Abdullah Camur</p>
-  </footer>
-</body>
+    <a class="nav-burger" href="#menu" aria-label="menu">≡ menu</a>
+  </div>
+</nav>
 
+<main class="article-page">
+  <a class="article-back" href="/project.html">← back to projects</a>
+
+  <div class="article-kicker">project <span class="blue">05</span> &nbsp;·&nbsp; 2026</div>
+  <h1 class="article-title">Palimpsest.</h1>
+  <p class="article-deck">Scanned STEM PDFs in, clean LaTeX out. Open source, built for myself, useful for anyone stuck with photocopied 80s coursework.</p>
+
+  <div class="article-hero palimpsest-hero"><img src="/project-palimpsest/palimpsest-hero.svg" alt="Palimpsest"></div>
+
+  <dl class="article-meta">
+    <dt>year</dt><dd>2026</dd>
+    <dt>stack</dt><dd>Python · OpenCV · vision model · XeLaTeX · Docker</dd>
+    <dt>license</dt><dd>MIT</dd>
+    <dt>links</dt><dd><a href="https://palimpsest.cmrabdu.com/" target="_blank" rel="noopener noreferrer">palimpsest.cmrabdu.com ↗</a> · <a href="https://github.com/cmrabdu/Palimpsest" target="_blank" rel="noopener noreferrer">github ↗</a></dd>
+  </dl>
+
+  <article class="article-body">
+    <h2>The problem.</h2>
+    <p>I'm a student. My professors are great at teaching, but their course materials are stuck in the past: scanned photocopies of handwritten notes from the 80s, image-only PDFs with no text layer, no copy-paste, no search. Dense physics, statics, fluid dynamics, differential equations, tensor notation, all locked inside blurry images. I tried the usual OCR tools. Tesseract chokes on <code>∂²u/∂x²</code>. Google Docs mangles integrals. Nothing really works for STEM content.</p>
+
+    <h2>The idea.</h2>
+    <p>So I built <strong>Palimpsest</strong>: a tool that takes those old scans and rewrites them as proper, structured, beautifully typeset LaTeX documents. Drop a PDF, get back a clean <code>.tex</code> source and a compiled <code>.pdf</code>. That's it. The name comes from the old manuscript pages that were scraped clean and rewritten over, which is basically what the tool does to a tired scan.</p>
+
+    <aside class="palimpsest-card">
+      <img class="pl-mark" src="/project-palimpsest/mark.svg" alt="">
+      <div class="pl-text">
+        <strong><span class="pl-rule">//</span> Palimpsest</strong>
+      </div>
+    </aside>
+
+    <h2>How it works.</h2>
+    <p>Under the hood it's a small pipeline: extract pages at high DPI, clean them up with OpenCV (binarize, deskew, denoise), then send each page to a vision model that reads the formulas directly and produces LaTeX. A context layer keeps track of variables and notation across pages so equations stay consistent over a 50-page document. Everything is then merged into a single <code>.tex</code> file and compiled with <code>xelatex</code>. There's a CLI for power users and a small web UI for everyone else: drag, drop, watch the pages get processed live, download the result.</p>
+
+    <h2>Open source.</h2>
+    <p>Palimpsest is free and open source under the MIT licence. I built it for myself, but it solves a problem a lot of students share, so I put it on GitHub for anyone who wants to use it, fork it, or contribute. Issues and PRs are welcome. If you're also stuck with terrible scanned PDFs, jump in. The repo is here: <a href="https://github.com/cmrabdu/Palimpsest" target="_blank" rel="noopener noreferrer">github.com/cmrabdu/Palimpsest</a>.</p>
+
+    <blockquote>I like the kind of small tools that quietly remove a daily friction.</blockquote>
+
+    <h2>Why I built it.</h2>
+    <p>This one started as a weekend hack to make my own revisions easier and ended up being a proper little project, with a Docker image, a self-hosted deployment, and a roadmap I keep poking at. No profit, no startup, no catch. Just a way to make old knowledge accessible again.</p>
+  </article>
+
+  <nav class="article-foot-nav">
+    <a href="permis-b-online.html">← previous · Permis B Online</a>
+    <a href="my-virtual-library.html">next <span class="arrow">·</span> My Virtual Library →</a>
+  </nav>
+</main>
+
+<footer class="foot">made with <span class="heart">♥</span> by Abdullah Camur</footer>
+</body>
 </html>

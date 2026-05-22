@@ -1,70 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Abdullah Camur</title>
-    <meta name="description" content="Get in touch with Abdullah Camur for project inquiries, collaboration, or questions.">        
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="img/logo_favicon_2.png">
-    <link rel="canonical" href="https://cmrabdu.com/contact.html" />
-    <!-- Open Graph -->
-    <meta property="og:title" content="Contact | Abdullah Camur" />
-    <meta property="og:description" content="Get in touch with Abdullah Camur for project inquiries, collaboration, or questions." />
-    <meta property="og:image" content="https://cmrabdu.com/img/logo_favicon_2.png" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://cmrabdu.com/contact.html" />
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Contact | Abdullah Camur" />
-    <meta name="twitter:description" content="Get in touch with Abdullah Camur for project inquiries, collaboration, or questions." />
-    <meta name="twitter:image" content="https://cmrabdu.com/img/logo_favicon_2.png" />
-
+<meta charset="utf-8">
+<title>Contact | Abdullah Camur</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Get in touch with Abdullah Camur for project inquiries, collaboration, or questions.">
+<link rel="canonical" href="https://cmrabdu.com/contact.html" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<meta property="og:title" content="Contact | Abdullah Camur" />
+<meta property="og:description" content="Get in touch with Abdullah Camur." />
+<meta property="og:image" content="https://cmrabdu.com/assets/og-default.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cmrabdu.com/contact.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Contact | Abdullah Camur" />
+<meta name="twitter:description" content="Get in touch with Abdullah Camur." />
+<meta name="twitter:image" content="https://cmrabdu.com/assets/og-default.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<a href="#main-content" class="skip-link">Skip to main content</a>
 
-<nav id="main-nav" class="loading"></nav>
-<script>
-(function() {
-  const el = document.getElementById('main-nav');
-  fetch('/nav.html', { cache: 'no-cache' })
-    .then(r => r.text())
-    .then(html => {
-      el.innerHTML = html;           // on injecte SEULEMENT la liste
-      el.classList.remove('loading'); // enlève le masquage
-      el.classList.add('ready');      // (optionnel) tag de confort
-    })
-    .catch(() => {
-      el.innerHTML = '<a href="/index.html">home</a>'; // fallback minimal
-      el.classList.remove('loading');
-      el.classList.add('ready');
-    });
-})();
-</script>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="mark"><svg viewBox="-6 -4 112 106" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g class="mark-paths"><path d="M 1.5,93.2 Q 0,98 5,98 L 21,98 Q 26,98 27.5,93.2 L 54.5,6.8 Q 56,2 51,2 L 35,2 Q 30,2 28.5,6.8 Z" fill="#0000ee"/><path d="M 45.5,93.2 Q 44,98 49,98 L 65,98 Q 70,98 71.5,93.2 L 98.5,6.8 Q 100,2 95,2 L 79,2 Q 74,2 72.5,6.8 Z" fill="#0000ee"/></g></svg></span>
+      <span class="wordmark">cmrabdu</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">home</a><span class="sep">//</span>
+      <a href="about.html">about</a><span class="sep">//</span>
+      <a href="project.html">project</a><span class="sep">//</span>
+      <a href="blog.html">blog</a><span class="sep">//</span>
+      <a href="contact.html" class="active">contact</a>
+    </div>
+    <a class="nav-burger" href="#menu" aria-label="menu">≡ menu</a>
+  </div>
+</nav>
 
+<main class="contact-page">
+  <a class="contact-email" href="mailto:contact@cmrabdu.com">contact@cmrabdu.com</a>
+</main>
 
-
-
-    <header>
-        <h1>Contact</h1>
-    </header>
-
-    <main id="main-content">
-        <section id="contact-content">
-            <div class="contact-container">
-                <div class="contact-text">
-                    <p>e-mail : <a href="mailto:contact@cmrabdu.com">contact@cmrabdu.com</a></p>
-
-                </div>
-            </div>
-        </section>
-    </main>
-
-
-
-    <footer>
-        <p>made with <span class="footer-heart">❤</span> by Abdullah Camur</p>
-    </footer>
+<footer class="foot">made with <span class="heart">♥</span> by Abdullah Camur</footer>
 </body>
 </html>

@@ -1,114 +1,96 @@
-  <!DOCTYPE html>
-  <html lang="en">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Racing FPV Drone | Abdullah Camur</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Step-by-step story of how Abdullah Camur built his first FPV racing drone — from simulation training to hands-on assembly and flying.">
+<link rel="canonical" href="https://cmrabdu.com/project/Building-a-Racing-FPV-Drone.html" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<meta property="og:title" content="Racing FPV Drone | Abdullah Camur" />
+<meta property="og:description" content="From simulation training to hands-on assembly — my journey building a racing FPV drone at 14." />
+<meta property="og:image" content="https://cmrabdu.com/project-fpv-drone/banner-fpv.jpeg" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cmrabdu.com/project/Building-a-Racing-FPV-Drone.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Racing FPV Drone | Abdullah Camur" />
+<meta name="twitter:description" content="From simulation training to hands-on assembly — my journey building a racing FPV drone at 14." />
+<meta name="twitter:image" content="https://cmrabdu.com/project-fpv-drone/banner-fpv.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Building a Racing FPV Drone | Abdullah Camur</title>
-    <meta name="description" content="Step-by-step story of how Abdullah Camur built his first FPV racing drone — from simulation training to hands-on assembly and flying.">        
-    <link rel="stylesheet" href="/style.css">
-    <link rel="icon" type="image/png" href="/img/logo_favicon_2.png">
-  </head>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/index.html">
+      <span class="mark"><svg viewBox="-6 -4 112 106" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g class="mark-paths"><path d="M 1.5,93.2 Q 0,98 5,98 L 21,98 Q 26,98 27.5,93.2 L 54.5,6.8 Q 56,2 51,2 L 35,2 Q 30,2 28.5,6.8 Z" fill="#0000ee"/><path d="M 45.5,93.2 Q 44,98 49,98 L 65,98 Q 70,98 71.5,93.2 L 98.5,6.8 Q 100,2 95,2 L 79,2 Q 74,2 72.5,6.8 Z" fill="#0000ee"/></g></svg></span>
+      <span class="wordmark">cmrabdu</span>
+    </a>
+    <div class="nav-links">
+      <a href="/index.html">home</a><span class="sep">//</span>
+      <a href="/about.html">about</a><span class="sep">//</span>
+      <a href="/project.html" class="active">project</a><span class="sep">//</span>
+      <a href="/blog.html">blog</a><span class="sep">//</span>
+      <a href="/contact.html">contact</a>
+    </div>
+    <a class="nav-burger" href="#menu" aria-label="menu">≡ menu</a>
+  </div>
+</nav>
 
-  <body>
-<a href="#main-content" class="skip-link">Skip to main content</a>
+<main class="article-page">
+  <a class="article-back" href="/project.html">← back to projects</a>
 
-  <nav id="main-nav" class="loading"></nav>
-<script>
-(function() {
-  const el = document.getElementById('main-nav');
-  fetch('/nav.html', { cache: 'no-cache' })
-    .then(r => r.text())
-    .then(html => {
-      el.innerHTML = html;           // on injecte SEULEMENT la liste
-      el.classList.remove('loading'); // enlève le masquage
-      el.classList.add('ready');      // (optionnel) tag de confort
-    })
-    .catch(() => {
-      el.innerHTML = '<a href="/index.html">home</a>'; // fallback minimal
-      el.classList.remove('loading');
-      el.classList.add('ready');
-    });
-})();
-</script>
+  <div class="article-kicker">project <span class="blue">01</span> &nbsp;·&nbsp; 2019</div>
+  <h1 class="article-title">Racing FPV Drone.</h1>
+  <p class="article-deck">An autobiographical build story. Age 14, six months in a simulator, and a self-built racing drone at the end of it.</p>
 
-    <header id="main-content">
-      <h1>Building a Racing FPV Drone</h1>
-    </header>
+  <div class="article-hero photo"><img src="/project-fpv-drone/banner-fpv.jpeg" alt="FPV drone banner"></div>
 
-    <section class="blog-article">
-      <!-- Carrousel ergonomique -->
-      <div class="carousel-gallery">
-        <div class="carousel-track">
-          <div class="carousel-slide">
-            <img src="/project-fpv-drone/banner-fpv.jpeg" alt="FPV Racing Drone Banner" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="/project-fpv-drone/IMG_6317.jpg" alt="FPV Drone Assembly Process" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <img src="/project-fpv-drone/cover2.jpg" alt="Completed FPV Racing Drone" loading="lazy">
-          </div>
-        </div>
+  <dl class="article-meta">
+    <dt>year</dt><dd>2019 → 2020</dd>
+    <dt>age</dt><dd>14</dd>
+    <dt>radio</dt><dd>Taranis QX7</dd>
+  </dl>
+
+  <article class="article-body">
+    <h2>A passion for flight.</h2>
+    <p>I've always been fascinated by things that fly. Airplanes, machines, mechanics, the way objects move through the air: anything related to flight grabs my attention. In April 2020, when I was 14, I stumbled upon a YouTube video of an FPV drone. It instantly clicked. The immersion, the smoothness, the speed, the freedom of movement. I was hooked. From that moment on, I had only one goal in mind: build one myself.</p>
+
+    <h2>Self-taught from the ground up.</h2>
+    <p>At 14, I didn't have the technical skills, the experience, or the resources. But I had the drive. So, as I often do, I taught myself. I spent hours researching, reading, watching tutorials, and engaging in forums. I learned the basics of piloting, the components that make up a drone, how onboard electronics work, and the rules I needed to follow.</p>
+    <p>I started by getting a <strong>Taranis QX7</strong> radio transmitter and trained exclusively on a simulator for several months. For over six months, I flew only virtually, refining my reflexes, understanding how the drone feels, and learning how to configure everything, while saving up to afford the real thing.</p>
+
+    <figure class="media media--vert">
+      <div class="media-frame">
+        <img src="/project-fpv-drone/IMG_6317.jpg" alt="FPV assembly bench" loading="lazy">
       </div>
-      <script>
-        // Scroll horizontal natif, pas besoin de JS pour swipe
-      </script>
+      <figcaption><span class="blue">fig. 01</span> &nbsp;·&nbsp; assembly bench, the long part.</figcaption>
+    </figure>
 
-      <div class="blog-content">
+    <h2>From theory to practice.</h2>
+    <p>At 15, I finally had enough money to buy my first set of components. It was time to move from virtual to real. For the build, I followed the guidance of a French content creator, <a href="https://www.youtube.com/@AirFlexfpv" target="_blank" rel="noopener noreferrer">Airflex</a>, whose tutorials were clear and detailed. Thanks to his content and everything I had learned, I built my first racing FPV drone step by step.</p>
 
-        <h2>A Passion for Flight</h2>
-        <p>
-          I’ve always been fascinated by things that fly. Airplanes, machines, mechanics, the way objects move through the
-          air—anything related to flight grabs my attention.
-          In April 2020, when I was 14 years old, I stumbled upon a YouTube video of an FPV drone. It instantly clicked.
-          The immersion, the smoothness, the speed, the freedom of movement—I was hooked.
-          From that moment on, I had only one goal in mind: build one myself.
-        </p>
+    <figure class="media media--horiz">
+      <div class="media-frame">
+        <img src="/project-fpv-drone/cover2.jpg" alt="Completed FPV racing drone" loading="lazy">
+      </div>
+      <figcaption><span class="blue">fig. 02</span> &nbsp;·&nbsp; finished build.</figcaption>
+    </figure>
 
-        <h2>Self-Taught from the Ground Up</h2>
-        <p>
-          Of course, at 14, I didn’t have the technical skills, the experience, or the resources. But I had the drive. So,
-          as I often do, I taught myself.
-          I spent hours researching, reading, watching tutorials, and engaging in forums. I learned the basics of
-          piloting, the components that make up a drone,
-          how onboard electronics work, and the rules I needed to follow.
-        </p>
-        <p>
-          I started by getting a <strong>Taranis QX7</strong> radio transmitter and trained exclusively on a simulator for
-          several months.
-          For over six months, I flew only virtually—refining my reflexes, understanding how the drone feels, and learning
-          how to configure everything—
-          while saving up to afford the real thing.
-        </p>
+    <h2>A transformative project.</h2>
+    <p>This project taught me far more than just technical skills. I learned to be resourceful, to solve problems on my own, and to be patient and precise. I got hands-on with electronics, software configuration, piloting, and fine mechanics. Every step was a chance to discover, understand, and improve.</p>
+    <p>This drone is much more than just a flying object. It represents a personal journey, a drive to learn independently, a deep interest in technology, and the desire to turn what fascinates me into something real.</p>
+  </article>
 
-        <h2>From Theory to Practice</h2>
-        <p>
-          At 15, I finally had enough money to buy my first set of components. It was time to move from virtual to real.
-          For the build, I followed the guidance of a French content creator, <a
-            href="https://www.youtube.com/@AirFlexfpv" target="_blank" rel="noopener noreferrer">Airflex</a>,
-          whose tutorials and explanations were clear and detailed. I related to him—young, passionate, and technically
-          sharp.
-          Thanks to his content and everything I had learned, I was able to build my first racing FPV drone step by step.
-        </p>
+  <nav class="article-foot-nav">
+    <a href="project-robot-hand.html">← previous · Robot Hand</a>
+    <a href="/project.html">all projects →</a>
+  </nav>
+</main>
 
-
-        <h2>A Transformative Project</h2>
-        <p>
-          This project taught me far more than just technical skills. I learned to be resourceful, to solve problems on my
-          own, and to be patient and precise.
-          I got hands-on with electronics, software configuration, piloting, and fine mechanics. Every step was a chance
-          to discover, understand, and improve.
-        </p>
-        <p>
-          This drone is much more than just a flying object. It represents a personal journey, a drive to learn
-          independently,
-          a deep interest in technology, and the desire to turn what fascinates me into something real.
-        </p>
-    </section>
-    <footer>
-      <p>made with <span class="footer-heart">❤</span> by Abdullah Camur</p>
-    </footer>
-  </body>
-
-  </html>
+<footer class="foot">made with <span class="heart">♥</span> by Abdullah Camur</footer>
+</body>
+</html>

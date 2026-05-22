@@ -1,138 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robotic Hand Project with OpenCV | Abdullah Camur</title>
-    <meta name="description" content="Explore Abdullah Camur’s robotic hand project — combining Python, Arduino, and OpenCV to create a 3D-printed hand controlled by gestures and interface.">        
-    <link rel="stylesheet" href="/style.css">
-    <link rel="icon" type="image/png" href="/img/logo_favicon_2.png">
-    <link rel="canonical" href="https://cmrabdu.com/project/project-robot-hand.html" />
-    <!-- Open Graph -->
-    <meta property="og:title" content="Robotic Hand Project with OpenCV | Abdullah Camur" />
-    <meta property="og:description" content="Explore Abdullah Camur’s robotic hand project — combining Python, Arduino, and OpenCV to create a 3D-printed hand controlled by gestures and interface." />
-    <meta property="og:image" content="https://cmrabdu.com/project-robot-hand/robot-hand-view-project-cover.jpeg" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://cmrabdu.com/project/project-robot-hand.html" />
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Robotic Hand Project with OpenCV | Abdullah Camur" />
-    <meta name="twitter:description" content="Explore Abdullah Camur’s robotic hand project — combining Python, Arduino, and OpenCV to create a 3D-printed hand controlled by gestures and interface." />
-    <meta name="twitter:image" content="https://cmrabdu.com/project-robot-hand/robot-hand-view-project-cover.jpeg" />
+<meta charset="utf-8">
+<title>Robotic Hand · OpenCV | Abdullah Camur</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A 3D-printed robotic hand controlled via Python with gesture recognition using OpenCV.">
+<link rel="canonical" href="https://cmrabdu.com/project/project-robot-hand.html" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<meta property="og:title" content="Robotic Hand · OpenCV | Abdullah Camur" />
+<meta property="og:description" content="A 3D-printed robotic hand controlled via Python with gesture recognition." />
+<meta property="og:image" content="https://cmrabdu.com/project-robot-hand/robot-hand-electronics.jpg" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cmrabdu.com/project/project-robot-hand.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Robotic Hand · OpenCV | Abdullah Camur" />
+<meta name="twitter:description" content="A 3D-printed robotic hand controlled via Python with gesture recognition." />
+<meta name="twitter:image" content="https://cmrabdu.com/project-robot-hand/robot-hand-electronics.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<a href="#main-content" class="skip-link">Skip to main content</a>
 
-<nav id="main-nav" class="loading"></nav>
-<script>
-(function() {
-  const el = document.getElementById('main-nav');
-  fetch('/nav.html', { cache: 'no-cache' })
-    .then(r => r.text())
-    .then(html => {
-      el.innerHTML = html;           // on injecte SEULEMENT la liste
-      el.classList.remove('loading'); // enlève le masquage
-      el.classList.add('ready');      // (optionnel) tag de confort
-    })
-    .catch(() => {
-      el.innerHTML = '<a href="/index.html">home</a>'; // fallback minimal
-      el.classList.remove('loading');
-      el.classList.add('ready');
-    });
-})();
-</script>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/index.html">
+      <span class="mark"><svg viewBox="-6 -4 112 106" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g class="mark-paths"><path d="M 1.5,93.2 Q 0,98 5,98 L 21,98 Q 26,98 27.5,93.2 L 54.5,6.8 Q 56,2 51,2 L 35,2 Q 30,2 28.5,6.8 Z" fill="#0000ee"/><path d="M 45.5,93.2 Q 44,98 49,98 L 65,98 Q 70,98 71.5,93.2 L 98.5,6.8 Q 100,2 95,2 L 79,2 Q 74,2 72.5,6.8 Z" fill="#0000ee"/></g></svg></span>
+      <span class="wordmark">cmrabdu</span>
+    </a>
+    <div class="nav-links">
+      <a href="/index.html">home</a><span class="sep">//</span>
+      <a href="/about.html">about</a><span class="sep">//</span>
+      <a href="/project.html" class="active">project</a><span class="sep">//</span>
+      <a href="/blog.html">blog</a><span class="sep">//</span>
+      <a href="/contact.html">contact</a>
+    </div>
+    <a class="nav-burger" href="#menu" aria-label="menu">≡ menu</a>
+  </div>
+</nav>
 
+<main class="article-page">
+  <a class="article-back" href="/project.html">← back to projects</a>
 
-    <header id="main-content">
-        <h1>Hand Tracking With OpenCV and Python</h1>
-    </header>
+  <div class="article-kicker">project <span class="blue">02</span> &nbsp;·&nbsp; 2023</div>
+  <h1 class="article-title">Hand Tracking · CV.</h1>
+  <p class="article-deck">A 3D-printed robotic hand, fully controllable from Python — through a Tkinter GUI or a camera-based gesture recognition system using OpenCV.</p>
 
-    <section class="blog-article">
-      <!-- Carrousel ergonomique -->
-      <div class="carousel-gallery">
-        <div class="carousel-track">
-          <div class="carousel-slide">
-            <video controls poster="/project-robot-hand/poster-proto.jpg">
-              <source src="/project-robot-hand/compressed-proto-robot-hand.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div class="carousel-slide">
-            <video controls poster="/project-robot-hand/poster-demo.jpg">
-              <source src="/project-robot-hand/demo-robot-hand.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div class="carousel-slide">
-            <img src="/project-robot-hand/robot-hand-view-project-cover.jpeg" alt="Image 2" loading="lazy">
-          </div>
-          <div class="carousel-slide">
-            <a href="/project-robot-hand/POO rapport - Version Final.pdf" target="_blank" rel="noopener noreferrer">
-              <img src="/img/PDF-logo.jpeg" alt="Ouvrir le PDF" loading="lazy">
-            </a>
-          </div>
-          <div class="carousel-slide">
-            <a href="https://github.com/cmrabdu/Hand-tracking-with-open-CV" target="_blank" rel="noopener noreferrer">
-              <img src="/img/Github-logo.jpeg" alt="Voir sur GitHub" loading="lazy">
-            </a>
-          </div>
-        </div>
+  <div class="article-hero photo"><img src="/project-robot-hand/robot-hand-electronics.jpg" alt="Robot hand"></div>
+
+  <dl class="article-meta">
+    <dt>year</dt><dd>2023</dd>
+    <dt>stack</dt><dd>Python · Tkinter · OpenCV · MediaPipe · Arduino · PLA</dd>
+    <dt>context</dt><dd>final-year secondary school project · OOP</dd>
+    <dt>links</dt><dd>
+      <a href="https://github.com/cmrabdu/Hand-tracking-with-open-CV" target="_blank" rel="noopener noreferrer">github ↗</a> &nbsp;·&nbsp;
+      <a href="/project-robot-hand/POO rapport - Version Final.pdf" target="_blank" rel="noopener noreferrer">report (pdf) ↗</a>
+    </dd>
+  </dl>
+
+  <article class="article-body">
+    <p>Robotics and artificial intelligence offer fascinating possibilities, and this project is a concrete example of that. I designed and built a 3D-printed robotic hand, fully controllable via a Python program. This project was part of a year-end assignment during my final year of secondary school in 2023, focused on object-oriented programming. It evolved to include two control modes: a graphical interface and a gesture recognition system using a camera.</p>
+
+    <h2>Objective.</h2>
+    <p>The goal was to create a functional robotic hand capable of performing various movements in response to program commands. To make the experience interactive, I implemented two control modes:</p>
+    <ul>
+      <li><strong>Manual mode with a Tkinter interface</strong>: the user can adjust the position of each finger through an intuitive interface.</li>
+      <li><strong>Camera mode with OpenCV</strong>: the hand follows the user's gestures detected in real time by a camera.</li>
+    </ul>
+
+    <h2>Demo.</h2>
+    <figure class="media media--vert">
+      <div class="media-frame">
+        <video controls playsinline poster="/project-robot-hand/poster-demo.jpg">
+          <source src="/project-robot-hand/demo-robot-hand.mp4" type="video/mp4">
+        </video>
       </div>
-      <script>
-        // Scroll horizontal natif, pas besoin de JS pour swipe
-      </script>
-    </section>
-        <div class="blog-content">
-            <p>
-              Robotics and artificial intelligence offer fascinating possibilities, and this project is a concrete example of that.
-              I designed and built a 3D-printed robotic hand, fully controllable via a Python program.
-              This project was part of a year-end assignment during my final year of secondary school in 2023,
-              focused on object-oriented programming. It evolved to include two control modes:
-              a graphical interface and a gesture recognition system using a camera.
-            </p>
-          
-            <h2>Objective</h2>
-            <p>
-              The goal was to create a functional robotic hand capable of performing various movements
-              in response to program commands. To make the experience interactive, I implemented two control modes:
-            </p>
-            <ul>
-              <li><strong>Manual mode with a Tkinter interface</strong>: The user can adjust the position of each finger through an intuitive interface.</li>
-              <li><strong>Camera mode with OpenCV</strong>: The hand follows the user’s gestures detected in real time by a camera.</li>
-            </ul>
-          
-            <h2>Technologies Used</h2>
-            <ul>
-              <li><strong>Hardware</strong>: Arduino, servo motors, 3D printing (PLA)</li>
-              <li><strong>Software and languages</strong>: Python, Tkinter, OpenCV, Arduino IDE</li>
-              <li><strong>Communication</strong>: Serial port between Python and Arduino</li>
-            </ul>
-          
-            <h2>Key Features</h2>
-            <ul>
-              <li><strong>User Interface</strong>: A Python application with sliders for each finger, enabling precise manual control.</li>
-              <li><strong>Gesture Recognition</strong>: OpenCV detects the user’s hand and adjusts the robotic hand’s movements accordingly.</li>
-              <li><strong>Smooth Communication</strong>: Commands are sent to the Arduino via the serial port, ensuring fast and responsive execution.</li>
-            </ul>
-          
-            <h2>Challenges and Solutions</h2>
-            <ul>
-              <li><strong>Latency issue</strong>: Initially, gesture recognition had a slight delay. Optimizing video processing and using MediaPipe improved responsiveness.</li>
-              <li><strong>Code optimization</strong>: A more dynamic approach replaced the initial idea of a predefined movement library, making control more intuitive and fluid.</li>
-            </ul>
-          
-            <h2>Conclusion</h2>
-            <p>
-              This project allowed me to explore several areas: programming, computer vision, electronic design, and 3D printing.
-              The robotic hand is fully functional and could be enhanced with sensors or AI to improve gesture recognition.
-            </p>
-            <p>
-              Source files, videos, and 3D models are available for those interested in exploring the project further.
-              Feel free to contact me to discuss it!
-            </p>
-        </div>
-    <footer>
-        <p>made with <span class="footer-heart">❤</span> by Abdullah Camur</p>
-    </footer>
+      <figcaption><span class="blue">fig. 01</span> &nbsp;·&nbsp; gesture-controlled demo (OpenCV + MediaPipe).</figcaption>
+    </figure>
+
+    <h2>Technologies used.</h2>
+    <ul>
+      <li><strong>Hardware</strong>: Arduino, servo motors, 3D printing (PLA).</li>
+      <li><strong>Software</strong>: Python, Tkinter, OpenCV, Arduino IDE.</li>
+      <li><strong>Communication</strong>: serial port between Python and Arduino.</li>
+    </ul>
+
+    <h2>Challenges and solutions.</h2>
+    <ul>
+      <li><strong>Latency</strong>: gesture recognition had a slight delay initially. Optimizing video processing and using MediaPipe improved responsiveness.</li>
+      <li><strong>Code architecture</strong>: a more dynamic approach replaced the initial idea of a predefined movement library, making control more intuitive and fluid.</li>
+    </ul>
+
+    <h2>Conclusion.</h2>
+    <p>This project let me explore several areas at once: programming, computer vision, electronic design, and 3D printing. The robotic hand is fully functional and could be enhanced with sensors or AI to improve gesture recognition. Source files, videos, and 3D models are available. Feel free to reach out.</p>
+  </article>
+
+  <nav class="article-foot-nav">
+    <a href="my-virtual-library.html">← previous · My Virtual Library</a>
+    <a href="Building-a-Racing-FPV-Drone.html">next <span class="arrow">·</span> FPV Drone →</a>
+  </nav>
+</main>
+
+<footer class="foot">made with <span class="heart">♥</span> by Abdullah Camur</footer>
 </body>
 </html>
