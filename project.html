@@ -1,109 +1,133 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Abdullah Camur</title>
-    <meta name="description" content="A collection of tech projects by Abdullah Camur — including robotics, FPV drones, and software experiments.">        
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="img/logo_favicon_2.png">
-    <link rel="canonical" href="https://cmrabdu.com/project.html" />
-    <!-- Open Graph -->
-    <meta property="og:title" content="Projects | Abdullah Camur" />
-    <meta property="og:description" content="A collection of tech projects by Abdullah Camur — including robotics, FPV drones, and software experiments." />
-    <meta property="og:image" content="https://cmrabdu.com/project-robot-hand/robot-hand-view-project-cover.jpeg" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://cmrabdu.com/project.html" />
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Projects | Abdullah Camur" />
-    <meta name="twitter:description" content="A collection of tech projects by Abdullah Camur — including robotics, FPV drones, and software experiments." />
-    <meta name="twitter:image" content="https://cmrabdu.com/project-robot-hand/robot-hand-view-project-cover.jpeg" />
-
+<meta charset="utf-8">
+<title>Projects | Abdullah Camur</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A collection of tech projects by Abdullah Camur — including robotics, FPV drones, and software experiments.">
+<link rel="canonical" href="https://cmrabdu.com/project.html" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<meta property="og:title" content="Projects | Abdullah Camur" />
+<meta property="og:description" content="A collection of tech projects by Abdullah Camur." />
+<meta property="og:image" content="https://cmrabdu.com/project-robot-hand/robot-hand-electronics.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cmrabdu.com/project.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Projects | Abdullah Camur" />
+<meta name="twitter:description" content="A collection of tech projects by Abdullah Camur." />
+<meta name="twitter:image" content="https://cmrabdu.com/project-robot-hand/robot-hand-electronics.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Covers that show a centered logo/icon on a paper background instead of cropping a photo. */
+  .project-cover.cover-contain { background: #f5f1e8; }
+  .project-cover.cover-contain img { object-fit: contain !important; padding: 8px; }
+</style>
 </head>
 <body>
-<a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <nav id="main-nav" class="loading"></nav>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="mark"><svg viewBox="-6 -4 112 106" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g class="mark-paths"><path d="M 1.5,93.2 Q 0,98 5,98 L 21,98 Q 26,98 27.5,93.2 L 54.5,6.8 Q 56,2 51,2 L 35,2 Q 30,2 28.5,6.8 Z" fill="#0000ee"/><path d="M 45.5,93.2 Q 44,98 49,98 L 65,98 Q 70,98 71.5,93.2 L 98.5,6.8 Q 100,2 95,2 L 79,2 Q 74,2 72.5,6.8 Z" fill="#0000ee"/></g></svg></span>
+      <span class="wordmark">cmrabdu</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">home</a><span class="sep">//</span>
+      <a href="about.html">about</a><span class="sep">//</span>
+      <a href="project.html" class="active">project</a><span class="sep">//</span>
+      <a href="blog.html">blog</a><span class="sep">//</span>
+      <a href="contact.html">contact</a>
+    </div>
+    <a class="nav-burger" href="#menu" aria-label="menu">≡ menu</a>
+  </div>
+</nav>
+
+<main class="projects-page">
+  <header class="projects-head">
+    <h1>Projects.</h1>
+    <div class="sub" data-project-count>newest on top</div>
+  </header>
+
+  <a class="project-row" href="project/permis-b-online.html">
+    <div class="project-index">06</div>
+    <div class="project-cover photo cover-contain"><img src="project-permis-b-online/app-icon.svg" alt="Permis B Online" loading="lazy"></div>
+    <div>
+      <div class="project-title">Permis B Online</div>
+      <div class="project-desc">a web platform for the Belgian driving theory exam.</div>
+    </div>
+    <div class="project-year">2026</div>
+    <div class="project-read">read →</div>
+  </a>
+
+  <a class="project-row" href="project/palimpsest.html">
+    <div class="project-index">05</div>
+    <div class="project-cover photo"><img src="project-palimpsest/palimpsest-hero.svg" alt="Palimpsest" loading="lazy"></div>
+    <div>
+      <div class="project-title">Palimpsest</div>
+      <div class="project-desc">scanned STEM PDFs in, clean LaTeX out.</div>
+    </div>
+    <div class="project-year">2026</div>
+    <div class="project-read">read →</div>
+  </a>
+
+  <a class="project-row" href="tdee-calculator/">
+    <div class="project-index">04</div>
+    <div class="project-cover photo"><img src="tdee-calculator/cover-tdee-calculator.jpg" alt="TDEE Calculator" loading="lazy"></div>
+    <div>
+      <div class="project-title">TDEE Calculator</div>
+      <div class="project-desc">a small nutrition web app i actually use.</div>
+    </div>
+    <div class="project-year">2026</div>
+    <div class="project-read">read →</div>
+  </a>
+
+  <a class="project-row" href="project/my-virtual-library.html">
+    <div class="project-index">03</div>
+    <div class="project-cover photo"><img src="project-library/cover-my-virtual-library.jpg" alt="My Virtual Library" loading="lazy"></div>
+    <div>
+      <div class="project-title">My Virtual Library</div>
+      <div class="project-desc">a way to manage a physical book collection.</div>
+    </div>
+    <div class="project-year">2025</div>
+    <div class="project-read">read →</div>
+  </a>
+
+  <a class="project-row" href="project/project-robot-hand.html">
+    <div class="project-index">02</div>
+    <div class="project-cover photo"><img src="project-robot-hand/robot-hand-electronics.jpg" alt="Hand Tracking · CV" loading="lazy"></div>
+    <div>
+      <div class="project-title">Hand Tracking · CV</div>
+      <div class="project-desc">a 3D-printed robotic hand &middot; python &middot; opencv.</div>
+    </div>
+    <div class="project-year">2023</div>
+    <div class="project-read">read →</div>
+  </a>
+
+  <a class="project-row" href="project/Building-a-Racing-FPV-Drone.html">
+    <div class="project-index">01</div>
+    <div class="project-cover photo"><img src="project-fpv-drone/banner-fpv.jpeg" alt="FPV Racing Drone" loading="lazy"></div>
+    <div>
+      <div class="project-title">Racing FPV Drone</div>
+      <div class="project-desc">an autobiographical build story &middot; age 14.</div>
+    </div>
+    <div class="project-year">2019</div>
+    <div class="project-read">read →</div>
+  </a>
+</main>
+
+<footer class="foot">made with <span class="heart">♥</span> by Abdullah Camur</footer>
+
 <script>
-(function() {
-  const el = document.getElementById('main-nav');
-  fetch('/nav.html', { cache: 'no-cache' })
-    .then(r => r.text())
-    .then(html => {
-      el.innerHTML = html;           // on injecte SEULEMENT la liste
-      el.classList.remove('loading'); // enlève le masquage
-      el.classList.add('ready');      // (optionnel) tag de confort
-    })
-    .catch(() => {
-      el.innerHTML = '<a href="/index.html">home</a>'; // fallback minimal
-      el.classList.remove('loading');
-      el.classList.add('ready');
-    });
+(function () {
+  const words = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve'];
+  const n = document.querySelectorAll('.project-row').length;
+  const label = words[n] || String(n);
+  const el = document.querySelector('[data-project-count]');
+  if (el) el.innerHTML = `${label} things i made &nbsp;·&nbsp; newest on top`;
 })();
 </script>
-
-
-    <header id="main-content">
-        <h1>My Projects</h1>
-    </header>
-
-    <section class="project-grid">
-
-        <div class="project-listing-card">
-            <a href="/project/permis-b-online.html">
-                <img src="/project-permis-b-online/permis-b-online-logo.png" alt="Permis B Online" loading="lazy">
-                <h3>Permis B Online</h3>
-                <p>A web platform I'm building to help future drivers in Belgium prepare for the theoretical driving exam</p>
-            </a>
-        </div>
-
-        <div class="project-listing-card">
-            <a href="/project/palimpsest.html">
-                <img src="/project-palimpsest/palimpsest-logo.svg" alt="Palimpsest" loading="lazy">
-                <h3>Palimpsest</h3>
-                <p>An open-source tool that turns old scanned STEM PDFs into clean, modern LaTeX documents</p>
-            </a>
-        </div>
-
-        <div class="project-listing-card">
-            <a href="/tdee-calculator/">
-                <img src="/tdee-calculator/cover.svg" alt="TDEE Calculator" loading="lazy">
-                <h3>TDEE Calculator</h3>
-                <p>A nutrition tool to estimate daily calorie needs, compare two formulas, and set a realistic intake target</p>
-            </a>
-        </div>
-
-        <div class="project-listing-card">
-            <a href="/project/my-virtual-library.html">
-                <img src="/project-library/cover-library-project.jpg" alt="My Virtual Library" loading="lazy">
-                <h3>My Virtual Library</h3>
-                <p>A digital library management system to organize and track your book collection</p>
-            </a>
-        </div>
-
-        <div class="project-listing-card">
-            <a href="/project/project-robot-hand.html">
-                <img src="/project-robot-hand/robot-hand-view-project-cover.jpeg" alt="Hand Tracking With OpenCV and Python" loading="lazy">
-                <h3>Hand Tracking With Open CV and Python</h3>
-                <p>Robotics and AI project - 3D printed robotic hand controlled via Python with gesture recognition</p>
-            </a>
-        </div>
-
-        <div class="project-listing-card">
-            <a href="/project/Building-a-Racing-FPV-Drone.html">
-                <img src="/project-fpv-drone/banner-fpv.jpeg" alt="Building a Racing FPV Drone" loading="lazy">
-                <h3>Building a Racing FPV Drone</h3>
-                <p>From simulation training to hands-on assembly - my journey building a racing FPV drone</p>
-            </a>
-        </div>
-
-        <!-- Ajoute plus de projets ici -->
-    </section>
-
-
-    <footer>
-        <p>made with <span class="footer-heart">❤</span> by Abdullah Camur</p>
-    </footer>
 </body>
 </html>

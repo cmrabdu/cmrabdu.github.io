@@ -1,99 +1,158 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Permis B Online | Abdullah Camur</title>
-  <meta name="description" content="Permis B Online — a web platform I'm building to help future drivers in Belgium prepare for the theoretical driving exam.">
-  <link rel="stylesheet" href="/style.css">
-  <link rel="icon" type="image/png" href="/img/logo_favicon_2.png">
-  <link rel="canonical" href="https://cmrabdu.com/project/permis-b-online.html" />
-  <!-- Open Graph -->
-  <meta property="og:title" content="Permis B Online | Abdullah Camur" />
-  <meta property="og:description" content="A web platform I'm building to help future drivers in Belgium prepare for the theoretical driving exam." />
-  <meta property="og:image" content="https://cmrabdu.com/project-permis-b-online/permis-b-online-logo.png" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://cmrabdu.com/project/permis-b-online.html" />
+<meta charset="utf-8">
+<title>Permis B Online | Abdullah Camur</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Permis B Online — a web platform I'm building to help future drivers in Belgium prepare for the theoretical driving exam.">
+<link rel="canonical" href="https://cmrabdu.com/project/permis-b-online.html" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<meta property="og:title" content="Permis B Online | Abdullah Camur" />
+<meta property="og:description" content="A web platform I'm building to help future drivers in Belgium prepare for the theoretical driving exam." />
+<meta property="og:image" content="https://cmrabdu.com/project-permis-b-online/og-permis-b.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cmrabdu.com/project/permis-b-online.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Permis B Online | Abdullah Camur" />
+<meta name="twitter:description" content="A web platform I'm building to help future drivers in Belgium prepare for the theoretical driving exam." />
+<meta name="twitter:image" content="https://cmrabdu.com/project-permis-b-online/og-permis-b.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<style>
+  /* Permis B Online brand accent — scoped to this page */
+  .pbo-hero {
+    aspect-ratio: 16/9;
+    background: #F5F1E8;
+    border: 1px solid var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    padding: 20px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pbo-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(#DCD4C2 1px, transparent 1px);
+    background-size: 100% 28px;
+    opacity: 0.5;
+  }
+  .pbo-hero-icon { width: 38%; max-width: 220px; aspect-ratio: 1; position: relative; z-index: 1; }
+  .pbo-hero-icon img { width: 100%; height: 100%; display: block; }
+  .pbo-hero-text { position: relative; z-index: 1; max-width: 320px; }
+  .pbo-hero-text .pbo-tag {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #1F4FD1; font-weight: 700; margin: 0 0 10px;
+  }
+  .pbo-hero-text h2 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic; font-weight: 400; font-size: 32px; line-height: 1.15;
+    color: #1A1714; margin: 0;
+  }
+  .pbo-hero-text h2 em { color: #1F4FD1; font-style: italic; }
+
+  .pbo-card {
+    margin: 28px 0;
+    padding: 22px 24px;
+    background: #F5F1E8;
+    border: 1px solid #DCD4C2;
+    border-left: 3px solid #1F4FD1;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .pbo-card .pbo-mark { width: 56px; height: 56px; flex-shrink: 0; border-radius: 12px; overflow: hidden; }
+  .pbo-card .pbo-mark img { width: 100%; height: 100%; display: block; }
+  .pbo-card .pbo-text { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: #4A443C; line-height: 1.55; flex: 1; min-width: 200px; }
+  .pbo-card .pbo-text strong { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 500; font-size: 22px; color: #1A1714; display: block; margin-bottom: 4px; }
+
+  @media (max-width: 640px) {
+    .pbo-hero { flex-direction: column; gap: 16px; padding: 24px; }
+    .pbo-hero-icon { width: 130px; }
+    .pbo-hero-text { text-align: center; }
+    .pbo-hero-text h2 { font-size: 24px; }
+  }
+</style>
 </head>
-
 <body>
-<a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <nav id="main-nav" class="loading"></nav>
-<script>
-(function() {
-  const el = document.getElementById('main-nav');
-  fetch('/nav.html', { cache: 'no-cache' })
-    .then(r => r.text())
-    .then(html => {
-      el.innerHTML = html;
-      el.classList.remove('loading');
-      el.classList.add('ready');
-    })
-    .catch(() => {
-      el.innerHTML = '<a href="/index.html">home</a>';
-      el.classList.remove('loading');
-      el.classList.add('ready');
-    });
-})();
-</script>
-
-  <header id="main-content">
-    <h1>Permis B Online</h1>
-  </header>
-
-  <section class="blog-article">
-    <img class="blog-image" src="/project-permis-b-online/permis-b-online-logo.png" alt="Permis B Online logo" loading="lazy">
-
-    <div class="blog-content">
-
-      <h2>The Idea</h2>
-      <p>
-        Permis B Online is a web platform I'm building to help future drivers in Belgium prepare for the
-        theoretical part of the category B driving exam. The Belgian theory test isn't easy — long chapters,
-        priority rules that always trip people up, and a pass mark that leaves very little room for error.
-        I wanted to build something that makes studying it actually feel doable.
-      </p>
-
-      <h2>What It Does</h2>
-      <p>
-        The platform brings together everything I would have wanted as a candidate: structured theory
-        chapters (signs, priorities, distances, road behaviour…), flashcards with spaced repetition to
-        lock things into long-term memory, themed quizzes to drill weak spots, and a full exam simulator
-        that mirrors the real test — 50 questions, time limit, and the same scoring logic. On top of that,
-        a progress dashboard so you can see exactly where you stand chapter by chapter.
-      </p>
-
-      <h2>Building It Solo</h2>
-      <p>
-        I'm building the whole thing end-to-end: Python and FastAPI on the backend, React on the frontend,
-        Docker for deployment. The content pipeline is the part I'm most proud of — I wrote tooling that
-        helps me generate, review and version the study material with consistency, instead of writing
-        thousands of questions by hand. It's the kind of project where you wear every hat: product, design,
-        backend, frontend, content, DevOps. Long, but the most fun way I know to learn.
-      </p>
-
-      <h2>Why This Project Matters to Me</h2>
-      <p>
-        I like projects that solve a real problem for real people, not just toy demos. Getting your driving
-        licence in Belgium is one of those small but important rites of passage, and the tools out there
-        often feel dated or boring. I wanted to ship something modern, focused, and genuinely useful — and
-        in the process, push myself on the full SaaS stack: auth, payments, deployment, monitoring, the
-        whole ride.
-      </p>
-
-      <h2>Status</h2>
-      <p>
-        The project is actively under development. You can follow along or try the early version here:
-        <a href="https://permis-b-online.be" target="_blank" rel="noopener noreferrer">permis-b-online.be</a>.
-      </p>
-
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/index.html">
+      <span class="mark"><svg viewBox="-6 -4 112 106" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g class="mark-paths"><path d="M 1.5,93.2 Q 0,98 5,98 L 21,98 Q 26,98 27.5,93.2 L 54.5,6.8 Q 56,2 51,2 L 35,2 Q 30,2 28.5,6.8 Z" fill="#0000ee"/><path d="M 45.5,93.2 Q 44,98 49,98 L 65,98 Q 70,98 71.5,93.2 L 98.5,6.8 Q 100,2 95,2 L 79,2 Q 74,2 72.5,6.8 Z" fill="#0000ee"/></g></svg></span>
+      <span class="wordmark">cmrabdu</span>
+    </a>
+    <div class="nav-links">
+      <a href="/index.html">home</a><span class="sep">//</span>
+      <a href="/about.html">about</a><span class="sep">//</span>
+      <a href="/project.html" class="active">project</a><span class="sep">//</span>
+      <a href="/blog.html">blog</a><span class="sep">//</span>
+      <a href="/contact.html">contact</a>
     </div>
-  </section>
-  <footer>
-    <p>made with <span class="footer-heart">❤</span> by Abdullah Camur</p>
-  </footer>
-</body>
+    <a class="nav-burger" href="#menu" aria-label="menu">≡ menu</a>
+  </div>
+</nav>
 
+<main class="article-page">
+  <a class="article-back" href="/project.html">← back to projects</a>
+
+  <div class="article-kicker">project <span class="blue">06</span> &nbsp;·&nbsp; 2026</div>
+  <h1 class="article-title">Permis B Online.</h1>
+  <p class="article-deck">A web platform I'm building to help future drivers in Belgium prepare for the theoretical part of the category B driving exam.</p>
+
+  <div class="article-hero pbo-hero">
+    <div class="pbo-hero-icon"><img src="/project-permis-b-online/app-icon.svg" alt="Permis B Online app icon"></div>
+    <div class="pbo-hero-text">
+      <p class="pbo-tag">— compagnon de route</p>
+      <h2>Le théorique du <em>permis B</em>, sans la friction.</h2>
+    </div>
+  </div>
+
+  <dl class="article-meta">
+    <dt>year</dt><dd>2026</dd>
+    <dt>stack</dt><dd>Python · FastAPI · React · Docker</dd>
+    <dt>status</dt><dd>actively under development</dd>
+    <dt>links</dt><dd><a href="https://permis-b-online.be" target="_blank" rel="noopener noreferrer">permis-b-online.be ↗</a></dd>
+  </dl>
+
+  <article class="article-body">
+    <h2>The idea.</h2>
+    <p>Permis B Online is a web platform I'm building to help future drivers in Belgium prepare for the theoretical part of the category B driving exam. The Belgian theory test isn't easy: long chapters, priority rules that always trip people up, and a pass mark that leaves very little room for error. I wanted to build something that makes studying it actually feel doable.</p>
+
+    <aside class="pbo-card">
+      <div class="pbo-mark"><img src="/project-permis-b-online/app-icon.svg" alt=""></div>
+      <div class="pbo-text">
+        <strong>Permis B Online</strong>
+      </div>
+    </aside>
+
+    <h2>What it does.</h2>
+    <p>The platform brings together everything I would have wanted as a candidate: structured theory chapters (signs, priorities, distances, road behaviour…), flashcards with spaced repetition to lock things into long-term memory, themed quizzes to drill weak spots, and a full exam simulator that mirrors the real test: 50 questions, time limit, and the same scoring logic. On top of that, a progress dashboard so you can see exactly where you stand chapter by chapter.</p>
+
+    <h2>Building it together.</h2>
+    <p>I'm building the whole thing with a friend, <a href="https://github.com/WarryDuty" target="_blank" rel="noopener noreferrer">@Warry</a>, end-to-end: Python and FastAPI on the backend, React on the frontend, Docker for deployment. The content pipeline is the part I'm most proud of. I wrote tooling that helps us generate, review and version the study material with consistency, instead of writing thousands of questions by hand. It's the kind of project where you wear every hat: product, design, backend, frontend, content, DevOps. Long, but the most fun way I know to learn.</p>
+
+    <h2>Why it matters to me.</h2>
+    <p>I like projects that solve a real problem for real people, not just toy demos. Getting your driving licence in Belgium is one of those small but important rites of passage, and the tools out there often feel dated or boring. I wanted to ship something modern, focused, and genuinely useful, and push myself on the full SaaS stack in the process: auth, payments, deployment, monitoring, the whole ride.</p>
+
+    <h2>Status.</h2>
+    <p>The project is actively under development. You can follow along or try the early version here: <a href="https://permis-b-online.be" target="_blank" rel="noopener noreferrer">permis-b-online.be</a>.</p>
+  </article>
+
+  <nav class="article-foot-nav">
+    <a href="/project.html">← all projects</a>
+    <a href="palimpsest.html">next <span class="arrow">·</span> Palimpsest →</a>
+  </nav>
+</main>
+
+<footer class="foot">made with <span class="heart">♥</span> by Abdullah Camur</footer>
+</body>
 </html>
