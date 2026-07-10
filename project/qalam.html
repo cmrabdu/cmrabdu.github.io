@@ -22,12 +22,15 @@
 <link rel="stylesheet" href="/style.css">
 <style>
   /* Qalam brand accents — scoped to this page. Ink #2b2416, paper #f4eede, ochre #a9762f. */
-  .qalam-hero {
+  /* Keep the 21:9 banner ratio at every breakpoint (the global mobile rule forces 16:9). */
+  .article-hero.qalam-hero {
     background: #2b2416;
     border: 1px solid var(--ink);
     overflow: hidden;
+    aspect-ratio: 21 / 9;
+    max-height: none;
   }
-  .qalam-hero img { width: 100%; height: auto; display: block; }
+  .qalam-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   .qalam-card {
     margin: 28px 0;
@@ -96,7 +99,7 @@
   <p class="article-deck">An AI study companion. It reads your course material, turns it into real lessons, and makes you review every notion at the exact moment you were about to forget it. Every notion is a star; your knowledge becomes a constellation.</p>
 
   <div class="article-hero qalam-hero">
-    <img src="/project-qalam/og-qalam.png" alt="Qalam — dark ink banner with the tagline 'Chaque notion, une étoile. Ton savoir, une constellation.' and a gold constellation" fetchpriority="high">
+    <img src="/project-qalam/banner-qalam.svg" alt="Qalam — a glowing gold reed pen drawing a constellation across an ink-blue night sky" fetchpriority="high">
   </div>
 
   <dl class="article-meta">
