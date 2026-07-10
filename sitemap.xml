@@ -47,6 +47,11 @@
 
   <!-- Pages projets -->
   <url>
+    <loc>https://cmrabdu.com/project/qalam.html</loc>
+    <lastmod>2026-07-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cmrabdu.com/project/permis-b-online.html</loc>
     <lastmod>2026-05-20</lastmod>
     <priority>0.7</priority>
@@ -55,11 +60,6 @@
     <loc>https://cmrabdu.com/project/palimpsest.html</loc>
     <lastmod>2026-05-20</lastmod>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cmrabdu.com/project/my-virtual-library.html</loc>
-    <lastmod>2026-05-20</lastmod>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cmrabdu.com/project/project-robot-hand.html</loc>

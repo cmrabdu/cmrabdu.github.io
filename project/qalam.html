@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Qalam | Abdullah Camur</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Qalam — an AI study companion I built. It reads your course material, turns it into real lessons, and makes you review every notion right before you forget it.">
+<link rel="canonical" href="https://cmrabdu.com/project/qalam.html" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<meta property="og:title" content="Qalam | Abdullah Camur" />
+<meta property="og:description" content="An AI study companion: it reads your courses, builds lessons, and schedules reviews at the exact moment you were about to forget." />
+<meta property="og:image" content="https://cmrabdu.com/project-qalam/og-qalam.png" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cmrabdu.com/project/qalam.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Qalam | Abdullah Camur" />
+<meta name="twitter:description" content="An AI study companion: it reads your courses, builds lessons, and schedules reviews at the exact moment you were about to forget." />
+<meta name="twitter:image" content="https://cmrabdu.com/project-qalam/og-qalam.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<style>
+  /* Qalam brand accents — scoped to this page. Ink #2b2416, paper #f4eede, ochre #a9762f. */
+  .qalam-hero {
+    background: #2b2416;
+    border: 1px solid var(--ink);
+    overflow: hidden;
+  }
+  .qalam-hero img { width: 100%; height: auto; display: block; }
+
+  .qalam-card {
+    margin: 28px 0;
+    padding: 22px 24px;
+    background: #f4eede;
+    border: 1px solid #ddd2b8;
+    border-left: 3px solid #a9762f;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .qalam-card .qalam-mark { width: 52px; height: 52px; flex-shrink: 0; border-radius: 12px; overflow: hidden; background: #2b2416; display: flex; align-items: center; justify-content: center; }
+  .qalam-card .qalam-mark img { width: 60%; height: 60%; display: block; }
+  .qalam-card .qalam-text { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: #5c5140; line-height: 1.55; flex: 1; min-width: 200px; }
+  .qalam-card .qalam-text strong { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 500; font-size: 22px; color: #2b2416; display: block; margin-bottom: 4px; }
+
+  .qalam-plates {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 28px 0;
+  }
+  .qalam-plates figure { margin: 0; }
+  .qalam-plates img {
+    width: 100%; aspect-ratio: 1; object-fit: cover; display: block;
+    border: 1px solid #ddd2b8; background: #f4eede;
+  }
+  .qalam-plates figcaption {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.06em; color: #8d7f67;
+    margin-top: 8px;
+  }
+  .qalam-plates figcaption .n { color: #a9762f; font-weight: 600; }
+
+  @media (max-width: 640px) {
+    .qalam-plates { grid-template-columns: 1fr; }
+    .qalam-plates img { aspect-ratio: 3/2; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/index.html">
+      <span class="mark"><svg viewBox="-6 -4 112 106" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g class="mark-paths"><path d="M 1.5,93.2 Q 0,98 5,98 L 21,98 Q 26,98 27.5,93.2 L 54.5,6.8 Q 56,2 51,2 L 35,2 Q 30,2 28.5,6.8 Z" fill="#0000ee"/><path d="M 45.5,93.2 Q 44,98 49,98 L 65,98 Q 70,98 71.5,93.2 L 98.5,6.8 Q 100,2 95,2 L 79,2 Q 74,2 72.5,6.8 Z" fill="#0000ee"/></g></svg></span>
+      <span class="wordmark">cmrabdu</span>
+    </a>
+    <div class="nav-links">
+      <a href="/index.html">home</a><span class="sep">//</span>
+      <a href="/about.html">about</a><span class="sep">//</span>
+      <a href="/project.html" class="active">project</a><span class="sep">//</span>
+      <a href="/blog.html">blog</a><span class="sep">//</span>
+      <a href="/contact.html">contact</a>
+    </div>
+    <a class="nav-burger" href="#menu" aria-label="menu">≡ menu</a>
+  </div>
+</nav>
+
+<main class="article-page">
+  <a class="article-back" href="/project.html">← back to projects</a>
+
+  <div class="article-kicker">project <span class="blue">06</span> &nbsp;·&nbsp; 2026</div>
+  <h1 class="article-title">Qalam.</h1>
+  <p class="article-deck">An AI study companion. It reads your course material, turns it into real lessons, and makes you review every notion at the exact moment you were about to forget it. Every notion is a star; your knowledge becomes a constellation.</p>
+
+  <div class="article-hero qalam-hero">
+    <img src="/project-qalam/og-qalam.png" alt="Qalam — dark ink banner with the tagline 'Chaque notion, une étoile. Ton savoir, une constellation.' and a gold constellation" fetchpriority="high">
+  </div>
+
+  <dl class="article-meta">
+    <dt>year</dt><dd>2026</dd>
+    <dt>stack</dt><dd>Python · FastAPI · SQLite · Claude API · React · Vite · Tailwind · Docker</dd>
+    <dt>status</dt><dd>ready to deploy</dd>
+    <dt>links</dt><dd><a href="https://qalam.study" target="_blank" rel="noopener noreferrer">qalam.study ↗</a></dd>
+  </dl>
+
+  <article class="article-body">
+    <h2>The idea.</h2>
+    <p>Most study apps make you do the work twice: first you read the course, then you type it back in as flashcards. Qalam flips that. You drop in your raw material — PDFs, slides, notes — and an AI becomes a specialist of <em>that</em> course. It builds a roadmap, writes proper lessons with checkpoints, and then coaches you through mastering it, like a private tutor that has actually read your syllabus. The app is built around <em>how learning works</em>, so it's domain-agnostic: algorithms, law, history, languages — same experience.</p>
+
+    <aside class="qalam-card">
+      <div class="qalam-mark"><img src="/project-qalam/qalam-icon.svg" alt=""></div>
+      <div class="qalam-text">
+        <strong>Qalam</strong>
+        the study companion &nbsp;·&nbsp; qalam.study
+      </div>
+    </aside>
+
+    <h2>What it does.</h2>
+    <p>You feed a course everything you have. Qalam reads it, splits it into chapters and notions, and generates enriched lessons: theory that builds progressively, examples, checkpoints with corrective feedback that points you back to the exact passage you misread. Then the review loop takes over: spaced repetition schedules every notion for the day you're about to forget it, and a mastery map shows your constellation lighting up, star by star. A companion chat is there the whole time — it knows the course, and it knows you.</p>
+
+    <div class="qalam-plates">
+      <figure>
+        <img src="/project-qalam/step-depose.jpg" alt="Ink-drawn plate: a stack of books and notes with a reed pen leaning against it" loading="lazy">
+        <figcaption><span class="n">01</span> — drop in your material</figcaption>
+      </figure>
+      <figure>
+        <img src="/project-qalam/step-lecons.jpg" alt="Ink-drawn plate: a reed pen drawing a constellation on paper" loading="lazy">
+        <figcaption><span class="n">02</span> — Qalam builds your lessons</figcaption>
+      </figure>
+      <figure>
+        <img src="/project-qalam/step-revise.jpg" alt="Ink-drawn plate: an hourglass under an arc of moon phases" loading="lazy">
+        <figcaption><span class="n">03</span> — review, day after day</figcaption>
+      </figure>
+    </div>
+
+    <h2>Under the hood.</h2>
+    <p>This is the most technically ambitious thing I've shipped. The backend is Python and FastAPI. The ingestion pipeline extracts text from PDFs, chunks it with provenance tracking, has Claude Sonnet draft the course roadmap, and Claude Haiku generate questions that must cite a verbatim passage from the source — if a question isn't anchored in your actual documents, it's treated as a bug, not a feature. On top of that sit two deterministic engines, deliberately kept LLM-free: <strong>Bayesian Knowledge Tracing</strong> estimates your mastery per notion, and <strong>FSRS</strong> (the modern spaced-repetition scheduler) decides when each review is due. The LLM writes; the math schedules.</p>
+    <p>It's multi-user from day one: JWT auth with argon2 hashing, invitation-based signup, strict per-user data isolation — and I ran an adversarial multi-agent audit against my own API, which caught and fixed an IDOR and an enumeration vector before anyone else could. Per-user API cost tracking is built in, because when your app calls an LLM, unit economics <em>are</em> the product. The frontend is React, Vite and Tailwind, mobile-first, with lessons that stream in and render Markdown with LaTeX as they're written.</p>
+
+    <h2>The craft.</h2>
+    <p>One aesthetic, fully committed: cream paper, ink, sepia and gold — no dark-mode toggle, no dashboard grey. Each course gets its own generated cover, watercolor-and-ink on cream paper, its motif inferred from the subject. The interstitial moments matter too: while your lesson is being generated, you watch the companion read, pick out concepts, and build — the wait itself is part of the experience.</p>
+
+    <h2>The business.</h2>
+    <p>Qalam is a real product, priced from measured costs, not vibes. I instrumented every API call in production-like usage to know exactly what a course costs to ingest and study, then built two plans on top: a free tier generous enough to show the full magic on one course, and a paid tier at 6,99&nbsp;€/month — "a kebab a month" — for unlimited courses, mock exams and voice recall. Break-even sits at about three subscribers. Stripe wiring is the last piece before the public launch.</p>
+
+    <h2>Status.</h2>
+    <p>Functional end to end and ready to deploy — Docker images, Caddy config and backups are written, the payment rules are the finishing touch. It ships at <a href="https://qalam.study" target="_blank" rel="noopener noreferrer">qalam.study</a>.</p>
+  </article>
+
+  <nav class="article-foot-nav">
+    <a href="/project.html">← all projects</a>
+    <a href="permis-b-online.html">next <span class="arrow">·</span> Permis B Online →</a>
+  </nav>
+</main>
+
+<footer class="foot">made with <span class="heart">♥</span> by Abdullah Camur</footer>
+</body>
+</html>
