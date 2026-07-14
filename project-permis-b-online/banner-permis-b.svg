@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1680 720" width="1680" height="720" role="img" aria-label="Permis B Online — the cobalt PB badge on a cream study sheet with a dashed road line">
+  <defs>
+    <radialGradient id="pbSky" cx="50%" cy="42%" r="80%">
+      <stop offset="0%" stop-color="#FBF6EC"/>
+      <stop offset="60%" stop-color="#F5EEDD"/>
+      <stop offset="100%" stop-color="#EDE4CF"/>
+    </radialGradient>
+    <radialGradient id="pbWarm" cx="82%" cy="24%" r="42%">
+      <stop offset="0%" stop-color="#E85A2C" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#E85A2C" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pbCool" cx="16%" cy="82%" r="46%">
+      <stop offset="0%" stop-color="#1F4FD1" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#1F4FD1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Cream study sheet -->
+  <rect width="1680" height="720" fill="url(#pbSky)"/>
+  <rect width="1680" height="720" fill="url(#pbWarm)"/>
+  <rect width="1680" height="720" fill="url(#pbCool)"/>
+
+  <!-- Faint ruled lines (the study-sheet motif) -->
+  <g stroke="#D8CDB4" stroke-width="1.5" opacity="0.55">
+    <line x1="0" y1="96"  x2="1680" y2="96"/>
+    <line x1="0" y1="168" x2="1680" y2="168"/>
+    <line x1="0" y1="240" x2="1680" y2="240"/>
+    <line x1="0" y1="312" x2="1680" y2="312"/>
+    <line x1="0" y1="384" x2="1680" y2="384"/>
+    <line x1="0" y1="456" x2="1680" y2="456"/>
+    <line x1="0" y1="528" x2="1680" y2="528"/>
+    <line x1="0" y1="600" x2="1680" y2="600"/>
+  </g>
+
+  <!-- Dashed road line sweeping across (the "route") -->
+  <path d="M 40,486 Q 840,566 1640,452" fill="none" stroke="#1F4FD1" stroke-width="9"
+        stroke-linecap="round" stroke-dasharray="42 30" opacity="0.30"/>
+
+  <!-- PB badge: cobalt tile, hard ink shadow, white inset, upright serif PB -->
+  <g transform="translate(715,222) rotate(-3 125 125)">
+    <rect x="20" y="24" width="214" height="214" rx="50" fill="#1A1714"/>
+    <rect x="6"  y="8"  width="214" height="214" rx="50" fill="#1F4FD1"/>
+    <rect x="24" y="26" width="178" height="178" rx="38" fill="none" stroke="#FFFFFF" stroke-opacity="0.58" stroke-width="11"/>
+    <text x="113" y="151" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+          font-weight="700" font-size="104" letter-spacing="-5" fill="#FFFFFF">PB</text>
+  </g>
+
+  <!-- Small Belgian-style road-sign accents -->
+  <!-- blue mandatory (round) -->
+  <g transform="translate(322,214)" opacity="0.9">
+    <circle r="30" fill="#1F4FD1" stroke="#FFFFFF" stroke-width="4"/>
+    <path d="M0,-13 L11,4 L3,4 L3,14 L-3,14 L-3,4 L-11,4 Z" fill="#FFFFFF"/>
+  </g>
+  <!-- warning (triangle) -->
+  <g transform="translate(1372,512)" opacity="0.9">
+    <path d="M0,-30 L30,22 L-30,22 Z" fill="#FBF6EC" stroke="#C0392B" stroke-width="6" stroke-linejoin="round"/>
+    <rect x="-3" y="-14" width="6" height="20" rx="3" fill="#1A1714"/>
+    <circle cx="0" cy="14" r="3.4" fill="#1A1714"/>
+  </g>
+</svg>

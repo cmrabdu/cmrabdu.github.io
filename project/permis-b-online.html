@@ -4,59 +4,34 @@
 <meta charset="utf-8">
 <title>Permis B Online | Abdullah Camur</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Permis B Online — a web platform I'm building to help future drivers in Belgium prepare for the theoretical driving exam.">
+<meta name="description" content="Permis B Online — a live web platform that helps future drivers in Belgium pass the category-B theory exam: structured lessons, a real exam simulator, and spaced-repetition drilling.">
 <link rel="canonical" href="https://cmrabdu.com/project/permis-b-online.html" />
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <meta property="og:title" content="Permis B Online | Abdullah Camur" />
-<meta property="og:description" content="A web platform I'm building to help future drivers in Belgium prepare for the theoretical driving exam." />
-<meta property="og:image" content="https://cmrabdu.com/project-permis-b-online/og-permis-b.jpg" />
+<meta property="og:description" content="A live web platform that helps future drivers in Belgium pass the category-B driving theory exam — lessons, a real exam simulator, and spaced-repetition drilling." />
+<meta property="og:image" content="https://cmrabdu.com/project-permis-b-online/og-permis-b.png" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cmrabdu.com/project/permis-b-online.html" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Permis B Online | Abdullah Camur" />
-<meta name="twitter:description" content="A web platform I'm building to help future drivers in Belgium prepare for the theoretical driving exam." />
-<meta name="twitter:image" content="https://cmrabdu.com/project-permis-b-online/og-permis-b.jpg" />
+<meta name="twitter:description" content="A live web platform that helps future drivers in Belgium pass the category-B driving theory exam — lessons, a real exam simulator, and spaced-repetition drilling." />
+<meta name="twitter:image" content="https://cmrabdu.com/project-permis-b-online/og-permis-b.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <style>
   /* Permis B Online brand accent — scoped to this page */
-  .pbo-hero {
-    aspect-ratio: 16/9;
+  /* Text-free SVG banner locked to 21:9 at every breakpoint (the global mobile
+     rule forces 16:9 + max-height, which used to clip the old stacked hero). */
+  .article-hero.pbo-hero {
     background: #F5F1E8;
     border: 1px solid var(--ink);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 36px;
-    padding: 20px 32px;
-    position: relative;
     overflow: hidden;
+    aspect-ratio: 21 / 9;
+    max-height: none;
   }
-  .pbo-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(#DCD4C2 1px, transparent 1px);
-    background-size: 100% 28px;
-    opacity: 0.5;
-  }
-  .pbo-hero-icon { width: 38%; max-width: 220px; aspect-ratio: 1; position: relative; z-index: 1; }
-  .pbo-hero-icon img { width: 100%; height: 100%; display: block; }
-  .pbo-hero-text { position: relative; z-index: 1; max-width: 320px; }
-  .pbo-hero-text .pbo-tag {
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: #1F4FD1; font-weight: 700; margin: 0 0 10px;
-  }
-  .pbo-hero-text h2 {
-    font-family: 'Instrument Serif', Georgia, serif;
-    font-style: italic; font-weight: 400; font-size: 32px; line-height: 1.15;
-    color: #1A1714; margin: 0;
-  }
-  .pbo-hero-text h2 em { color: #1F4FD1; font-style: italic; }
+  .pbo-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   .pbo-card {
     margin: 28px 0;
@@ -73,13 +48,6 @@
   .pbo-card .pbo-mark img { width: 100%; height: 100%; display: block; }
   .pbo-card .pbo-text { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: #4A443C; line-height: 1.55; flex: 1; min-width: 200px; }
   .pbo-card .pbo-text strong { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 500; font-size: 22px; color: #1A1714; display: block; margin-bottom: 4px; }
-
-  @media (max-width: 640px) {
-    .pbo-hero { flex-direction: column; gap: 16px; padding: 24px; }
-    .pbo-hero-icon { width: 130px; }
-    .pbo-hero-text { text-align: center; }
-    .pbo-hero-text h2 { font-size: 24px; }
-  }
 </style>
 </head>
 <body>
@@ -106,45 +74,42 @@
 
   <div class="article-kicker">project <span class="blue">05</span> &nbsp;·&nbsp; 2026</div>
   <h1 class="article-title">Permis B Online.</h1>
-  <p class="article-deck">A web platform I'm building to help future drivers in Belgium prepare for the theoretical part of the category B driving exam.</p>
+  <p class="article-deck">A live web platform that gets future drivers in Belgium through the category-B theory exam — clear lessons, a real exam simulator, and spaced-repetition drilling. Shipped and taking real users.</p>
 
   <div class="article-hero pbo-hero">
-    <div class="pbo-hero-icon"><img src="/project-permis-b-online/app-icon.svg" alt="Permis B Online app icon"></div>
-    <div class="pbo-hero-text">
-      <p class="pbo-tag">— compagnon de route</p>
-      <h2>Le théorique du <em>permis B</em>, sans la friction.</h2>
-    </div>
+    <img src="/project-permis-b-online/banner-permis-b.svg" alt="Permis B Online — the cobalt PB badge on a cream study sheet with Belgian road signs" fetchpriority="high">
   </div>
 
   <dl class="article-meta">
     <dt>year</dt><dd>2026</dd>
-    <dt>stack</dt><dd>Python · FastAPI · React · Docker</dd>
-    <dt>status</dt><dd>actively under development</dd>
+    <dt>stack</dt><dd>Python · FastAPI · React · Vite · Stripe · OpenAI · Docker</dd>
+    <dt>status</dt><dd>live · shipped July 2026</dd>
     <dt>links</dt><dd><a href="https://permis-b-online.be" target="_blank" rel="noopener noreferrer">permis-b-online.be ↗</a></dd>
   </dl>
 
   <article class="article-body">
     <h2>The idea.</h2>
-    <p>Permis B Online is a web platform I'm building to help future drivers in Belgium prepare for the theoretical part of the category B driving exam. The Belgian theory test isn't easy: long chapters, priority rules that always trip people up, and a pass mark that leaves very little room for error. I wanted to build something that makes studying it actually feel doable.</p>
+    <p>Getting your driving licence in Belgium starts with a theory exam that trips a lot of people up: ten dense chapters, priority rules nobody remembers, and a pass mark that leaves almost no margin for error. Permis B Online turns that grind into a clear path — read, drill, simulate the exam, and know exactly when you're ready. The whole product is built around one promise: <em>réussir du premier coup</em>.</p>
 
     <aside class="pbo-card">
       <div class="pbo-mark"><img src="/project-permis-b-online/app-icon.svg" alt=""></div>
       <div class="pbo-text">
         <strong>Permis B Online</strong>
+        Compagnon de route &nbsp;·&nbsp; permis-b-online.be
       </div>
     </aside>
 
     <h2>What it does.</h2>
-    <p>The platform brings together everything I would have wanted as a candidate: structured theory chapters (signs, priorities, distances, road behaviour…), flashcards with spaced repetition to lock things into long-term memory, themed quizzes to drill weak spots, and a full exam simulator that mirrors the real test: 50 questions, time limit, and the same scoring logic. On top of that, a progress dashboard so you can see exactly where you stand chapter by chapter.</p>
+    <p>Everything a candidate actually needs, in one place: the ten chapters of the Belgian program, illustrated with real road signs; a mock exam that mirrors the official test to the letter — 50 questions, 30 minutes, 41/50 to pass, −5 per serious fault, and even a read-aloud mode; per-chapter quizzes to drill weak spots; and Leitner spaced-repetition flashcards that keep resurfacing whatever you get wrong until it sticks. A dashboard tells you what to revise next and tracks every mock-exam score. In total, 420 questions and 230 flashcards across the full program.</p>
 
-    <h2>Building it together.</h2>
-    <p>I'm building the whole thing with a friend, <a href="https://github.com/WarryDuty" target="_blank" rel="noopener noreferrer">@Warry</a>, end-to-end: Python and FastAPI on the backend, React on the frontend, Docker for deployment. The content pipeline is the part I'm most proud of. I wrote tooling that helps us generate, review and version the study material with consistency, instead of writing thousands of questions by hand. It's the kind of project where you wear every hat: product, design, backend, frontend, content, DevOps. Long, but the most fun way I know to learn.</p>
+    <h2>Building it.</h2>
+    <p>I built it end-to-end with a friend, <a href="https://github.com/WarryDuty" target="_blank" rel="noopener noreferrer">@Warry</a>: Python and FastAPI on the backend, React and Vite on the front, Stripe for payments, Docker on a self-hosted server. It's the kind of project where you wear every hat — product, design, backend, frontend, content, DevOps — which is exactly why it's the most fun way I know to learn.</p>
 
-    <h2>Why it matters to me.</h2>
-    <p>I like projects that solve a real problem for real people, not just toy demos. Getting your driving licence in Belgium is one of those small but important rites of passage, and the tools out there often feel dated or boring. I wanted to ship something modern, focused, and genuinely useful, and push myself on the full SaaS stack in the process: auth, payments, deployment, monitoring, the whole ride.</p>
+    <h2>Under the hood.</h2>
+    <p>The part I'm proudest of is the content pipeline. Rather than hand-writing thousands of questions, the course material is generated against legal and pedagogical sources, scored on a pedagogical rubric, and revised in a loop until it clears a quality bar — then imported straight into the live database. Around it sits the SaaS machinery I wanted to push myself on: JWT auth plus Google sign-in, one-time Stripe checkout with signed webhooks and idempotent fulfilment (no subscriptions, ever), the faithful exam engine, the Leitner scheduler, an admin back-office, prerendered pages for SEO, transactional email, and a self-hosted CI/CD pipeline that rebuilds and redeploys on every push to main.</p>
 
-    <h2>Status.</h2>
-    <p>The project is actively under development. You can follow along or try the early version here: <a href="https://permis-b-online.be" target="_blank" rel="noopener noreferrer">permis-b-online.be</a>.</p>
+    <h2>Live.</h2>
+    <p>Permis B Online shipped on 13 July 2026 and is running in production at <a href="https://permis-b-online.be" target="_blank" rel="noopener noreferrer">permis-b-online.be</a> — real accounts, real payments, real candidates. One-time pricing, no subscription. Go take a look.</p>
   </article>
 
   <nav class="article-foot-nav">
