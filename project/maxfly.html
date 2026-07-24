@@ -4,17 +4,17 @@
 <meta charset="utf-8">
 <title>MaxFly | Abdullah Camur</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="MaxFly — autonomous last-mile delivery drones designed to be allowed: small, quiet, and alive enough that a neighbourhood says yes. Little flying creatures that bring you your parcel.">
+<meta name="description" content="MaxFly — autonomous last-mile delivery drones designed to be accepted, not endured: small, quiet, with eyes that watch the street and flight paths that slow down near people. Built in the open, flight after flight.">
 <link rel="canonical" href="https://cmrabdu.com/project/maxfly.html" />
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <meta property="og:title" content="MaxFly | Abdullah Camur" />
-<meta property="og:description" content="Autonomous last-mile delivery drones designed to be allowed — small, quiet, alive. Little flying creatures, not 30-kilo robots." />
+<meta property="og:description" content="Autonomous last-mile delivery drones designed to be accepted, not endured — eyes, a designed voice, organic movement. Built in the open, flight after flight." />
 <meta property="og:image" content="https://cmrabdu.com/project-maxfly/og-maxfly.jpg" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cmrabdu.com/project/maxfly.html" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="MaxFly | Abdullah Camur" />
-<meta name="twitter:description" content="Autonomous last-mile delivery drones designed to be allowed — small, quiet, alive. Little flying creatures, not 30-kilo robots." />
+<meta name="twitter:description" content="Autonomous last-mile delivery drones designed to be accepted, not endured — eyes, a designed voice, organic movement. Built in the open, flight after flight." />
 <meta name="twitter:image" content="https://cmrabdu.com/project-maxfly/og-maxfly.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,16 +22,27 @@
 <link rel="stylesheet" href="/style.css">
 <style>
   /* MaxFly accent — scoped to this page, following the site's per-project pattern.
-     Real brand: violet #420193 on white, one accent (design/system/tokens.css). */
+     Real brand: violet #420193 on warm paper, one accent (design/system/tokens.css). */
   :root { --mf-violet: #420193; --mf-violet-ink: #3d267e; --mf-veil: #f4f0fb; --mf-line: #e5dcf5; }
 
-  /* Photo hero — keep the site's 21:9 frame, dark backing for the build shot. */
-  .article-hero.maxfly-hero { background: #0b0a0f; border: 1px solid var(--ink); overflow: hidden; }
+  /* Render hero — keep the site's 21:9 frame, pale backing for the lavender render. */
+  .article-hero.maxfly-hero { background: #ece7f6; border: 1px solid var(--ink); overflow: hidden; }
   .maxfly-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Inline figures. */
+  .maxfly-page figure.mf-fig { margin: 34px 0; }
+  .maxfly-page figure.mf-fig img { width: 100%; height: auto; display: block; border: 1px solid var(--mf-line); background: var(--mf-veil); }
+  .maxfly-page figure.mf-fig.dark img { background: #0b0a0f; border-color: var(--ink); }
+  .maxfly-page figure.mf-fig figcaption {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px; letter-spacing: 0.02em; color: var(--muted); margin-top: 10px;
+  }
+  .maxfly-page figure.mf-fig figcaption .tag { color: var(--mf-violet); font-weight: 600; }
 
   /* Violet in place of the site blue, on this page only. */
   .maxfly-page .article-kicker .blue { color: var(--mf-violet); }
   .maxfly-page .article-body a { color: var(--mf-violet); }
+  .maxfly-page .article-meta a { color: var(--mf-violet); }
   .maxfly-page .article-body ul li::before { color: var(--mf-violet); }
   .maxfly-page .article-foot-nav a:hover { color: var(--mf-violet); }
   .maxfly-page .article-body blockquote { border-left-color: var(--mf-violet); }
@@ -61,42 +72,62 @@
 
   <div class="article-kicker">project <span class="blue">07</span> &nbsp;·&nbsp; 2026</div>
   <h1 class="article-title">MaxFly.</h1>
-  <p class="article-deck">Autonomous last-mile delivery drones designed to be <em>allowed</em>: small, quiet, and alive enough that a neighbourhood says yes. Little flying creatures that bring you your parcel — not a 30-kilo robot buzzing over your street.</p>
+  <p class="article-deck">Autonomous last-mile delivery drones designed to be <em>accepted</em>, not endured: small, quiet, with eyes that watch the street and flight paths that slow down near people. A drone you let through — not a 30-kilo robot buzzing over your street.</p>
 
   <div class="article-hero maxfly-hero">
-    <img src="/project-maxfly/banner-maxfly.jpg" alt="MaxFly V0 flight platform mid-build on a cutting mat — an open-prop drone frame with GPS module and a long-range radio on the bench" fetchpriority="high">
+    <img src="/project-maxfly/banner-maxfly.jpg" alt="A render of the MaxFly drone — a glossy black body with two glowing eyes and a violet seam, hovering over a stylised grey city" fetchpriority="high">
   </div>
 
   <dl class="article-meta">
     <dt>year</dt><dd>2026</dd>
     <dt>what</dt><dd>autonomous last-mile delivery drones</dd>
-    <dt>based</dt><dd>Charleroi, Belgium</dd>
+    <dt>based</dt><dd>Belgium</dd>
     <dt>stage</dt><dd>V0 flight platform — flying</dd>
     <dt>role</dt><dd>founder</dd>
+    <dt>links</dt><dd><a href="https://maxfly.tech" target="_blank" rel="noopener noreferrer">maxfly.tech ↗</a></dd>
   </dl>
 
   <article class="article-body">
     <h2>The bet.</h2>
-    <p>Delivery-drone logistics is already solved — Amazon, Wing and Zipline have flown for years. The unsolved problem is human: getting people to actually <em>want</em> one overhead, and getting a town to allow it. A delivery is paid twice — in money, by the merchant, and in <em>permission</em>, by the city and the people below. In Europe, permission is the scarce currency, and it isn't bought with payload. It's bought with the experience: the sound, the size, the movement, the eyes.</p>
+    <p>Delivery-drone logistics is already solved — Amazon, Wing and Zipline have flown for years. The unsolved problem is human: getting people to actually <em>want</em> one overhead, and getting a town to allow it. A delivery is paid for twice — in money, by the merchant, and in <em>permission</em>, by the city and the people below. In Europe, permission is the scarce currency, and it isn't bought with payload. It's bought with what people live under: the sound, the size, the way it moves.</p>
 
-    <h2>Creatures, not robots.</h2>
-    <p>So MaxFly is built like a small living thing, not a machine. Eyes on a screen that look around and pay attention as it lands. A voice designed on purpose — a low rumble, not a shriek. Flight paths that curve, anticipate and slow down near people. It delivers by winch: the parcel comes down on a line while the creature stays up, visible, out of reach. Small on purpose, too — every gram is a decibel.</p>
+    <h2>Accepted, not endured.</h2>
+    <p>So MaxFly is built to be <em>let through</em>, not put up with. Eyes on a screen that look around and pay attention as it lands. A voice designed on purpose — a low rumble, not a shriek. Flight paths that curve, anticipate and slow down near people. It delivers by winch: the parcel comes down on a line while the drone stays up, visible, out of reach. Small on purpose, too — noise climbs steeply with weight, so every gram is a decibel.</p>
 
-    <blockquote>A machine you accept — not a robot you put up with.</blockquote>
+    <blockquote>A drone you accept — not a robot you endure.</blockquote>
 
-    <h3>target · v1</h3>
+    <figure class="mf-fig">
+      <img src="/project-maxfly/winch-maxfly.jpg" alt="Render of a MaxFly delivery: the drone holds altitude in a grey city street and lowers a package on a line to a violet-ringed landing pad" loading="lazy">
+      <figcaption><span class="tag">how it delivers</span> &nbsp;·&nbsp; it holds altitude and lowers the parcel by winch onto a pad — it never has to land on you. <span class="tag">render</span></figcaption>
+    </figure>
+
+    <h3>the shape — v1 targets</h3>
     <ul>
       <li>1&nbsp;kg payload, in a reusable container</li>
       <li>~55&nbsp;cm and 3–3.5&nbsp;kg all-up — small enough to be welcome</li>
       <li>5&nbsp;km per flight, 10&nbsp;km across a hub network</li>
-      <li>winch drop, so it never has to land on you</li>
+      <li>a winch drop, so it never has to land on you</li>
       <li>eyes, a designed voice, organic motion</li>
+    </ul>
+    <p>Those are the numbers V1 is being designed to hit — targets, not yet achievements. Here's what already exists.</p>
+
+    <h2>Under the hood.</h2>
+    <p>There's more software here than a drone this size has any right to carry — and most of it already runs, in simulation.</p>
+    <ul>
+      <li><strong>An acoustic design engine, not a spreadsheet.</strong> A real physics pipeline — blade-element momentum theory with low-Reynolds polars from NeuralFoil, Gutin tonal and NASA-BPM broadband noise, then psychoacoustics (loudness, sharpness) through MoSQITo — wrapped in an NSGA-II search that ranks rotor designs by <em>perceived annoyance</em>, not raw decibels, at ~0.15&nbsp;s per candidate. It's how "every gram is a decibel" becomes a number instead of a slogan.</li>
+      <li><strong>The whole network flies in one command.</strong> An order comes in, the backend assigns a drone in ~0.2&nbsp;s, an agent flies the organic mission in real ArduPilot SITL, telemetry streams to an ops console, and the delivery closes with proof. A simulated 16-hour day — 6 drones, 2 docks — ran 500 of 500 deliveries and <em>measured</em> the economics of battery-swap versus charging. Same MAVLink bridge and versioned data contracts as the real aircraft, so it transfers without a rewrite.</li>
+      <li><strong>Built like an org, not a hobby.</strong> 600-plus tests, pydantic→JSON-Schema contracts, ArduPilot SITL flown in CI on every commit, a Playwright + computer-vision QA harness, a self-hosted deploy pipeline — and a small constellation of named surfaces behind the drone: Kepler, Polaris, Vega, Ceres, Tycho.</li>
     </ul>
 
     <h2>Where it stands.</h2>
-    <p>V0 is flying. It's a validation platform, not the product yet — a 7-inch open-prop frame on a Pixhawk 6C&nbsp;Mini with long-range radio and GPS (the build above), assembled in June and flown across dozens of flights, two crashes and a battery-resonance gremlin included. Alongside it, the software runs in simulation: the creature itself — an eight-emotion face engine and an organic-motion model — and the ground network behind it, under the names Kepler, Polaris and Vega. The hardware eyes, the speaker and the ducted body come next.</p>
+    <p>V0 is flying. It's a validation platform, not the product yet — an 8-inch open-prop frame (Mark&nbsp;4&nbsp;V2) on a Pixhawk 6C&nbsp;Mini running ArduCopter, with long-range radio and GPS. It's been flown hard: flight&nbsp;#86 reached, three crashes, and a stubborn ~16&nbsp;Hz battery resonance the whole build now revolves around — diagnosed from telemetry alone, tap tests and a limit-cycle proof included, down to the finding that the wobble was burning roughly 40% of hover power. The hardware eyes, the speaker and the ducted body come next; until they do, the expressive layer lives honestly in simulation.</p>
 
-    <p>Founded in Charleroi, June 2026. My project of the moment — and the one I'd bet on.</p>
+    <figure class="mf-fig dark">
+      <img src="/project-maxfly/v0-build-maxfly.jpg" alt="The real MaxFly V0 drone mid-build on a cutting mat — an open-prop frame with a flight controller, GPS module and long-range radio wired up on the bench" loading="lazy">
+      <figcaption><span class="tag">v0 on the bench</span> &nbsp;·&nbsp; the real hardware behind the render — the platform those 86 flights were flown on.</figcaption>
+    </figure>
+
+    <p>It's all built in the open, flight after flight, crash autopsies included, at <a href="https://maxfly.tech" target="_blank" rel="noopener noreferrer">maxfly.tech</a>. My project of the moment — and the one I'd bet on.</p>
   </article>
 
   <nav class="article-foot-nav">
