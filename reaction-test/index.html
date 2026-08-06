@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Reaction Test | Abdullah Camur</title>
+  <meta name="description" content="Measure your visual reaction time in five rounds. Tap the moment the screen turns green. Works best on a phone." />
+  <link rel="canonical" href="https://cmrabdu.com/reaction-test/" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <meta name="theme-color" content="#fafaf7" />
+  <meta property="og:title" content="Reaction Test | Abdullah Camur" />
+  <meta property="og:description" content="Measure your visual reaction time in five rounds. Tap the moment the screen turns green." />
+  <meta property="og:image" content="https://cmrabdu.com/assets/og-default.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cmrabdu.com/reaction-test/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Reaction Test | Abdullah Camur" />
+  <meta name="twitter:description" content="Measure your visual reaction time in five rounds." />
+  <meta name="twitter:image" content="https://cmrabdu.com/assets/og-default.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Reaction Test",
+    "description": "Measure your visual reaction time across five rounds.",
+    "url": "https://cmrabdu.com/reaction-test/",
+    "author": { "@type": "Person", "name": "Abdullah Camur", "url": "https://cmrabdu.com" },
+    "applicationCategory": "GameApplication"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/index.html">
+      <span class="mark"><svg viewBox="-6 -4 112 106" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g class="mark-paths"><path d="M 1.5,93.2 Q 0,98 5,98 L 21,98 Q 26,98 27.5,93.2 L 54.5,6.8 Q 56,2 51,2 L 35,2 Q 30,2 28.5,6.8 Z" fill="#0000ee"/><path d="M 45.5,93.2 Q 44,98 49,98 L 65,98 Q 70,98 71.5,93.2 L 98.5,6.8 Q 100,2 95,2 L 79,2 Q 74,2 72.5,6.8 Z" fill="#0000ee"/></g></svg></span>
+      <span class="wordmark">cmrabdu</span>
+    </a>
+    <div class="nav-links">
+      <a href="/index.html">home</a><span class="sep">//</span>
+      <a href="/about.html">about</a><span class="sep">//</span>
+      <a href="/project.html" class="active">project</a><span class="sep">//</span>
+      <a href="/blog.html">blog</a><span class="sep">//</span>
+      <a href="/contact.html">contact</a>
+    </div>
+    <a class="nav-burger" href="#menu" aria-label="menu">≡ menu</a>
+  </div>
+</nav>
+
+<header class="article-page rt-head" id="main-content">
+  <a class="article-back" href="/project.html">← back to projects</a>
+  <div class="article-kicker">tool &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; <span class="blue">best on a phone</span></div>
+  <h1 class="article-title">Reaction Test.</h1>
+  <p class="article-deck">Five rounds. Wait for green, then tap as fast as you can. The clock starts on the frame the colour actually hits your screen — not when the timer was scheduled.</p>
+</header>
+
+<main class="rt-layout">
+
+  <!-- ===== The game surface ===== -->
+  <section class="rt-stage-wrap" aria-labelledby="stage-title">
+    <h2 id="stage-title" class="rt-sr-only">Reaction test</h2>
+
+    <button type="button" id="stage" class="rt-stage is-idle" aria-live="polite">
+      <span class="rt-stage-inner">
+        <span class="rt-stage-icon" id="stage-icon" aria-hidden="true">◉</span>
+        <span class="rt-stage-title" id="stage-title-text">Tap to start</span>
+        <span class="rt-stage-sub" id="stage-sub">5 rounds &middot; tap the moment it turns green</span>
+      </span>
+    </button>
+
+    <ol class="rt-pips" id="pips" aria-label="Round progress">
+      <li class="rt-pip"></li>
+      <li class="rt-pip"></li>
+      <li class="rt-pip"></li>
+      <li class="rt-pip"></li>
+      <li class="rt-pip"></li>
+    </ol>
+  </section>
+
+  <!-- ===== Live stats ===== -->
+  <section class="rt-panel" aria-labelledby="stats-title">
+    <div class="rt-panel-head">
+      <span class="section-kicker">This run</span>
+      <h2 id="stats-title">Your times</h2>
+    </div>
+
+    <div class="rt-stats">
+      <div class="rt-stat">
+        <span class="rt-stat-label">average</span>
+        <span class="rt-stat-value" id="stat-avg">—</span>
+        <span class="rt-stat-unit">ms</span>
+      </div>
+      <div class="rt-stat">
+        <span class="rt-stat-label">best this run</span>
+        <span class="rt-stat-value" id="stat-best">—</span>
+        <span class="rt-stat-unit">ms</span>
+      </div>
+      <div class="rt-stat">
+        <span class="rt-stat-label">personal record</span>
+        <span class="rt-stat-value" id="stat-pr">—</span>
+        <span class="rt-stat-unit">ms</span>
+      </div>
+    </div>
+
+    <p class="rt-verdict" id="verdict" hidden></p>
+
+    <ol class="rt-rounds" id="rounds" aria-label="Round times"></ol>
+
+    <div class="rt-actions">
+      <button type="button" class="rt-btn" id="reset-run" disabled>Reset run</button>
+      <button type="button" class="rt-btn rt-btn-quiet" id="reset-pr">Clear record</button>
+    </div>
+  </section>
+
+  <!-- ===== Notes ===== -->
+  <section class="rt-notes">
+    <h2 class="rt-notes-title">How it measures</h2>
+    <dl class="rt-notes-list">
+      <dt>The clock</dt>
+      <dd>The green state is timed from inside a <code>requestAnimationFrame</code> callback, so the stopwatch starts on the frame the browser actually paints green — not the millisecond the timer fired. That removes a frame or two of noise.</dd>
+
+      <dt>The input</dt>
+      <dd>Taps are read from <code>pointerdown</code> rather than <code>click</code>, which fires immediately instead of waiting to see if you meant a double-tap or a drag.</dd>
+
+      <dt>What's a good score</dt>
+      <dd>Typical reaction to a visual cue is around 250&nbsp;ms. Touchscreens add roughly 40–80&nbsp;ms of their own scanning and processing latency on top, so phone numbers run slower than mouse numbers. Compare yourself to yourself, on one device.</dd>
+
+      <dt>False starts</dt>
+      <dd>Tapping while the screen is still red voids the round and replays it. There's no way to game the delay — it's re-randomised between 1.4 and 3.6&nbsp;seconds every time.</dd>
+    </dl>
+    <p class="rt-footnote">Everything stays on your device. Your record is kept in <code>localStorage</code> and never leaves the phone.</p>
+  </section>
+
+</main>
+
+<footer class="rt-foot">
+  <a href="/project.html">← all projects</a>
+  <span class="rt-foot-sep">//</span>
+  <a href="/index.html">cmrabdu.com</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
