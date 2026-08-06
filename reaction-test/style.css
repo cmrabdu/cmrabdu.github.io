@@ -1,0 +1,428 @@
+/* reaction-test — page styles. Layers on top of /style.css tokens. */
+
+:root {
+  --rt-wait:  #c0392b;
+  --rt-go:    #0a8f3c;
+  --rt-early: #b8860b;
+}
+
+.rt-sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* The shared stylesheet has no .skip-link rule yet, so it would otherwise
+   render as a stray visible link above the nav. Hidden until focused. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 10px var(--s-3);
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: var(--s-3);
+  top: var(--s-3);
+}
+
+.rt-head { padding-bottom: 8px; }
+
+.rt-layout {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 56px 96px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  grid-template-areas:
+    "stage panel"
+    "notes panel";
+  align-items: start;
+  gap: 32px 40px;
+}
+
+/* ===== Stage ===== */
+
+.rt-stage-wrap { grid-area: stage; }
+
+.rt-stage {
+  /* Reset the button chrome — this is a full-bleed surface, not a control. */
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--hair);
+  border-radius: 2px;
+  font: inherit;
+  color: inherit;
+  text-align: center;
+  cursor: pointer;
+  background: var(--grey-1);
+
+  min-height: 380px;
+  position: relative;
+  overflow: hidden;
+
+  /* Kill the mobile tap frictions: no zoom on double tap, no text selection,
+     no grey flash overlay, no callout menu on long press. */
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+
+  transition: background-color 90ms linear, border-color 90ms linear;
+}
+
+.rt-stage:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.rt-stage-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-3);
+  padding: var(--s-5);
+}
+
+.rt-stage-icon {
+  font-size: 30px;
+  line-height: 1;
+  opacity: .75;
+}
+
+.rt-stage-title {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.rt-stage-sub {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  opacity: .8;
+  max-width: 34ch;
+}
+
+/* --- Stage states --- */
+
+.rt-stage.is-idle  { background: var(--grey-1); }
+.rt-stage.is-idle .rt-stage-icon { color: var(--blue); }
+
+.rt-stage.is-wait {
+  background: var(--rt-wait);
+  border-color: var(--rt-wait);
+  color: var(--paper);
+  cursor: default;
+}
+
+.rt-stage.is-go {
+  background: var(--rt-go);
+  border-color: var(--rt-go);
+  color: var(--paper);
+  /* No transition into green — a fade would smear the very thing we're timing. */
+  transition: none;
+}
+
+.rt-stage.is-result { background: var(--grey-1); }
+
+.rt-stage.is-early {
+  background: var(--rt-early);
+  border-color: var(--rt-early);
+  color: var(--paper);
+}
+
+.rt-stage.is-done   { background: var(--grey-2); }
+.rt-stage.is-done .rt-stage-icon { color: var(--blue); }
+
+/* The score readout reuses the title slot, so give it the mono treatment. */
+.rt-stage-title.is-number {
+  font-family: var(--mono);
+  font-size: 62px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.rt-stage-title.is-number small {
+  font-size: 20px;
+  font-weight: 500;
+  opacity: .7;
+  margin-left: 4px;
+}
+
+/* ===== Round pips ===== */
+
+.rt-pips {
+  list-style: none;
+  display: flex;
+  gap: var(--s-2);
+  margin: var(--s-3) 0 0;
+  padding: 0;
+}
+
+.rt-pip {
+  flex: 1;
+  height: 4px;
+  background: var(--grey-2);
+  border-radius: 2px;
+  transition: background-color 160ms;
+}
+
+.rt-pip.is-active { background: var(--muted); }
+.rt-pip.is-filled { background: var(--blue); }
+
+/* ===== Stats panel ===== */
+
+.rt-panel {
+  grid-area: panel;
+  border: 1px solid var(--hair);
+  border-radius: 2px;
+  padding: var(--s-5);
+  background: #fff;
+  position: sticky;
+  top: var(--s-4);
+}
+
+.rt-panel-head { margin-bottom: var(--s-4); }
+.rt-panel-head h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 400;
+  margin: 4px 0 0;
+  letter-spacing: -0.01em;
+}
+
+.section-kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.rt-stats {
+  display: grid;
+  gap: var(--s-3);
+  padding-bottom: var(--s-4);
+  border-bottom: 1px solid var(--hair);
+}
+
+.rt-stat {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: baseline;
+  gap: var(--s-2);
+}
+
+.rt-stat-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.rt-stat-value {
+  font-family: var(--mono);
+  font-size: 26px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.rt-stat-unit {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Flash the PR row when it's beaten. */
+.rt-stat.is-new-pr .rt-stat-value { color: var(--blue); }
+
+.rt-verdict {
+  margin: var(--s-4) 0 0;
+  font-family: var(--serif);
+  font-size: 21px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.rt-verdict b { color: var(--blue); font-weight: 400; }
+
+.rt-rounds {
+  list-style: none;
+  margin: var(--s-4) 0 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.rt-rounds li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--s-3);
+  padding: 7px 0;
+  border-bottom: 1px solid var(--hair);
+  font-family: var(--mono);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.rt-rounds li:last-child { border-bottom: 0; }
+
+.rt-round-n { color: var(--muted); font-size: 11px; }
+
+/* Proportional bar so the spread between rounds is visible at a glance. */
+.rt-round-bar {
+  height: 3px;
+  background: var(--blue);
+  border-radius: 2px;
+  min-width: 2px;
+  justify-self: start;
+  width: var(--w, 0%);
+}
+.rt-rounds li.is-void .rt-round-bar { background: var(--rt-early); }
+.rt-rounds li.is-void .rt-round-ms { color: var(--rt-early); }
+
+.rt-actions {
+  display: flex;
+  gap: var(--s-2);
+  margin-top: var(--s-5);
+}
+
+.rt-btn {
+  flex: 1;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 11px var(--s-3);
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 120ms, color 120ms, border-color 120ms, opacity 120ms;
+}
+.rt-btn:hover:not(:disabled) { background: var(--blue); border-color: var(--blue); }
+.rt-btn:disabled { opacity: .35; cursor: not-allowed; }
+
+.rt-btn-quiet {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--hair);
+}
+.rt-btn-quiet:hover:not(:disabled) { background: transparent; color: var(--blue); border-color: var(--blue); }
+
+/* ===== Notes ===== */
+
+.rt-notes {
+  grid-area: notes;
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--hair);
+}
+
+.rt-notes-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+  margin: 0 0 var(--s-4);
+}
+
+.rt-notes-list { margin: 0; }
+.rt-notes-list dt {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .04em;
+  margin-top: var(--s-4);
+  color: var(--ink);
+}
+.rt-notes-list dt:first-child { margin-top: 0; }
+.rt-notes-list dd {
+  margin: 6px 0 0;
+  max-width: 62ch;
+  color: var(--ink-2);
+  font-size: 15px;
+}
+
+.rt-notes code {
+  font-family: var(--mono);
+  font-size: .88em;
+  background: var(--grey-1);
+  padding: 1px 5px;
+  border-radius: 2px;
+}
+
+.rt-footnote {
+  margin: var(--s-5) 0 0;
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 62ch;
+}
+
+/* ===== Footer ===== */
+
+.rt-foot {
+  border-top: 1px solid var(--hair);
+  padding: var(--s-4) 56px;
+  font-family: var(--mono);
+  font-size: 12px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.rt-foot-sep { color: var(--muted); margin: 0 var(--s-2); }
+
+/* ===== Phone ===== */
+
+@media (max-width: 860px) {
+  .rt-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "stage" "panel" "notes";
+    padding: 0 20px 64px;
+    gap: var(--s-5);
+  }
+
+  .rt-panel { position: static; padding: var(--s-4); }
+
+  /* Make the target the dominant thing on screen. `dvh` so the shrinking
+     browser chrome on scroll doesn't resize the stage mid-round. */
+  .rt-stage {
+    min-height: min(58dvh, 460px);
+  }
+
+  .rt-stage-title { font-size: 38px; }
+  .rt-stage-title.is-number { font-size: 56px; }
+  .rt-stage-sub { font-size: 11px; }
+
+  .rt-foot { padding: var(--s-4) 20px; }
+}
+
+@media (max-width: 420px) {
+  .rt-stage-title { font-size: 32px; }
+  .rt-stage-title.is-number { font-size: 50px; }
+  .rt-stat-value { font-size: 23px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rt-stage, .rt-pip, .rt-btn { transition: none; }
+}
