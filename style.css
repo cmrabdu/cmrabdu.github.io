@@ -235,7 +235,7 @@ p  { margin: 0 0 14px; }
 .photo > a > img,
 .photo > a > video { width: 100%; height: 100%; object-fit: cover; display: block; }
 /* Standalone hero image (img.h1-hero) — fill the 460x280 box */
-img.h1-hero { object-fit: cover; border: 1px solid var(--ink); display: block; }
+img.h1-hero { object-fit: cover; object-position: 50% 70%; border: 1px solid var(--ink); display: block; }
 
 /* photo variants — different stripe tone */
 .photo.tone-2 { background: repeating-linear-gradient(135deg, #e2e3e7 0 6px, #ebecf0 6px 12px); }
